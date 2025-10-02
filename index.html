@@ -41,7 +41,14 @@
         a { text-decoration:none; color:inherit; }
         header { background:#1b263b; color:#ff9e00; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; box-shadow:0 4px 12px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000; }
         header .brand { display:flex; flex-direction:column; align-items:center; text-align:center; }
-        header .brand img { width:70px; height:70px; border-radius:50%; margin-bottom:5px; object-fit: cover; }
+        header .brand img { 
+            width:70px; 
+            height:70px; 
+            border-radius:0 !important;
+            margin-bottom:5px; 
+            object-fit: cover;
+            border: 2px solid #ff9e00;
+        }
         header .brand h1 { font-size:20px; font-weight:bold; color:#ff9e00; }
         header .brand p { font-size:12px; color:#e0e1dd; font-style:italic; margin-top:3px; }
         nav { display:flex; flex-wrap:wrap; gap:15px; align-items: center; }
@@ -50,7 +57,7 @@
         .language-selector { position: relative; display: inline-block; }
         .language-btn { background: #415a77; color: #ff9e00; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
         .language-options { display: none; position: absolute; top: 100%; right: 0; background: #1b263b; min-width: 150px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); border-radius: 4px; z-index: 1; }
-        .language-options a { display: block; padding: 10px 15px; color: #e0e1dd; }
+        .language-options a { display: block; padding: 10px 15px; color: #e0e1dd; cursor: pointer; }
         .language-options a:hover { background: #415a77; }
         .language-selector:hover .language-options { display: block; }
         .mobile-nav { display:none; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:#1b263b; }
@@ -58,7 +65,7 @@
         .mobile-nav a:hover { background:#415a77; }
         .mobile-dropdown { position:relative; }
         .mobile-dropdown-content { display:none; background:#0d1b2a; padding-left:20px; }
-        .mobile-dropdown-content a { padding:12px 20px; }
+        .mobile-dropdown-content a { padding:12px 20px; cursor: pointer; }
         .mobile-dropdown.active .mobile-dropdown-content { display:block; }
         .mobile-dropdown-toggle { display:flex; justify-content:space-between; align-items:center; }
         .mobile-dropdown-toggle i { transition: transform 0.3s; }
@@ -82,7 +89,8 @@
         .league-title { font-weight:bold; margin:15px 0; font-size:18px; color:#ff9e00; background:#1b263b; padding:8px 15px; border-radius:5px; }
         .fixtures-dropdown { position: relative; display: inline-block; }
         .fixtures-options { display: none; position: absolute; background:#1b263b; min-width:200px; box-shadow:0 4px 8px rgba(0,0,0,0.3); border-radius:4px; z-index:1; }
-        .fixtures-options a { display:block; padding:10px 15px; color:#e0e1dd; }
+        .fixtures-options a { display:block; padding:10px 15px; color:#e0e1dd; cursor: pointer; }
+        .fixtures-options a:hover { background:#415a77; }
         .fixtures-dropdown:hover .fixtures-options { display:block; }
         .info-section { padding:40px 20px; background:#1b263b; border-radius:10px; margin:30px 0; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
         .info-section h2 { color:#ff9e00; margin-bottom:20px; text-align:center; }
@@ -106,6 +114,71 @@
         .error-message { background:#ff6b6b; color:white; padding:10px; border-radius:5px; margin:10px 0; text-align:center; }
         .news-date { font-size:12px; color:#8d99ae; margin-bottom:5px; }
         .news-source { font-size:12px; color:#8d99ae; font-style:italic; }
+        
+        /* Cookie Notification Styles */
+        .cookie-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1b263b;
+            color: #e0e1dd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #ff9e00;
+            display: none;
+        }
+        .cookie-notification.show {
+            display: block;
+            animation: slideUp 0.5s ease-out;
+        }
+        .cookie-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        .cookie-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .cookie-accept {
+            background: #ff9e00;
+            color: #1b263b;
+        }
+        .cookie-accept:hover {
+            background: #e08e00;
+        }
+        .cookie-decline {
+            background: #415a77;
+            color: #e0e1dd;
+        }
+        .cookie-decline:hover {
+            background: #344a67;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        
         @media (max-width:768px){
             header { flex-direction:column; align-items:flex-start; }
             .hamburger-menu { display:flex; }
@@ -115,6 +188,9 @@
             .sports-showcase { flex-direction:column; align-items:center; }
             .sport-card { width:100%; max-width:400px; }
             .news-filter { flex-direction:column; align-items:center; }
+            .cookie-buttons {
+                flex-direction: column;
+            }
         }
         @media (min-width:769px){
             .mobile-nav { display:none !important; }
@@ -134,9 +210,23 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+<!-- Cookie Notification -->
+<div id="cookieNotification" class="cookie-notification">
+    <div class="cookie-content">
+        <h3>🍪 Cookie Consent</h3>
+        <p>We use cookies to enhance your experience on our website. By clicking "Accept", you agree to our use of cookies for analytics and personalized content.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+</div>
+
 <header>
     <div class="brand">
-        <img src="./ganza.jpeg" alt="Ganza Sport Hub Logo">
+       <img src="logo.jpeg" alt="Ganza Sport Hub">
+
         <h1 data-key="siteTitle">Ganza Sport Hub</h1>
         <p data-key="siteSlogan">"Every Score, Every Story"</p>
     </div>
@@ -150,8 +240,8 @@
         <div class="fixtures-dropdown">
             <a href="#" data-key="fixtures">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
             <div class="fixtures-options">
-                <a href="#football" data-key="football">Football</a>
-                <a href="#basketball" data-key="basketball">Basketball</a>
+                <a href="#football" data-key="football" onclick="scrollToSection('football')">Football</a>
+                <a href="#basketball" data-key="basketball" onclick="scrollToSection('basketball')">Basketball</a>
             </div>
         </div>
         <a href="#news" data-key="news">News</a>
@@ -173,8 +263,8 @@
         <div class="mobile-dropdown" id="fixturesDropdown">
             <a href="javascript:void(0)" class="mobile-dropdown-toggle" data-key="fixtures">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
             <div class="mobile-dropdown-content">
-                <a href="#football" data-key="football">Football</a>
-                <a href="#basketball" data-key="basketball">Basketball</a>
+                <a href="#football" data-key="football" onclick="scrollToSection('football')">Football</a>
+                <a href="#basketball" data-key="basketball" onclick="scrollToSection('basketball')">Basketball</a>
             </div>
         </div>
         <a href="#news" data-key="news">News</a>
@@ -227,6 +317,10 @@
 <p data-key="privacyDesc3">By using our website, you agree to our terms of service and privacy practices. You have the right to access, modify, or delete your information at any time.</p>
 </section>
 
+<!-- FOOTBALL SECTION -->
+<section id="football">
+    <h2 data-key="footballTitle">⚽ Football</h2>
+    
     <!-- Champions League -->
     <h3 class="league-title">Champions League</h3>
     <table>
@@ -241,7 +335,6 @@
             </tr>
         </thead>
         <tbody>
-            
             <tr><td>2025-10-01</td><td>Qarabağ FK</td><td>Copenhagen</td><td>18:45</td><td>Tofiq Bahramov Stadium</td><td>CAT</td></tr>
             <tr><td>2025-10-01</td><td>Union SG</td><td>Newcastle United</td><td>18:45</td><td>Lotto Park</td><td>CAT</td></tr>
             <tr><td>2025-10-01</td><td>Monaco</td><td>Manchester City</td><td>21:00</td><td>Stade Louis II</td><td>CAT</td></tr>
@@ -468,7 +561,7 @@
             aboutCaptionText: '"Chaque Score, Chaque Histoire"',
             privacyTitle: "Politique de Confidentialité",
             privacyDesc1: "Chez Ganza Sport Hub, nous prenons votre vie privée au sérieux. Cette politique décrit comment nous collectons, utilisons et protégeons vos informations personnelles.",
-            privacyDesc2: "Nous ne partageons pas vos données avec des tiers sans votre consentement. Nous utilisons des cookies et des outils d'analyse pour améliorer notre site web et fournir une expérience personnalisée.",
+            privacyDesc2: "Nous ne partageons pas vos données avec des tiers sans votre consentimiento. Nous utilisons des cookies et des outils d'analyse pour améliorer notre site web et fournir une expérience personnalisée.",
             privacyDesc3: "En utilisant notre site web, vous acceptez nos conditions de service et pratiques de confidentialité. Vous avez le droit d'accéder, de modifier ou de supprimer vos informations à tout moment.",
             newsTitle: "Dernières Actualités",
             sportsNews: "Sports",
@@ -527,21 +620,124 @@
         }
     };
 
+    // Current language
+    let currentLang = 'en';
 
-const NEWS_API_KEY = '3af613e0f6814f4e9d3a1a829ce3a161'; // Key yawe
-
-
-
-
-    // Function yo gusaka news
-    async function fetchNews(category = 'sports') {
-        newsContainer.innerHTML = '';
+    // Language switching function
+    function switchLanguage(lang) {
+        currentLang = lang;
+        const textElements = document.querySelectorAll('[data-key]');
         
-        // Test imbere - Reba niba API isebenza
-        console.log('🔍 Starting news fetch for:', category);
+        textElements.forEach(el => {
+            const key = el.dataset.key;
+            if(translations[lang] && translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+        
+        // Update language button text
+        const languageBtns = document.querySelectorAll('.language-btn, .mobile-dropdown-toggle[data-key="currentLang"]');
+        languageBtns.forEach(btn => {
+            btn.innerHTML = `${translations[lang].currentLang} <i class="fas fa-chevron-down"></i>`;
+        });
+        
+        // Close mobile menu if open
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.style.display = 'none';
+        
+        console.log('Language switched to:', lang);
+    }
+
+    // Fix for scrolling to sections
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            // Close mobile menu if open
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.style.display = 'none';
+        }
+    }
+
+    // Cookie functions
+    function showCookieNotification() {
+        const cookieNotification = document.getElementById('cookieNotification');
+        // Check if user already made a choice
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => {
+                cookieNotification.classList.add('show');
+            }, 1000);
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookieNotification').classList.remove('show');
+        console.log('Cookies accepted');
+    }
+
+    function declineCookies() {
+        localStorage.setItem('cookiesAccepted', 'false');
+        document.getElementById('cookieNotification').classList.remove('show');
+        console.log('Cookies declined');
+    }
+
+    // Hamburger mobile menu
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    }
+
+    // Mobile dropdowns
+    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const parent = toggle.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show cookie notification
+        showCookieNotification();
+        
+        // Add click events to all language links
+        document.querySelectorAll('[data-lang]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+        
+        // Add click events to all fixture links
+        document.querySelectorAll('.fixtures-options a, .mobile-dropdown-content a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href').substring(1);
+                scrollToSection(sectionId);
+            });
+        });
+
+        console.log('Website initialized successfully!');
+    });
+
+    // Rest of your existing news fetching code...
+    const NEWS_API_KEY = '3af613e0f6814f4e9d3a1a829ce3a161';
+    
+    async function fetchNews(category = 'sports') {
+        const newsContainer = document.getElementById('newsContainer');
+        const newsLoading = document.getElementById('newsLoading');
+        
+        if (!newsContainer) return;
+        
+        newsContainer.innerHTML = '';
+        newsLoading.style.display = 'block';
         
         try {
-            // Shyiramo query z'ibyo usaka
             const queries = {
                 sports: 'sports',
                 football: 'football OR soccer',
@@ -549,20 +745,12 @@ const NEWS_API_KEY = '3af613e0f6814f4e9d3a1a829ce3a161'; // Key yawe
             };
             
             const query = queries[category] || 'sports';
-            const apiUrl = `https://newsapi.org/v2/everything?q=${query}&language=en&pageSize=4&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`;
-            
-            console.log('🌐 API URL:', apiUrl);
+            const apiUrl = `https://newsapi.org/v2/everything?q=${query}&language=${currentLang}&pageSize=4&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`;
             
             const response = await fetch(apiUrl);
-            console.log('📡 Response status:', response.status);
-            
             const data = await response.json();
-            console.log('📊 API Data:', data);
             
-            // Reba niba API yasubije neza
             if (data.status === 'ok' && data.articles && data.articles.length > 0) {
-                console.log('✅ API Success! Articles found:', data.articles.length);
-                
                 const newsArticles = data.articles.slice(0, 4).map(article => ({
                     title: article.title,
                     image: article.urlToImage || 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80',
@@ -573,31 +761,21 @@ const NEWS_API_KEY = '3af613e0f6814f4e9d3a1a829ce3a161'; // Key yawe
                 
                 newsLoading.style.display = 'none';
                 displayNews(newsArticles);
-                
             } else {
-                // Niba API itazanye news, koresha fallback
-                console.log('⚠️ No articles from API, using fallback');
                 throw new Error(data.message || 'No articles found');
             }
             
         } catch (error) {
-            console.error('❌ API Error:', error);
-            
-            // Koresha fallback news
+            console.error('News API Error:', error);
             newsLoading.style.display = 'none';
-            displayNews(fallbackNews[category] || fallbackNews.sports);
-            
-            // Erekana message kumukoresha
-            newsContainer.innerHTML += `
-                <div class="error-message">
-                    📢 Using demo news. API issue: ${error.message}
-                </div>
-            `;
+            newsContainer.innerHTML = `<div class="error-message">${translations[currentLang].loading} - Unable to load news</div>`;
         }
     }
 
-    // Function yo kwerekana news
     function displayNews(newsArray) {
+        const newsContainer = document.getElementById('newsContainer');
+        if (!newsContainer) return;
+        
         if (!newsArray || newsArray.length === 0) {
             newsContainer.innerHTML = '<div class="error-message">No news available</div>';
             return;
@@ -623,95 +801,8 @@ const NEWS_API_KEY = '3af613e0f6814f4e9d3a1a829ce3a161'; // Key yawe
         });
     });
 
-    // Tangira news za sports
+    // Start with sports news
     fetchNews('sports');
-
-    // Test API key
-    console.log('🔑 API Key test:', NEWS_API_KEY.substring(0, 10) + '...');
-    // Current language
-    let currentLang = 'en';
-
-    // Language switching
-    const languageLinks = document.querySelectorAll('[data-lang]');
-    const textElements = document.querySelectorAll('[data-key]');
-
-    function switchLanguage(lang) {
-        currentLang = lang;
-        textElements.forEach(el => {
-            const key = el.dataset.key;
-            if(translations[lang][key]) {
-                el.innerText = translations[lang][key];
-            }
-        });
-        
-        // Update language button text
-        const languageBtn = document.querySelector('.language-btn');
-        if (languageBtn) {
-            languageBtn.innerHTML = `${translations[lang].currentLang} <i class="fas fa-chevron-down"></i>`;
-        }
-        
-        // Update mobile language dropdown
-        const mobileLangToggle = document.querySelector('#languageDropdown .mobile-dropdown-toggle');
-        if (mobileLangToggle) {
-            mobileLangToggle.innerHTML = `${translations[lang].currentLang} <i class="fas fa-chevron-down"></i>`;
-        }
-        
-        // Re-fetch news in the current language
-        const activeCategory = document.querySelector('.news-filter button.active').dataset.category;
-        fetchNews(activeCategory);
-    }
-
-    languageLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const lang = link.dataset.lang;
-            switchLanguage(lang);
-        });
-    });
-
-    // Hamburger mobile menu
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const mobileNav = document.getElementById('mobileNav');
-    hamburgerMenu.addEventListener('click', () => {
-        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    // Mobile dropdowns
-    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const parent = toggle.parentElement;
-            parent.classList.toggle('active');
-        });
-    });
-   
-
-    
-
-    // Function to format date
-    function formatDate(dateString) {
-        const options = { year: 'numeric', month: 'short', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString(currentLang, options);
-    }
-
-    // Function to display news
-    function displayNews(newsArray) {
-        if (newsArray.length === 0) {
-            newsContainer.innerHTML = `<div class="error-message">${translations[currentLang].loading} - No news available</div>`;
-            return;
-        }
-        
-        newsContainer.innerHTML = newsArray.map(article => `
-            <div class="newsCard">
-                <img src="${article.image || 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80'}" alt="${article.title}">
-                <h3>${article.title}</h3>
-                <div class="news-date">${formatDate(article.date)}</div>
-                <div class="news-source">${article.source}</div>
-                <p>${article.description}</p>
-            </div>
-        `).join('');
-    }
-
-   
 </script>
 </body>
 </html>
