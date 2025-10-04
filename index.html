@@ -8,59 +8,46 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-        body { background:#0d1b2a; color:#e0e1dd; padding:20px; }
-        h1 { margin-bottom:20px; }
-    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Google AdSense Library Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3486690881489807"
         crossorigin="anonymous"></script>
-</head>
-<body>
-    
 
-    <!-- AdSense Ad Unit -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-format="fluid"
-         data-ad-layout-key="-ef+6k-36-a8+uh"
-         data-ad-client="ca-pub-3486690881489807"
-         data-ad-slot="4329054090"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
-</body>
-</html>
-<style>
-
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-        body { background:#0d1b2a; color:#e0e1dd; }
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:#0d1b2a; color:#e0e1dd; font-family:'Roboto', sans-serif; }
         a { text-decoration:none; color:inherit; }
+        
+        /* Header Styles */
         header { background:#1b263b; color:#ff9e00; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; box-shadow:0 4px 12px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000; }
-        header .brand { display:flex; flex-direction:column; align-items:center; text-align:center; }
-        header .brand img { 
+        .brand { display:flex; flex-direction:column; align-items:center; text-align:center; }
+        .brand img { 
             width:70px; 
-            height:70px; 
             border-radius:0 !important;
             margin-bottom:5px; 
             object-fit: cover;
             border: 2px solid #ff9e00;
         }
-        header .brand h1 { font-size:20px; font-weight:bold; color:#ff9e00; }
-        header .brand p { font-size:12px; color:#e0e1dd; font-style:italic; margin-top:3px; }
+        .brand h1 { font-size:20px; font-weight:bold; color:#ff9e00; font-family: 'Poppins', sans-serif; }
+        .brand p { font-size:12px; color:#e0e1dd; font-style:italic; margin-top:3px; }
+        
+        /* Navigation */
         nav { display:flex; flex-wrap:wrap; gap:15px; align-items: center; }
         nav a { color:#ff9e00; font-weight:bold; transition:all 0.3s ease; padding:5px 10px; border-radius:4px; }
         nav a:hover { color:#1b263b; background:#ff9e00; }
+        
+        /* Language Selector */
         .language-selector { position: relative; display: inline-block; }
         .language-btn { background: #415a77; color: #ff9e00; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
-        .language-options { display: none; position: absolute; top: 100%; right: 0; background: #1b263b; min-width: 150px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); border-radius: 4px; z-index: 1; }
+        .language-options { display: none; position: absolute; top: 100%; right: 0; background: #1b263b; min-width: 150px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); border-radius: 4px; z-index: 1; max-height: 300px; overflow-y: auto; }
         .language-options a { display: block; padding: 10px 15px; color: #e0e1dd; cursor: pointer; }
         .language-options a:hover { background: #415a77; }
         .language-selector:hover .language-options { display: block; }
-        .mobile-nav { display:none; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:#1b263b; }
+        
+        /* Mobile Navigation */
+        .mobile-nav { display:none; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:#1b263b; z-index: 999; }
         .mobile-nav a { padding:15px; border-bottom:1px solid #415a77; color:#ff9e00; }
         .mobile-nav a:hover { background:#415a77; }
         .mobile-dropdown { position:relative; }
@@ -72,8 +59,10 @@
         .mobile-dropdown.active .mobile-dropdown-toggle i { transform: rotate(180deg); }
         .hamburger-menu { display:none; flex-direction: column; cursor:pointer; padding:5px; position:absolute; top:20px; right:20px; }
         .hamburger-menu span { height:3px; width:25px; background:#ff9e00; margin:3px 0; transition:0.3s; }
+        
+        /* Welcome Section */
         .welcome-section { padding:60px 20px; text-align:center; background:linear-gradient(rgba(13,27,42,0.8), rgba(13,27,42,0.9)), url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size:cover; background-position:center; color:#e0e1dd; }
-        .welcome-section h1 { font-size:2.5rem; margin-bottom:20px; color:#ff9e00; }
+        .welcome-section h1 { font-size:2.5rem; margin-bottom:20px; color:#ff9e00; font-family: 'Poppins', sans-serif; }
         .welcome-section p { max-width:800px; margin:0 auto 30px; font-size:1.1rem; line-height:1.6; }
         .sports-showcase { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:40px; }
         .sport-card { width:300px; background:#1b263b; border-radius:10px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.3); transition: transform 0.3s; }
@@ -81,32 +70,37 @@
         .sport-card img { width:100%; height:200px; object-fit:cover; }
         .sport-card h3 { padding:15px; color:#ff9e00; font-size:1.3rem; }
         .sport-card p { padding:0 15px 15px; font-size:0.9rem; line-height:1.5; }
+        
+        /* Main Content */
         .container { padding:20px; max-width:1400px; margin:0 auto; }
-        h2 { color:#ff9e00; border-bottom:2px solid #415a77; margin:20px 0 10px; padding-bottom:5px; }
+        h2 { color:#ff9e00; border-bottom:2px solid #415a77; margin:20px 0 10px; padding-bottom:5px; font-family: 'Poppins', sans-serif; }
+        
+        /* Tables */
         table { width:100%; border-collapse:collapse; margin-bottom:30px; background:#1b263b; border-radius:8px; overflow:hidden; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
         th, td { border:1px solid #415a77; padding:10px; text-align:center; }
         th { background:#415a77; color:#ff9e00; }
-        .league-title { font-weight:bold; margin:15px 0; font-size:18px; color:#ff9e00; background:#1b263b; padding:8px 15px; border-radius:5px; }
+        .league-title { font-weight:bold; margin:15px 0; font-size:18px; color:#ff9e00; background:#1b263b; padding:8px 15px; border-radius:5px; font-family: 'Poppins', sans-serif; }
+        
+        /* Fixtures Dropdown */
         .fixtures-dropdown { position: relative; display: inline-block; }
         .fixtures-options { display: none; position: absolute; background:#1b263b; min-width:200px; box-shadow:0 4px 8px rgba(0,0,0,0.3); border-radius:4px; z-index:1; }
         .fixtures-options a { display:block; padding:10px 15px; color:#e0e1dd; cursor: pointer; }
         .fixtures-options a:hover { background:#415a77; }
         .fixtures-dropdown:hover .fixtures-options { display:block; }
+        
+        /* Info Sections */
         .info-section { padding:40px 20px; background:#1b263b; border-radius:10px; margin:30px 0; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
         .info-section h2 { color:#ff9e00; margin-bottom:20px; text-align:center; }
         .info-section p { line-height:1.6; margin-bottom:15px; }
         .info-section ul { margin-left:20px; margin-bottom:15px; }
+        
+        /* News Section */
         #newsContainer { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; margin-top:20px; }
         .newsCard { background:#1b263b; border-radius:10px; overflow:hidden; padding:15px; transition:transform 0.3s, box-shadow 0.3s; box-shadow:0 4px 8px rgba(0,0,0,0.2); border-left:4px solid #ff9e00; }
         .newsCard:hover { transform:translateY(-5px); box-shadow:0 8px 16px rgba(0,0,0,0.3); }
         .newsCard img { width:100%; height:150px; object-fit:cover; border-radius:5px; }
         .newsCard h3 { padding:5px 0; font-size:16px; color:#ff9e00; }
         .newsCard p { font-size:14px; color:#e0e1dd; }
-        footer { background:#1b263b; color:#ff9e00; text-align:center; padding:15px; margin-top:40px; border-top:2px solid #415a77; }
-        footer ul { list-style:none; padding:10px 0; }
-        footer li { display:inline-block; margin:0 15px; }
-        footer a { color:#ff9e00; transition:color 0.3s; }
-        footer a:hover { color:#e0e1dd; }
         .news-filter { display:flex; justify-content:center; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
         .news-filter button { background:#415a77; color:#ff9e00; border:none; padding:8px 15px; border-radius:4px; cursor:pointer; transition:all 0.3s; }
         .news-filter button:hover, .news-filter button.active { background:#ff9e00; color:#1b263b; }
@@ -114,6 +108,13 @@
         .error-message { background:#ff6b6b; color:white; padding:10px; border-radius:5px; margin:10px 0; text-align:center; }
         .news-date { font-size:12px; color:#8d99ae; margin-bottom:5px; }
         .news-source { font-size:12px; color:#8d99ae; font-style:italic; }
+        
+        /* Footer */
+        footer { background:#1b263b; color:#ff9e00; text-align:center; padding:15px; margin-top:40px; border-top:2px solid #415a77; }
+        footer ul { list-style:none; padding:10px 0; }
+        footer li { display:inline-block; margin:0 15px; }
+        footer a { color:#ff9e00; transition:color 0.3s; }
+        footer a:hover { color:#e0e1dd; }
         
         /* Cookie Notification Styles */
         .cookie-notification {
@@ -179,6 +180,37 @@
             }
         }
         
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ff9e00;
+            color: #1b263b;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #e08e00;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
         @media (max-width:768px){
             header { flex-direction:column; align-items:flex-start; }
             .hamburger-menu { display:flex; }
@@ -191,6 +223,12 @@
             .cookie-buttons {
                 flex-direction: column;
             }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
         }
         @media (min-width:769px){
             .mobile-nav { display:none !important; }
@@ -198,1250 +236,1699 @@
     </style>
 </head>
 <body>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3486690881489807"
-     crossorigin="anonymous"></script>
-<!-- the ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3486690881489807"
-     data-ad-slot="6589752901"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    <!-- Google AdSense -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3486690881489807"
+         data-ad-slot="6589752901"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
 
-<!-- Cookie Notification -->
-<div id="cookieNotification" class="cookie-notification">
-    <div class="cookie-content">
-        <h3>🍪 Cookie Consent</h3>
-        <p>We use cookies to enhance your experience on our website. By clicking "Accept", you agree to our use of cookies for analytics and personalized content.</p>
-        <div class="cookie-buttons">
-            <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
-            <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+    <!-- Cookie Notification -->
+    <div id="cookieNotification" class="cookie-notification">
+        <div class="cookie-content">
+            <h3>🍪 Cookie Consent</h3>
+            <p>We use cookies to enhance your experience on our website. By clicking "Accept", you agree to our use of cookies for analytics and personalized content.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+            </div>
         </div>
     </div>
-</div>
 
-<header>
-    <div style="text-align:center; font-family:'Poppins', sans-serif; margin-top:20px;">
-
-    <!-- Square Logo -->
-    <img src="https://i.pinimg.com/1200x/48/1f/20/481f206534d092beaffd2c6ba29796ed.jpg" 
-         alt="Ganza Sport Hub Logo" 
-         style="width:70px; height:70px; object-fit:cover; border-radius:8px; border:2px solid #ff9e00;">
-
-    <!-- Website Name -->
-    <h2 style="margin:8px 0 4px 0; font-size:22px; font-weight:700; color:#ff9e00; letter-spacing:1px;">
-        GANZA SPORT HUB
-    </h2>
-
-    <!-- Slogan straight under the name -->
-    <p style="margin:0; font-size:14px; color:#ffffff; font-weight:400; letter-spacing:0.5px;">
-        Every score, Every Story
-    </p>
-
-</div>
-
-    
-    
-    <div class="hamburger-menu" id="hamburgerMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
     </div>
-    <nav class="desktop-nav">
-        <a href="#home" data-key="home">Home</a>
-        <div class="fixtures-dropdown">
-            <a href="#" data-key="fixtures">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
-            <div class="fixtures-options">
-                <a href="#football" data-key="football" onclick="scrollToSection('football')">Football</a>
-                <a href="#basketball" data-key="basketball" onclick="scrollToSection('basketball')">Basketball</a>
-            </div>
+
+    <header>
+        <div class="brand">
+            <img src="https://i.pinimg.com/1200x/48/1f/20/481f206534d092beaffd2c6ba29796ed.jpg" alt="Ganza Sport Hub Logo">
+            <h1 data-key="siteTitle">GANZA SPORT HUB</h1>
+            <p data-key="siteSlogan">Every score, Every Story</p>
         </div>
-        <a href="#news" data-key="news">News</a>
-        <a href="#about" data-key="about">About Us</a>
-        <a href="#privacy" data-key="privacy">Privacy Policy</a>
-        <div class="language-selector">
-            <button class="language-btn" data-key="currentLang">English <i class="fas fa-chevron-down"></i></button>
-            <div class="language-options">
-                <a href="#" data-lang="en" data-key="english">English</a>
-                <a href="#" data-lang="es" data-key="spanish">Español</a>
-                <a href="#" data-lang="fr" data-key="french">Français</a>
-                <a href="#" data-lang="zh" data-key="chinese">中文</a>
-            </div>
-        </div>
-    </nav>
-
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="#home" data-key="home">Home</a>
-        <div class="mobile-dropdown" id="fixturesDropdown">
-            <a href="javascript:void(0)" class="mobile-dropdown-toggle" data-key="fixtures">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
-            <div class="mobile-dropdown-content">
-                <a href="#football" data-key="football" onclick="scrollToSection('football')">Football</a>
-                <a href="#basketball" data-key="basketball" onclick="scrollToSection('basketball')">Basketball</a>
-            </div>
-        </div>
-        <a href="#news" data-key="news">News</a>
-        <a href="#about" data-key="about">About Us</a>
-        <a href="#privacy" data-key="privacy">Privacy Policy</a>
-        <div class="mobile-dropdown" id="languageDropdown">
-            <a href="javascript:void(0)" class="mobile-dropdown-toggle" data-key="currentLang">English <i class="fas fa-chevron-down"></i></a>
-            <div class="mobile-dropdown-content">
-                <a href="#" data-lang="en" data-key="english">English</a>
-                <a href="#" data-lang="es" data-key="spanish">Español</a>
-                <a href="#" data-lang="fr" data-key="french">Français</a>
-                <a href="#" data-lang="zh" data-key="chinese">中文</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<section class="welcome-section" id="home">
-    <h1 data-key="welcomeTitle">Welcome to Ganza Sport Hub</h1>
-    <p data-key="welcomeDesc">Your ultimate destination for fixtures, news, and stories from the world of sports. Stay updated with the latest happenings in football, basketball, volleyball and more.</p>
-    
-    <div class="sports-showcase">
-        <div class="sport-card">
-            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Football">
-            <h3 data-key="football">Football</h3>
-            <p data-key="footballDesc">Follow all major leagues including Premier League, La Liga, Serie A, Bundesliga, and Champions League.</p>
-        </div>
-        <div class="sport-card">
-            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Basketball">
-            <h3 data-key="basketball">Basketball</h3>
-            <p data-key="basketballDesc">Get the latest NBA scores, EuroLeague updates, and basketball news from around the world.</p>
-        </div>
-    </div>
-</section>
-
-<div class="container">
-<!-- About & Privacy Sections -->
-<section class="info-section" id="about">
-<h2 data-key="aboutTitle">About Us</h2>
-<p data-key="aboutDesc1">Ganza Sport Hub was founded in 2025 with a simple mission: to bring sports fans together through comprehensive coverage of their favorite games and athletes. Our platform provides up-to-date information on fixtures, and news across multiple sports.</p>
-<p data-key="aboutDesc2">We believe that sports have the power to unite people across cultures and continents. That's why we've built a platform that celebrates this universal language, providing fans with everything they need to stay connected to the games they love.</p>
-<p data-key="aboutDesc3">Our team of dedicated sports enthusiasts works around the clock to ensure you have access to the most accurate and timely information. Whether you're a casual fan or a die-hard supporter, Ganza Sport Hub is your go-to destination for all things sports.</p>
-<p><strong data-key="aboutCaption">Caption:</strong> <span data-key="aboutCaptionText">"Every Score, Every Story"</span></p>
-</section>
-
-<section class="info-section" id="privacy">
-<h2 data-key="privacyTitle">Privacy Policy</h2>
-<p data-key="privacyDesc1">At Ganza Sport Hub, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.</p>
-<p data-key="privacyDesc2">We do not share your data with third parties without your consent. We use cookies and analytics tools to improve our website and provide a personalized experience.</p>
-<p data-key="privacyDesc3">By using our website, you agree to our terms of service and privacy practices. You have the right to access, modify, or delete your information at any time.</p>
-</section>
-     
-
-<!--   FOOTBALL SECTION  -->
-<section id="Football">
-    <h2>⚽ Football</h2>
-
-    <!--Premier league-->
-    <h3 class="league-title">Premier League</h3>
-    <table>
-        <thead>
-           <tr>
-              <th data-key="date">Date</th>
-              <th data-key="homeTeam">Home Team</th>
-              <th data-key="awayTeam">Away Team</th>
-              <th data-key="time">Time</th>
-              <th data-key="venue">Venue</th>
-              <th data-key="Prediction">Prediction</th>
-              <th data-key="timezone">Timezone</th>
-    </tr>
-           <tr>
-              <td>2025-10-04</td>
-              <td>Leeds United</td>
-              <td>tottenham</td>
-              <td>13:30</td>
-              <td>Elland Road</td>
-              <td>2</td>
-              <td>CAT</td>
-    </tr>
-            <tr>
-               <td>2025-10-04</td>
-               <td>Man United</td>
-               <td>sunderland</td>
-               <td>16:00</td>
-               <td>Old Traffford</td>
-               <td>1</td>
-               <td>CAT</td>
-    </tr>
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Arsenal</td>
-                <td>West ham</td>
-                <td>16:00</td>
-                <td>Emirates Stadium</td>
-                <td>1X</td>
-                <td>CAT</td>
-
-    </tr>
-
-
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Chelsea</td>
-                <td>Liverpool</td>
-                <td>18:30</td>
-                <td>Stamford Bridge</td>
-                <td>2</td>
-                <td>CAT</td>
-    
-    </tr>   
-            
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Everton</td>
-                <td>Crystal palace</td>
-                <td>15:00</td>
-                <td>Hill Dickinson Stadium</td>
-                <td>2</td>
-                <td>CAT</td>
-
-
-    </tr>  
-            <tr>
-                <td>2025-10-05</td>
-                <td>Newcastle</td>
-                <td>Nottm Forest</td> 
-                <td>15:00</td>
-                <td>St. James' Park</td>
-                <td>X</td>
-                <td>CAT</td>
-
-    </tr>   <tr>
-                <td>2025-10-05</td>
-                <td>Wolves</td>
-                <td>Brighton </td>
-                <td>16:00</td>
-                <td>Molineux Stadium</td>
-                <td>2</td>
-                <td>CAT</td>
-
-    </tr>   <tr>
-
-                <td>2025-10-05</td>
-                <td>Aston Villa</td>
-                <td>Burnley</td>
-                <td>15:00</td>
-                <td>Villa Park</td>
-                <td>12</td>
-                <td>CAT</td>
-    </tr>     
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Brentford</td>
-                <td>Man city</td>
-                <td>17:30</td>
-                <td>Gtech Community Stadium</td>
-                <td>2</td>
-                <td>CAT</td>
-</tr>
-     </tbody>
-    </table>
-</section>
-
-
-
-    <!--LA LIGA -->
-    <h3 class="league-title">LA LIGA</h3>
-    <table>
-        <thead>
-           <tr>
-              <th data-key="date">Date</th>
-              <th data-key="homeTeam">Home Team</th>
-              <th data-key="awayTeam">Away Team</th>
-              <th data-key="time">Time</th>
-              <th data-key="venue">Venue</th>
-              <th data-key="Prediction">Prediction</th>
-              <th data-key="timezone">Timezone</th>
-</tr>
-
-
-          <tr>
-              <td>2025-10-04</td>
-              <td>Oviedo</td>
-              <td>Levante</td>
-              <td>14:00</td>
-              <td>Carlos Tartiere Stadium</td>
-              <td>12</td>
-              <td>CAT</td>
-    </tr>
-            <tr>
-               <td>2025-10-04</td>
-               <td>Girona</td>
-               <td>Valencia</td>
-               <td>16:15</td>
-               <td>Estadi Montilivi</td>
-               <td>2</td>
-               <td>CAT</td>
-    </tr>
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Athletic Club</td>
-                <td>Mallorca</td>
-                <td>18:30</td>
-                <td>San Mames Stadium</td>
-                <td>1</td>
-                <td>CAT</td>
-
-    </tr>
-
-
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Real Madrid</td>
-                <td>villarreal</td>
-                <td>21:00</td>
-                <td>Estadio Santiago Bernabeu</td>
-                <td>1</td>
-                <td>CAT</td>
-    
-    </tr>   
-            
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Alaves</td>
-                <td>Elche</td>
-                <td>14:00</td>
-                <td>Mendizorrotza Stadium</td>
-                <td>X</td>
-                <td>CAT</td>
-
-
-    </tr>  
-            <tr>
-                <td>2025-10-05</td>
-                <td>Sevilla</td>
-                <td>Barcelona</td> 
-                <td>16;15</td>
-                <td>Ramon Sanchez-Pizjuan Stadium</td>
-                <td>2</td>
-                <td>CAT</td>
-
-    </tr>  
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Espanyol</td>
-                <td>Real Betis</td>
-                <td>18:30</td>
-                <td> RCDE Stadium</td>
-                <td>2</td>
-                <td>CAT</td>
-
-    </tr>   <tr>
-
-                <td>2025-10-05</td>
-                <td>Real Sociedad</td>
-                <td>Rayo Vallecano</td>
-                <td>18:30</td>
-                <td>Anoeta Stadium</td>
-                <td>X</td>
-                <td>CAT</td>
-    </tr>     
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Celta Vigo</td>
-                <td>atletico madrid</td>
-                <td>21:00</td>
-                <td>Estadio de Balaídos</td>
-                <td>2</td>
-                <td>CAT</td>
-</tr>
-     </tbody>
-    </table>
-
-
-
-
-
-    
-    <!--BUNDESLIGA -->
-    <h3 class="league-title">Bundesliga</h3>
-    <table>
-        <thead>
-           <tr>
-              <th data-key="date">Date</th>
-              <th data-key="homeTeam">Home Team</th>
-              <th data-key="awayTeam">Away Team<</th>
-              <th data-key="time">Time</th>
-              <th data-key="venue">Venue</th>
-              <th data-key="Prediction">Prediction</th>
-              <th data-key="timezone">Timezone</th>
-
-           </tr>
-
-         <tr>
-            
-            
-               <td>2025-10-04</td>
-               <td>Leverkusen</td>
-               <td>Union Berlin</td>
-               <td>15:30</td>
-               <td>BayArena</td>
-               <td>1</td>
-               <td>CAT</td>
-    </tr>
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Dortmund</td>
-                <td>RB leipzig</td>
-                <td>15:30</td>
-                <td>Signal Iduna Park</td>
-                <td>1X</td>
-                <td>CAT</td>
-
-    </tr>
-
-
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Werder</td>
-                <td>FC St. Pauli</td>
-                <td>15:30</td>
-                <td>Weser Stadium</td>
-                <td>2</td>
-                <td>CAT</td>
-    
-    </tr>   
-            
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Augsburg</td>
-                <td>Wolfsburg</td>
-                <td>15:30</td>
-                <td>WWK Arena</td>
-                <td>12</td>
-                <td>CAT</td>
-
-
-    </tr>  
-            <tr>
-                <td>2025-10-04</td>
-                <td>Eintracht Frankfurt</td>
-                <td>Bayern</td> 
-                <td>18:300</td>
-                <td>Deutsche Bank Park</td>
-                <td>2</td>
-                <td>CAT</td>
-
-    </tr>   <tr>
-                <td>2025-10-05</td>
-                <td>VfB Stuttgart</td>
-                <td>Heidenheim</td>
-                <td>15:30</td>
-                <td>MHP Arena</td>
-                <td>X</td>
-                <td>CAT</td>
-
-    </tr>   <tr>
-
-                <td>2025-10-05</td>
-                <td>Hamburger SV</td>
-                <td>Mainz</td>
-                <td>17:30</td>
-                <td>Volksparkstadion</td>
-                <td>2</td>
-                <td>CAT</td>
-    </tr>     
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Monchengladbach</td>
-                <td>SC Freiburg</td>
-                <td>19:30</td>
-                <td>BORUSSIA-PARK</td>
-                <td>X</td>
-                <td>CAT</td>
-</tr>
-
-</tbody>
-    </table>
-</section>
-
-   <!--ligue 1-->
-<h3 class="league-title">Ligue 1</h3>
-    <table>
-        <thead>
-           <tr>
-              <th data-key="date">Date</th>
-              <th data-key="homeTeam">Home Team</th>
-              <th data-key="awayTeam">Away Team<</th>
-              <th data-key="time">Time</th>
-              <th data-key="venue">Venue</th>
-              <th data-key="Prediction ">Prediction </th>
-              <th data-key="timezone">Timezone</th>
-
-           </tr>
-
-
-    
-            <tr>
-               <td>2025-10-04</td>
-               <td>Metz</td>
-               <td>Marseille</td>
-               <td>17:00</td>
-               <td>Stade Saint-Symphorien</td>
-               <td>2</td>
-               <td>CAT</td>
-    </tr>
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Brest</td>
-                <td>Nantes</td>
-                <td>19:00</td>
-                <td>Stade Francis Le Blé</td>
-                <td>X</td>
-                <td>CAT</td>
-
-    </tr>
-
-
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Auxerre</td>
-                <td>Lens</td>
-                <td>21:05</td>
-                <td>Estadio de l'Abbé-Deschamps</td>
-                <td>1</td>
-                <td>CAT</td>
-    
-    </tr>   
-            
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Lyon</td>
-                <td>Toulouse</td>
-                <td>15:00</td>
-                <td>Groupama Stadium</td>
-                <td></td>
-                <td>CAT</td>
-
-
-    </tr>  
-            <tr>
-                <td>2025-10-05</td>
-                <td>Le havre </td>
-                <td>Rennes</td> 
-                <td>17:15</td>
-                <td>Stade Oceane</td>
-                <td>2</td>
-                <td>CAT</td>
-
-    </tr>   <tr>
-                <td>2025-10-05</td>
-                <td>Monaco</td>
-                <td>Nice</td>
-                <td>17:15</td>
-                <td>Stade Louis II</td>
-                <td>1</td>
-                <td>CAT</td>
-
-    </tr>   <tr>
-
-                <td>2025-10-05</td>
-                <td>Strasbourg</td>
-                <td>Angers</td>
-                <td>17:15</td>
-                <td>Stade de la Meinau Strasbourg</td>
-                <td>1</td>
-                <td>CAT</td>
-    </tr>     
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>LOSC</td>
-                <td>PSG</td>
-                <td>20:45</td>
-                <td>Stade Louis II</td>
-                <td>2</td>
-                <td>CAT</td>
-</tr>
-</tbody>
-    </table>
- <section>
-
         
-   <!--Serie A  1-->
-<h3 class="league-title">Serie A </h3>
-    <table>
-        <thead>
-           <tr>
-              <th data-key="date">Date</th>
-              <th data-key="homeTeam">Home Team</th>
-              <th data-key="awayTeam">Away Team<</th>
-              <th data-key="time">Time</th>
-              <th data-key="venue">Venue</th>
-              <th data-key="Prediction">Prediction</th>
-              <th data-key="timezone">Timezone</th>
-
-    </tr>
-
-          <tr>
-              <td>2025-10-04</td>
-              <td>Parma</td>
-              <td>Lecce</td>
-              <td>15:00</td>
-              <td>Ennio Tardini Stadium</td>
-              <td>X</td>
-              <td>CAT</td>
-    </tr>
-            <tr>
-               <td>2025-10-04</td>
-               <td>Lazio</td>
-               <td>Torino</td>
-               <td>15:00</td>
-               <td>Stadio Olimpico</td>
-               <td>1</td>
-               <td>CAT</td>
-    </tr>
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Inter</td>
-                <td>Cremonese</td>
-                <td>18:00</td>
-                <td>San Siro</td>
-                <td>1</td>
-                <td>CAT</td>
-
-    </tr>
-
-
-            <tr>
-
-                <td>2025-10-04</td>
-                <td>Atlanta</td>
-                <td>como</td>
-                <td>18;00</td>
-                <td>Gewiss Stadium</td>
-                <td>1</td>
-                <td>CAT</td>
-    
-    </tr>   
-            
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Udinese</td>
-                <td>cagliari</td>
-                <td>12:30</td>
-                <td>Bluenergy Stadium</td>
-                <td>1X</td>
-                <td>CAT</td>
-
-
-    </tr>  
-            <tr>
-                <td>2025-10-05</td>
-                <td>Bologna</td>
-                <td>Pisa</td> 
-                <td>15:00</td>
-                <td>Renato Dall'Ara Stadium</td>
-                <td>1</td>
-                <td>CAT</td>
-
-    </tr>  
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Fiorentina</td>
-                <td>Roma</td>
-                <td>15:00</td>
-                <td>Artemio Franchi Stadium</td>
-                <td>2</td>
-                <td>CAT</td>
-
-    </tr>  
-    
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Napoli</td>
-                <td>Genoa</td>
-                <td>18:00</td>
-                <td>Diego Armando Maradona Stadium</td>
-                <td>1</td>
-                <td>CAT</td>
-    </tr>     
-            <tr>
-
-                <td>2025-10-05</td>
-                <td>Juventus</td>
-                <td>Milan</td>
-                <td>20:45</td>
-                <td>Allianz Arena</td>
-                <td>1</td>
-                <td>CAT</td>
-</tr>
-     </tbody>
-    </table>
-</section>
-
-
-
-
-
-    
-
-<!-- BASKETBALL SECTION -->
-<section id="basketball">
-    <h2>🏀 Basketball</h2>
-    
-    <!-- NBA -->
-    <h3 class="league-title">NBA Pre-season</h3>
-    <table>
-        <thead>
-            <tr>
-                <th data-key="date">Date</th>
-                <th data-key="homeTeam">Home Team</th>
-                <th data-key="awayTeam">Away Team</th>
-                <th data-key="time">Time</th>
-                <th data-key="venue">Venue</th>
-                <th data-key="timezone">TimeZone</th>
-            </tr>
-        </thead>
-        <tbody>
-         
-            <tr><td>2025-10-04</td><td>Philadelphia 76ers</td><td>New York Knicks</td><td>17:00</td><td>Etihad Arena</td><td>CAT</td></tr>
-            <tr><td>2025-10-04</td><td>Los Angeles Lakers</td><td>Phoenix Suns</td><td>04:00</td><td>Crypto.com Arena</td><td>CAT</td></tr>
-            <tr><td>2025-10-05</td><td>Miami Heat</td><td>Orlando Magic</td><td>02:00</td><td>Kaseya Center</td><td>CAT</td></tr>
-            <tr><td>2025-10-05</td><td>Charlotte Hornets</td><td>Oklahoma City Thunder</td><td>23:00</td><td>Spectrum Center</td><td>CAT</td></tr>
-            <tr><td>2025-10-05</td><td>Denver Nuggets</td><td>Minnesota Timberwolves</td><td>03:00</td><td>Ball Arena</td><td>CAT</td></tr>
-            <tr><td>2025-10-06</td><td>Golden State Warriors</td><td>Los Angeles Lakers</td><td>02:30</td><td>Chase Center</td><td>CAT</td></tr>
-            <tr><td>2025-10-07</td><td>Memphis Grizzlies</td><td>Detroit Pistons</td><td>02:00</td><td>FedExForum</td><td>CAT</td></tr>
-            <tr><td>2025-10-07</td><td>Dallas Mavericks</td><td>Oklahoma City Thunder</td><td>02:30</td><td>American Airlines Center</td><td>CAT</td></tr>
-            <tr><td>2025-10-08</td><td>Cleveland Cavaliers</td><td>Chicago Bulls</td><td>01:00</td><td>Rocket Mortgage FieldHouse</td><td>CAT</td></tr>
-            <tr><td>2025-10-09</td><td>Miami Heat</td><td>San Antonio Spurs</td><td>01:30</td><td>Kaseya Center</td><td>CAT</td></tr>
-            <tr><td>2025-10-09</td><td>Memphis Grizzlies</td><td>Boston Celtics</td><td>02:00</td><td>FedExForum</td><td>CAT</td></tr>
-            <tr><td>2025-10-09</td><td>Golden State Warriors</td><td>Portland Trail Blazers</td><td>04:00</td><td>Chase Center</td><td>CAT</td></tr>
-            <tr><td>2025-10-10</td><td>New York Knicks</td><td>Minnesota Timberwolves</td><td>01:30</td><td>Madison Square Garden</td><td>CAT</td></tr>
-            <tr><td>2025-10-10</td><td>Brooklyn Nets</td><td>Phoenix Suns</td><td>14:00</td><td>Barclays Center</td><td>CAT</td></tr>
-            <tr><td>2025-10-10</td><td>Milwaukee Bucks</td><td>Detroit Pistons</td><td>02:00</td><td>Fiserv Forum</td><td>CAT</td></tr>
-        </tbody>
-    </table>
-</section>
-
-<!-- News Section -->
-<section class="info-section" id="news">
-    <h2 data-key="newsTitle">Latest News</h2>
-    <div class="news-filter">
-        <button data-category="sports" class="active" data-key="sportsNews">Sports</button>
-        <button data-category="football" data-key="footballNews">Football</button>
-        <button data-category="basketball" data-key="basketballNews">Basketball</button>
-    </div>
-    <div id="newsContainer"></div>
-    <div class="loading" id="newsLoading" data-key="loading">Loading news...</div>
-</section>
-</div>
-
-<footer>
-    <ul>
-        <li><a href="#privacy" data-key="privacy">Privacy Policy</a></li>
-        <li><a href="#about" data-key="about">About Us</a></li>
-    </ul>
-    <div style="text-align:center; font-size:14px; font-family:Arial, sans-serif; margin-top:10px; padding:10px;">
-        <span style="color:#ffffff;">&copy; 2025 Ganza Sport Hub - All rights reserved |</span>
-        <a href="mailto:gsportlive1a@gmail.com" style="color:#ff9e00; text-decoration:none; font-weight:bold; margin-left:5px;">
-            <i class="fa-solid fa-envelope"></i> gsportlive1a@gmail.com
-        </a>
-    </div>
-</footer>
-
-<script>
-    // Language data with complete translations
-    const translations = {
-        en: {
-            siteTitle: "Ganza Sport Hub",
-            siteSlogan: '"Every Score, Every Story"',
-            home: "Home",
-            fixtures: "Upcoming Fixtures",
-            football: "Football",
-            basketball: "Basketball",
-            news: "News",
-            about: "About Us",
-            privacy: "Privacy Policy",
-            currentLang: "English",
-            english: "English",
-            spanish: "Spanish",
-            french: "French",
-            chinese: "Chinese",
-            welcomeTitle: "Welcome to Ganza Sport Hub",
-            welcomeDesc: "Your ultimate destination for fixtures, news, and stories from the world of sports. Stay updated with the latest happenings in football, basketball, volleyball and more.",
-            footballDesc: "Follow all major leagues including Premier League, La Liga, Serie A, Bundesliga, and Champions League.",
-            basketballDesc: "Get the latest NBA scores, EuroLeague updates, and basketball news from around the world.",
-            aboutTitle: "About Us",
-            aboutDesc1: "Ganza Sport Hub was founded in 2025 with a simple mission: to bring sports fans together through comprehensive coverage of their favorite games and athletes. Our platform provides up-to-date information on fixtures, and news across multiple sports.",
-            aboutDesc2: "We believe that sports have the power to unite people across cultures and continents. That's why we've built a platform that celebrates this universal language, providing fans with everything they need to stay connected to the games they love.",
-            aboutDesc3: "Our team of dedicated sports enthusiasts works around the clock to ensure you have access to the most accurate and timely information. Whether you're a casual fan or a die-hard supporter, Ganza Sport Hub is your go-to destination for all things sports.",
-            aboutCaption: "Caption:",
-            aboutCaptionText: '"Every Score, Every Story"',
-            privacyTitle: "Privacy Policy",
-            privacyDesc1: "At Ganza Sport Hub, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.",
-            privacyDesc2: "We do not share your data with third parties without your consent. We use cookies and analytics tools to improve our website and provide a personalized experience.",
-            privacyDesc3: "By using our website, you agree to our terms of service and privacy practices. You have the right to access, modify, or delete your information at any time.",
-            newsTitle: "Latest News",
-            sportsNews: "Sports",
-            footballNews: "Football",
-            basketballNews: "Basketball",
-            loading: "Loading news...",
-            date: "Date",
-            homeTeam: "Home Team",
-            awayTeam: "Away Team",
-            time: "Time",
-            venue: "Venue",
-            timezone: "Timezone",
-            footballTitle: "⚽ Football"
-        },
-        es: {
-            siteTitle: "Ganza Sport Hub",
-            siteSlogan: '"Cada Puntuación, Cada Historia"',
-            home: "Inicio",
-            fixtures: "Próximos Partidos",
-            football: "Fútbol",
-            basketball: "Baloncesto",
-            news: "Noticias",
-            about: "Sobre Nosotros",
-            privacy: "Política de Privacidad",
-            currentLang: "Español",
-            english: "Inglés",
-            spanish: "Español",
-            french: "Francés",
-            chinese: "Chino",
-            welcomeTitle: "Bienvenido a Ganza Sport Hub",
-            welcomeDesc: "Tu destino definitivo para partidos, noticias e historias del mundo del deporte. Mantente actualizado con los últimos acontecimientos en fútbol, baloncesto, voleibol y más.",
-            footballDesc: "Sigue todas las ligas importantes, incluida la Premier League, La Liga, Serie A, Bundesliga y Champions League.",
-            basketballDesc: "Obtén los últimos resultados de la NBA, actualizaciones de la EuroLeague y noticias de baloncesto de todo el mundo.",
-            aboutTitle: "Sobre Nosotros",
-            aboutDesc1: "Ganza Sport Hub fue fundada en 2025 con una misión simple: unir a los aficionados al deporte a través de una cobertura integral de sus juegos y atletas favoritos. Nuestra plataforma proporciona información actualizada sobre partidos y noticias en múltiples deportes.",
-            aboutDesc2: "Creemos que el deporte tiene el poder de unir a las personas a través de culturas y continentes. Por eso hemos construido una plataforma que celebra este lenguaje universal, proporcionando a los aficionados todo lo que necesitan para mantenerse conectados con los juegos que aman.",
-            aboutDesc3: "Nuestro equipo de entusiastas del deporte dedicados trabaja las 24 horas para garantizar que tengas acceso a la información más precisa y oportuna. Ya seas un aficionado casual o un seguidor incondicional, Ganza Sport Hub es tu destino para todo lo relacionado con el deporte.",
-            aboutCaption: "Lema:",
-            aboutCaptionText: '"Cada Puntuación, Cada Historia"',
-            privacyTitle: "Política de Privacidad",
-            privacyDesc1: "En Ganza Sport Hub, nos tomamos en serio su privacidad. Esta política describe cómo recopilamos, usamos y protegemos su información personal.",
-            privacyDesc2: "No compartimos sus datos con terceros sin su consentimiento. Utilizamos cookies y herramientas de análisis para mejorar nuestro sitio web y proporcionar una experiencia personalizada.",
-            privacyDesc3: "Al utilizar nuestro sitio web, usted acepta nuestros términos de servicio y prácticas de privacidad. Tiene derecho a acceder, modificar o eliminar su información en cualquier momento.",
-            newsTitle: "Últimas Noticias",
-            sportsNews: "Deportes",
-            footballNews: "Fútbol",
-            basketballNews: "Baloncesto",
-            loading: "Cargando noticias...",
-            date: "Fecha",
-            homeTeam: "Equipo Local",
-            awayTeam: "Equipo Visitante",
-            time: "Hora",
-            venue: "Lugar",
-            timezone: "Zona Horaria",
-            footballTitle: "⚽ Fútbol"
-        },
-        fr: {
-            siteTitle: "Ganza Sport Hub",
-            siteSlogan: '"Chaque Score, Chaque Histoire"',
-            home: "Accueil",
-            fixtures: "Prochains Matchs",
-            football: "Football",
-            basketball: "Basketball",
-            news: "Actualités",
-            about: "À Propos",
-            privacy: "Politique de Confidentialité",
-            currentLang: "Français",
-            english: "Anglais",
-            spanish: "Espagnol",
-            french: "Français",
-            chinese: "Chinois",
-            welcomeTitle: "Bienvenue sur Ganza Sport Hub",
-            welcomeDesc: "Votre destination ultime pour les matchs, actualités et histoires du monde du sport. Restez informé des derniers événements en football, basketball, volleyball et plus encore.",
-            footballDesc: "Suivez toutes les grandes ligues dont la Premier League, La Liga, Serie A, Bundesliga et Ligue des Champions.",
-            basketballDesc: "Obtenez les derniers scores NBA, mises à jour de l'EuroLeague et actualités basketball du monde entier.",
-            aboutTitle: "À Propos de Nous",
-            aboutDesc1: "Ganza Sport Hub a été fondée en 2025 avec une mission simple : rassembler les fans de sport grâce à une couverture complète de leurs jeux et athlètes préférés. Notre plateforme fournit des informations à jour sur les matchs et actualités à travers plusieurs sports.",
-            aboutDesc2: "Nous croyons que le sport a le pouvoir d'unir les personnes à travers les cultures et les continents. C'est pourquoi nous avons construit une plateforme qui célèbre ce langage universel, fournissant aux fans tout ce dont ils ont besoin pour rester connectés aux jeux qu'ils aiment.",
-            aboutDesc3: "Notre équipe d'enthousiastes du sport dévoués travaille 24 heures sur 24 pour vous assurer un accès aux informations les plus précises et opportunes. Que vous soyez un fan occasionnel ou un supporter inconditionnel, Ganza Sport Hub est votre destination pour tout ce qui concerne le sport.",
-            aboutCaption: "Légende :",
-            aboutCaptionText: '"Chaque Score, Chaque Histoire"',
-            privacyTitle: "Politique de Confidentialité",
-            privacyDesc1: "Chez Ganza Sport Hub, nous prenons votre vie privée au sérieux. Cette politique décrit comment nous collectons, utilisons et protégeons vos informations personnelles.",
-            privacyDesc2: "Nous ne partageons pas vos données avec des tiers sans votre consentimiento. Nous utilisons des cookies et des outils d'analyse pour améliorer notre site web et fournir une expérience personnalisée.",
-            privacyDesc3: "En utilisant notre site web, vous acceptez nos conditions de service et pratiques de confidentialité. Vous avez le droit d'accéder, de modifier ou de supprimer vos informations à tout moment.",
-            newsTitle: "Dernières Actualités",
-            sportsNews: "Sports",
-            footballNews: "Football",
-            basketballNews: "Basketball",
-            loading: "Chargement des actualités...",
-            date: "Date",
-            homeTeam: "Équipe Domicile",
-            awayTeam: "Équipe Extérieur",
-            time: "Heure",
-            venue: "Lieu",
-            timezone: "Fuseau Horaire",
-            footballTitle: "⚽ Football"
-        },
-        zh: {
-            siteTitle: "甘扎体育中心",
-            siteSlogan: '"每个比分，每个故事"',
-            home: "首页",
-            fixtures: "即将举行的比赛",
-            football: "足球",
-            basketball: "篮球",
-            news: "新闻",
-            about: "关于我们",
-            privacy: "隐私政策",
-            currentLang: "中文",
-            english: "英语",
-            spanish: "西班牙语",
-            french: "法语",
-            chinese: "中文",
-            welcomeTitle: "欢迎来到甘扎体育中心",
-            welcomeDesc: "您获取体育赛事、新闻和故事的终极目的地。随时了解足球、篮球、排球等领域的最新动态。",
-            footballDesc: "关注所有主要联赛，包括英超、西甲、意甲、德甲和欧冠。",
-            basketballDesc: "获取最新的NBA比分、欧洲联赛更新和来自世界各地的篮球新闻。",
-            aboutTitle: "关于我们",
-            aboutDesc1: "甘扎体育中心成立于2025年，使命很简单：通过全面报道粉丝喜爱的比赛和运动员，将体育迷们聚集在一起。我们的平台提供跨多个体育项目的最新赛程和新闻信息。",
-            aboutDesc2: "我们相信体育具有跨越文化和大陆团结人们的力量。这就是为什么我们建立了一个庆祝这种通用语言的平台，为粉丝提供与他们热爱的比赛保持联系所需的一切。",
-            aboutDesc3: "我们敬业的体育爱好者团队全天候工作，确保您能够访问最准确和及时的信息。无论您是休闲粉丝还是铁杆支持者，甘扎体育中心都是您获取所有体育相关内容的首选目的地。",
-            aboutCaption: "标语：",
-            aboutCaptionText: '"每个比分，每个故事"',
-            privacyTitle: "隐私政策",
-            privacyDesc1: "在甘扎体育中心，我们非常重视您的隐私。本政策概述了我们如何收集、使用和保护您的个人信息。",
-            privacyDesc2: "未经您同意，我们不会与第三方共享您的数据。我们使用cookie和分析工具来改进我们的网站并提供个性化体验。",
-            privacyDesc3: "使用我们的网站即表示您同意我们的服务条款和隐私实践。您有权随时访问、修改或删除您的信息。",
-            newsTitle: "最新新闻",
-            sportsNews: "体育",
-            footballNews: "足球",
-            basketballNews: "篮球",
-            loading: "正在加载新闻...",
-            date: "日期",
-            homeTeam: "主队",
-            awayTeam: "客队",
-            time: "时间",
-            venue: "场地",
-            timezone: "时区",
-            footballTitle: "⚽ 足球"
-        }
-    };
-
-    // Current language
-    let currentLang = 'en';
-
-    // NEWS API CONFIGURATION - YOUR API KEY
-    const GNEWS_API_KEY = '5265eaae742896bc73e687ba2d97515f';
-
-    // Language switching function
-    function switchLanguage(lang) {
-        currentLang = lang;
-        const textElements = document.querySelectorAll('[data-key]');
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         
-        textElements.forEach(el => {
-            const key = el.dataset.key;
-            if(translations[lang] && translations[lang][key]) {
-                el.textContent = translations[lang][key];
+        <nav class="desktop-nav">
+            <a href="#home" data-key="home">Home</a>
+            <div class="fixtures-dropdown">
+                <a href="#" data-key="fixtures">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
+                <div class="fixtures-options">
+                    <a href="#football" data-key="football" onclick="scrollToSection('football')">Football</a>
+                    <a href="#basketball" data-key="basketball" onclick="scrollToSection('basketball')">Basketball</a>
+                </div>
+            </div>
+            <a href="#news" data-key="news">News</a>
+            <a href="#about" data-key="about">About Us</a>
+            <a href="#privacy" data-key="privacy">Privacy Policy</a>
+            <div class="language-selector">
+                <button class="language-btn" data-key="currentLang">English <i class="fas fa-chevron-down"></i></button>
+                <div class="language-options">
+                    <a href="#" data-lang="en" data-key="english">English</a>
+                    <a href="#" data-lang="es" data-key="spanish">Español</a>
+                    <a href="#" data-lang="fr" data-key="french">Français</a>
+                    <a href="#" data-lang="zh" data-key="chinese">中文</a>
+                    <a href="#" data-lang="ar" data-key="arabic">العربية</a>
+                    <a href="#" data-lang="hi" data-key="hindi">हिन्दी</a>
+                    <a href="#" data-lang="pt" data-key="portuguese">Português</a>
+                    <a href="#" data-lang="ru" data-key="russian">Русский</a>
+                    <a href="#" data-lang="ja" data-key="japanese">日本語</a>
+                    <a href="#" data-lang="de" data-key="german">Deutsch</a>
+                    <a href="#" data-lang="it" data-key="italian">Italiano</a>
+                    <a href="#" data-lang="ko" data-key="korean">한국어</a>
+                    <a href="#" data-lang="tr" data-key="turkish">Türkçe</a>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#home" data-key="home">Home</a>
+            <div class="mobile-dropdown" id="fixturesDropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-toggle" data-key="fixtures">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="#football" data-key="football" onclick="scrollToSection('football')">Football</a>
+                    <a href="#basketball" data-key="basketball" onclick="scrollToSection('basketball')">Basketball</a>
+                </div>
+            </div>
+            <a href="#news" data-key="news">News</a>
+            <a href="#about" data-key="about">About Us</a>
+            <a href="#privacy" data-key="privacy">Privacy Policy</a>
+            <div class="mobile-dropdown" id="languageDropdown">
+                <a href="javascript:void(0)" class="mobile-dropdown-toggle" data-key="currentLang">English <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="#" data-lang="en" data-key="english">English</a>
+                    <a href="#" data-lang="es" data-key="spanish">Español</a>
+                    <a href="#" data-lang="fr" data-key="french">Français</a>
+                    <a href="#" data-lang="zh" data-key="chinese">中文</a>
+                    <a href="#" data-lang="ar" data-key="arabic">العربية</a>
+                    <a href="#" data-lang="hi" data-key="hindi">हिन्दी</a>
+                    <a href="#" data-lang="pt" data-key="portuguese">Português</a>
+                    <a href="#" data-lang="ru" data-key="russian">Русский</a>
+                    <a href="#" data-lang="ja" data-key="japanese">日本語</a>
+                    <a href="#" data-lang="de" data-key="german">Deutsch</a>
+                    <a href="#" data-lang="it" data-key="italian">Italiano</a>
+                    <a href="#" data-lang="ko" data-key="korean">한국어</a>
+                    <a href="#" data-lang="tr" data-key="turkish">Türkçe</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="welcome-section" id="home">
+        <h1 data-key="welcomeTitle">Welcome to Ganza Sport Hub</h1>
+        <p data-key="welcomeDesc">Your ultimate destination for fixtures, news, and stories from the world of sports. Stay updated with the latest happenings in football, basketball, volleyball and more.</p>
+        
+        <div class="sports-showcase">
+            <div class="sport-card">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Football">
+                <h3 data-key="football">Football</h3>
+                <p data-key="footballDesc">Follow all major leagues including Premier League, La Liga, Serie A, Bundesliga, and Champions League.</p>
+            </div>
+            <div class="sport-card">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Basketball">
+                <h3 data-key="basketball">Basketball</h3>
+                <p data-key="basketballDesc">Get the latest NBA scores, EuroLeague updates, and basketball news from around the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Football Section -->
+        <section id="football">
+            <h2 data-key="footballTitle">⚽ Football</h2>
+
+            <!-- Premier League -->
+            <h3 class="league-title">Premier League</h3>
+            <table>
+                <thead>
+                   <tr>
+                      <th data-key="date">Date</th>
+                      <th data-key="homeTeam">Home Team</th>
+                      <th data-key="awayTeam">Away Team</th>
+                      <th data-key="time">Time</th>
+                      <th data-key="venue">Venue</th>
+                      <th data-key="prediction">Prediction</th>
+                      <th data-key="timezone">Timezone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                      <td>2025-10-04</td>
+                      <td>Leeds United</td>
+                      <td>Tottenham</td>
+                      <td>13:30</td>
+                      <td>Elland Road</td>
+                      <td>2</td>
+                      <td>CAT</td>
+                    </tr>
+                    <tr>
+                       <td>2025-10-04</td>
+                       <td>Man United</td>
+                       <td>Sunderland</td>
+                       <td>16:00</td>
+                       <td>Old Trafford</td>
+                       <td>1</td>
+                       <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Arsenal</td>
+                        <td>West Ham</td>
+                        <td>16:00</td>
+                        <td>Emirates Stadium</td>
+                        <td>1X</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Chelsea</td>
+                        <td>Liverpool</td>
+                        <td>18:30</td>
+                        <td>Stamford Bridge</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>   
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Everton</td>
+                        <td>Crystal Palace</td>
+                        <td>15:00</td>
+                        <td>Goodison Park</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Newcastle</td>
+                        <td>Nottm Forest</td> 
+                        <td>15:00</td>
+                        <td>St. James' Park</td>
+                        <td>X</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Wolves</td>
+                        <td>Brighton</td>
+                        <td>16:00</td>
+                        <td>Molineux Stadium</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Aston Villa</td>
+                        <td>Burnley</td>
+                        <td>15:00</td>
+                        <td>Villa Park</td>
+                        <td>12</td>
+                        <td>CAT</td>
+                    </tr>     
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Brentford</td>
+                        <td>Man City</td>
+                        <td>17:30</td>
+                        <td>Gtech Community Stadium</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- La Liga -->
+            <h3 class="league-title">La Liga</h3>
+            <table>
+                <thead>
+                   <tr>
+                      <th data-key="date">Date</th>
+                      <th data-key="homeTeam">Home Team</th>
+                      <th data-key="awayTeam">Away Team</th>
+                      <th data-key="time">Time</th>
+                      <th data-key="venue">Venue</th>
+                      <th data-key="prediction">Prediction</th>
+                      <th data-key="timezone">Timezone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>2025-10-04</td>
+                      <td>Oviedo</td>
+                      <td>Levante</td>
+                      <td>14:00</td>
+                      <td>Carlos Tartiere Stadium</td>
+                      <td>12</td>
+                      <td>CAT</td>
+                    </tr>
+                    <tr>
+                       <td>2025-10-04</td>
+                       <td>Girona</td>
+                       <td>Valencia</td>
+                       <td>16:15</td>
+                       <td>Estadi Montilivi</td>
+                       <td>2</td>
+                       <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Athletic Club</td>
+                        <td>Mallorca</td>
+                        <td>18:30</td>
+                        <td>San Mames Stadium</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Real Madrid</td>
+                        <td>Villarreal</td>
+                        <td>21:00</td>
+                        <td>Estadio Santiago Bernabeu</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>   
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Alaves</td>
+                        <td>Elche</td>
+                        <td>14:00</td>
+                        <td>Mendizorrotza Stadium</td>
+                        <td>X</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Sevilla</td>
+                        <td>Barcelona</td> 
+                        <td>16:15</td>
+                        <td>Ramon Sanchez-Pizjuan Stadium</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Espanyol</td>
+                        <td>Real Betis</td>
+                        <td>18:30</td>
+                        <td>RCDE Stadium</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Real Sociedad</td>
+                        <td>Rayo Vallecano</td>
+                        <td>18:30</td>
+                        <td>Anoeta Stadium</td>
+                        <td>X</td>
+                        <td>CAT</td>
+                    </tr>     
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Celta Vigo</td>
+                        <td>Atletico Madrid</td>
+                        <td>21:00</td>
+                        <td>Estadio de Balaídos</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Bundesliga -->
+            <h3 class="league-title">Bundesliga</h3>
+            <table>
+                <thead>
+                   <tr>
+                      <th data-key="date">Date</th>
+                      <th data-key="homeTeam">Home Team</th>
+                      <th data-key="awayTeam">Away Team</th>
+                      <th data-key="time">Time</th>
+                      <th data-key="venue">Venue</th>
+                      <th data-key="prediction">Prediction</th>
+                      <th data-key="timezone">Timezone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                       <td>2025-10-04</td>
+                       <td>Leverkusen</td>
+                       <td>Union Berlin</td>
+                       <td>15:30</td>
+                       <td>BayArena</td>
+                       <td>1</td>
+                       <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Dortmund</td>
+                        <td>RB Leipzig</td>
+                        <td>15:30</td>
+                        <td>Signal Iduna Park</td>
+                        <td>1X</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Werder</td>
+                        <td>FC St. Pauli</td>
+                        <td>15:30</td>
+                        <td>Weser Stadium</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>   
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Augsburg</td>
+                        <td>Wolfsburg</td>
+                        <td>15:30</td>
+                        <td>WWK Arena</td>
+                        <td>12</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Eintracht Frankfurt</td>
+                        <td>Bayern</td> 
+                        <td>18:30</td>
+                        <td>Deutsche Bank Park</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>VfB Stuttgart</td>
+                        <td>Heidenheim</td>
+                        <td>15:30</td>
+                        <td>MHP Arena</td>
+                        <td>X</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Hamburger SV</td>
+                        <td>Mainz</td>
+                        <td>17:30</td>
+                        <td>Volksparkstadion</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>     
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Monchengladbach</td>
+                        <td>SC Freiburg</td>
+                        <td>19:30</td>
+                        <td>BORUSSIA-PARK</td>
+                        <td>X</td>
+                        <td>CAT</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Ligue 1 -->
+            <h3 class="league-title">Ligue 1</h3>
+            <table>
+                <thead>
+                   <tr>
+                      <th data-key="date">Date</th>
+                      <th data-key="homeTeam">Home Team</th>
+                      <th data-key="awayTeam">Away Team</th>
+                      <th data-key="time">Time</th>
+                      <th data-key="venue">Venue</th>
+                      <th data-key="prediction">Prediction</th>
+                      <th data-key="timezone">Timezone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       <td>2025-10-04</td>
+                       <td>Metz</td>
+                       <td>Marseille</td>
+                       <td>17:00</td>
+                       <td>Stade Saint-Symphorien</td>
+                       <td>2</td>
+                       <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Brest</td>
+                        <td>Nantes</td>
+                        <td>19:00</td>
+                        <td>Stade Francis Le Blé</td>
+                        <td>X</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Auxerre</td>
+                        <td>Lens</td>
+                        <td>21:05</td>
+                        <td>Stade de l'Abbé-Deschamps</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>   
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Lyon</td>
+                        <td>Toulouse</td>
+                        <td>15:00</td>
+                        <td>Groupama Stadium</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Le Havre</td>
+                        <td>Rennes</td> 
+                        <td>17:15</td>
+                        <td>Stade Oceane</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Monaco</td>
+                        <td>Nice</td>
+                        <td>17:15</td>
+                        <td>Stade Louis II</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Strasbourg</td>
+                        <td>Angers</td>
+                        <td>17:15</td>
+                        <td>Stade de la Meinau</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>     
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>LOSC</td>
+                        <td>PSG</td>
+                        <td>20:45</td>
+                        <td>Stade Pierre-Mauroy</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Serie A -->
+            <h3 class="league-title">Serie A</h3>
+            <table>
+                <thead>
+                   <tr>
+                      <th data-key="date">Date</th>
+                      <th data-key="homeTeam">Home Team</th>
+                      <th data-key="awayTeam">Away Team</th>
+                      <th data-key="time">Time</th>
+                      <th data-key="venue">Venue</th>
+                      <th data-key="prediction">Prediction</th>
+                      <th data-key="timezone">Timezone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>2025-10-04</td>
+                      <td>Parma</td>
+                      <td>Lecce</td>
+                      <td>15:00</td>
+                      <td>Ennio Tardini Stadium</td>
+                      <td>X</td>
+                      <td>CAT</td>
+                    </tr>
+                    <tr>
+                       <td>2025-10-04</td>
+                       <td>Lazio</td>
+                       <td>Torino</td>
+                       <td>15:00</td>
+                       <td>Stadio Olimpico</td>
+                       <td>1</td>
+                       <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Inter</td>
+                        <td>Cremonese</td>
+                        <td>18:00</td>
+                        <td>San Siro</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>
+                    <tr>
+                        <td>2025-10-04</td>
+                        <td>Atlanta</td>
+                        <td>Como</td>
+                        <td>18:00</td>
+                        <td>Gewiss Stadium</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>   
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Udinese</td>
+                        <td>Cagliari</td>
+                        <td>12:30</td>
+                        <td>Bluenergy Stadium</td>
+                        <td>1X</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Bologna</td>
+                        <td>Pisa</td> 
+                        <td>15:00</td>
+                        <td>Renato Dall'Ara Stadium</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Fiorentina</td>
+                        <td>Roma</td>
+                        <td>15:00</td>
+                        <td>Artemio Franchi Stadium</td>
+                        <td>2</td>
+                        <td>CAT</td>
+                    </tr>  
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Napoli</td>
+                        <td>Genoa</td>
+                        <td>18:00</td>
+                        <td>Diego Armando Maradona Stadium</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>     
+                    <tr>
+                        <td>2025-10-05</td>
+                        <td>Juventus</td>
+                        <td>Milan</td>
+                        <td>20:45</td>
+                        <td>Allianz Stadium</td>
+                        <td>1</td>
+                        <td>CAT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Basketball Section -->
+        <section id="basketball">
+            <h2>🏀 Basketball</h2>
+            
+            <!-- NBA -->
+            <h3 class="league-title">NBA Pre-season</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="date">Date</th>
+                        <th data-key="homeTeam">Home Team</th>
+                        <th data-key="awayTeam">Away Team</th>
+                        <th data-key="time">Time</th>
+                        <th data-key="venue">Venue</th>
+                        <th data-key="timezone">TimeZone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2025-10-04</td><td>Philadelphia 76ers</td><td>New York Knicks</td><td>17:00</td><td>Etihad Arena</td><td>CAT</td></tr>
+                    <tr><td>2025-10-04</td><td>Los Angeles Lakers</td><td>Phoenix Suns</td><td>04:00</td><td>Crypto.com Arena</td><td>CAT</td></tr>
+                    <tr><td>2025-10-05</td><td>Miami Heat</td><td>Orlando Magic</td><td>02:00</td><td>Kaseya Center</td><td>CAT</td></tr>
+                    <tr><td>2025-10-05</td><td>Charlotte Hornets</td><td>Oklahoma City Thunder</td><td>23:00</td><td>Spectrum Center</td><td>CAT</td></tr>
+                    <tr><td>2025-10-05</td><td>Denver Nuggets</td><td>Minnesota Timberwolves</td><td>03:00</td><td>Ball Arena</td><td>CAT</td></tr>
+                    <tr><td>2025-10-06</td><td>Golden State Warriors</td><td>Los Angeles Lakers</td><td>02:30</td><td>Chase Center</td><td>CAT</td></tr>
+                    <tr><td>2025-10-07</td><td>Memphis Grizzlies</td><td>Detroit Pistons</td><td>02:00</td><td>FedExForum</td><td>CAT</td></tr>
+                    <tr><td>2025-10-07</td><td>Dallas Mavericks</td><td>Oklahoma City Thunder</td><td>02:30</td><td>American Airlines Center</td><td>CAT</td></tr>
+                    <tr><td>2025-10-08</td><td>Cleveland Cavaliers</td><td>Chicago Bulls</td><td>01:00</td><td>Rocket Mortgage FieldHouse</td><td>CAT</td></tr>
+                    <tr><td>2025-10-09</td><td>Miami Heat</td><td>San Antonio Spurs</td><td>01:30</td><td>Kaseya Center</td><td>CAT</td></tr>
+                    <tr><td>2025-10-09</td><td>Memphis Grizzlies</td><td>Boston Celtics</td><td>02:00</td><td>FedExForum</td><td>CAT</td></tr>
+                    <tr><td>2025-10-09</td><td>Golden State Warriors</td><td>Portland Trail Blazers</td><td>04:00</td><td>Chase Center</td><td>CAT</td></tr>
+                    <tr><td>2025-10-10</td><td>New York Knicks</td><td>Minnesota Timberwolves</td><td>01:30</td><td>Madison Square Garden</td><td>CAT</td></tr>
+                    <tr><td>2025-10-10</td><td>Brooklyn Nets</td><td>Phoenix Suns</td><td>14:00</td><td>Barclays Center</td><td>CAT</td></tr>
+                    <tr><td>2025-10-10</td><td>Milwaukee Bucks</td><td>Detroit Pistons</td><td>02:00</td><td>Fiserv Forum</td><td>CAT</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- News Section -->
+        <section class="info-section" id="news">
+            <h2 data-key="newsTitle">Latest News</h2>
+            <div class="news-filter">
+                <button data-category="sports" class="active" data-key="sportsNews">Sports</button>
+                <button data-category="football" data-key="footballNews">Football</button>
+                <button data-category="basketball" data-key="basketballNews">Basketball</button>
+            </div>
+            <div id="newsContainer"></div>
+            <div class="loading" id="newsLoading" data-key="loading">Loading news...</div>
+        </section>
+
+        <!-- About & Privacy Sections -->
+        <section class="info-section" id="about">
+            <h2 data-key="aboutTitle">About Us</h2>
+            <p data-key="aboutDesc1">Ganza Sport Hub was founded in 2025 with a simple mission: to bring sports fans together through comprehensive coverage of their favorite games and athletes. Our platform provides up-to-date information on fixtures, and news across multiple sports.</p>
+            <p data-key="aboutDesc2">We believe that sports have the power to unite people across cultures and continents. That's why we've built a platform that celebrates this universal language, providing fans with everything they need to stay connected to the games they love.</p>
+            <p data-key="aboutDesc3">Our team of dedicated sports enthusiasts works around the clock to ensure you have access to the most accurate and timely information. Whether you're a casual fan or a die-hard supporter, Ganza Sport Hub is your go-to destination for all things sports.</p>
+            <p><strong data-key="aboutCaption">Caption:</strong> <span data-key="aboutCaptionText">"Every Score, Every Story"</span></p>
+        </section>
+
+        <section class="info-section" id="privacy">
+            <h2 data-key="privacyTitle">Privacy Policy</h2>
+            <p data-key="privacyDesc1">At Ganza Sport Hub, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.</p>
+            <p data-key="privacyDesc2">We do not share your data with third parties without your consent. We use cookies and analytics tools to improve our website and provide a personalized experience.</p>
+            <p data-key="privacyDesc3">By using our website, you agree to our terms of service and privacy practices. You have the right to access, modify, or delete your information at any time.</p>
+        </section>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="#privacy" data-key="privacy">Privacy Policy</a></li>
+            <li><a href="#about" data-key="about">About Us</a></li>
+        </ul>
+        <div style="text-align:center; font-size:14px; font-family:Arial, sans-serif; margin-top:10px; padding:10px;">
+            <span style="color:#ffffff;">&copy; 2025 Ganza Sport Hub - All rights reserved |</span>
+            <a href="mailto:gsportlive1a@gmail.com" style="color:#ff9e00; text-decoration:none; font-weight:bold; margin-left:5px;">
+                <i class="fa-solid fa-envelope"></i> gsportlive1a@gmail.com
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // API KEY YA GNEWS
+        const GNEWS_API_KEY = '5265eaae742896bc73e687ba2d97515f';
+        
+        // Language data with complete translations for 14 languages
+        const translations = {
+            en: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Every Score, Every Story"',
+                home: "Home",
+                fixtures: "Upcoming Fixtures",
+                football: "Football",
+                basketball: "Basketball",
+                news: "News",
+                about: "About Us",
+                privacy: "Privacy Policy",
+                currentLang: "English",
+                english: "English",
+                spanish: "Spanish",
+                french: "French",
+                chinese: "Chinese",
+                arabic: "Arabic",
+                hindi: "Hindi",
+                portuguese: "Portuguese",
+                russian: "Russian",
+                japanese: "Japanese",
+                german: "German",
+                italian: "Italian",
+                korean: "Korean",
+                turkish: "Turkish",
+                welcomeTitle: "Welcome to Ganza Sport Hub",
+                welcomeDesc: "Your ultimate destination for fixtures, news, and stories from the world of sports. Stay updated with the latest happenings in football, basketball, volleyball and more.",
+                footballDesc: "Follow all major leagues including Premier League, La Liga, Serie A, Bundesliga, and Champions League.",
+                basketballDesc: "Get the latest NBA scores, EuroLeague updates, and basketball news from around the world.",
+                aboutTitle: "About Us",
+                aboutDesc1: "Ganza Sport Hub was founded in 2025 with a simple mission: to bring sports fans together through comprehensive coverage of their favorite games and athletes. Our platform provides up-to-date information on fixtures, and news across multiple sports.",
+                aboutDesc2: "We believe that sports have the power to unite people across cultures and continents. That's why we've built a platform that celebrates this universal language, providing fans with everything they need to stay connected to the games they love.",
+                aboutDesc3: "Our team of dedicated sports enthusiasts works around the clock to ensure you have access to the most accurate and timely information. Whether you're a casual fan or a die-hard supporter, Ganza Sport Hub is your go-to destination for all things sports.",
+                aboutCaption: "Caption:",
+                aboutCaptionText: '"Every Score, Every Story"',
+                privacyTitle: "Privacy Policy",
+                privacyDesc1: "At Ganza Sport Hub, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.",
+                privacyDesc2: "We do not share your data with third parties without your consent. We use cookies and analytics tools to improve our website and provide a personalized experience.",
+                privacyDesc3: "By using our website, you agree to our terms of service and privacy practices. You have the right to access, modify, or delete your information at any time.",
+                newsTitle: "Latest News",
+                sportsNews: "Sports",
+                footballNews: "Football",
+                basketballNews: "Basketball",
+                loading: "Loading news...",
+                date: "Date",
+                homeTeam: "Home Team",
+                awayTeam: "Away Team",
+                time: "Time",
+                venue: "Venue",
+                timezone: "Timezone",
+                prediction: "Prediction",
+                footballTitle: "⚽ Football"
+            },
+            es: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Cada Puntuación, Cada Historia"',
+                home: "Inicio",
+                fixtures: "Próximos Partidos",
+                football: "Fútbol",
+                basketball: "Baloncesto",
+                news: "Noticias",
+                about: "Sobre Nosotros",
+                privacy: "Política de Privacidad",
+                currentLang: "Español",
+                english: "Inglés",
+                spanish: "Español",
+                french: "Francés",
+                chinese: "Chino",
+                arabic: "Árabe",
+                hindi: "Hindi",
+                portuguese: "Portugués",
+                russian: "Ruso",
+                japanese: "Japonés",
+                german: "Alemán",
+                italian: "Italiano",
+                korean: "Coreano",
+                turkish: "Turco",
+                welcomeTitle: "Bienvenido a Ganza Sport Hub",
+                welcomeDesc: "Tu destino definitivo para partidos, noticias e historias del mundo del deporte. Mantente actualizado con los últimos acontecimientos en fútbol, baloncesto, voleibol y más.",
+                footballDesc: "Sigue todas las ligas importantes, incluida la Premier League, La Liga, Serie A, Bundesliga y Champions League.",
+                basketballDesc: "Obtén los últimos resultados de la NBA, actualizaciones de la EuroLeague y noticias de baloncesto de todo el mundo.",
+                aboutTitle: "Sobre Nosotros",
+                aboutDesc1: "Ganza Sport Hub fue fundada en 2025 con una misión simple: unir a los aficionados al deporte a través de una cobertura integral de sus juegos y atletas favoritos. Nuestra plataforma proporciona información actualizada sobre partidos y noticias en múltiples deportes.",
+                aboutDesc2: "Creemos que el deporte tiene el poder de unir a las personas a través de culturas y continentes. Por eso hemos construido una plataforma que celebra este lenguaje universal, proporcionando a los aficionados todo lo que necesitan para mantenerse conectados con los juegos que aman.",
+                aboutDesc3: "Nuestro equipo de entusiastas del deporte dedicados trabaja las 24 horas para garantizar que tengas acceso a la información más precisa y oportuna. Ya seas un aficionado casual o un seguidor incondicional, Ganza Sport Hub es tu destino para todo lo relacionado con el deporte.",
+                aboutCaption: "Lema:",
+                aboutCaptionText: '"Cada Puntuación, Cada Historia"',
+                privacyTitle: "Política de Privacidad",
+                privacyDesc1: "En Ganza Sport Hub, nos tomamos en serio su privacidad. Esta política describe cómo recopilamos, usamos y protegemos su información personal.",
+                privacyDesc2: "No compartimos sus datos con terceros sin su consentimiento. Utilizamos cookies y herramientas de análisis para mejorar nuestro sitio web y proporcionar una experiencia personalizada.",
+                privacyDesc3: "Al utilizar nuestro sitio web, usted acepta nuestros términos de servicio y prácticas de privacidad. Tiene derecho a acceder, modificar o eliminar su información en cualquier momento.",
+                newsTitle: "Últimas Noticias",
+                sportsNews: "Deportes",
+                footballNews: "Fútbol",
+                basketballNews: "Baloncesto",
+                loading: "Cargando noticias...",
+                date: "Fecha",
+                homeTeam: "Equipo Local",
+                awayTeam: "Equipo Visitante",
+                time: "Hora",
+                venue: "Lugar",
+                timezone: "Zona Horaria",
+                prediction: "Predicción",
+                footballTitle: "⚽ Fútbol"
+            },
+            fr: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Chaque Score, Chaque Histoire"',
+                home: "Accueil",
+                fixtures: "Prochains Matchs",
+                football: "Football",
+                basketball: "Basketball",
+                news: "Actualités",
+                about: "À Propos",
+                privacy: "Politique de Confidentialité",
+                currentLang: "Français",
+                english: "Anglais",
+                spanish: "Espagnol",
+                french: "Français",
+                chinese: "Chinois",
+                arabic: "Arabe",
+                hindi: "Hindi",
+                portuguese: "Portugais",
+                russian: "Russe",
+                japanese: "Japonais",
+                german: "Allemand",
+                italian: "Italien",
+                korean: "Coréen",
+                turkish: "Turc",
+                welcomeTitle: "Bienvenue sur Ganza Sport Hub",
+                welcomeDesc: "Votre destination ultime pour les matchs, actualités et histoires du monde du sport. Restez informé des derniers événements en football, basketball, volleyball et plus encore.",
+                footballDesc: "Suivez toutes les grandes ligues dont la Premier League, La Liga, Serie A, Bundesliga et Ligue des Champions.",
+                basketballDesc: "Obtenez les derniers scores NBA, mises à jour de l'EuroLeague et actualités basketball du monde entier.",
+                aboutTitle: "À Propos de Nous",
+                aboutDesc1: "Ganza Sport Hub a été fondée en 2025 avec une mission simple : rassembler les fans de sport grâce à une couverture complète de leurs jeux et athlètes préférés. Notre plateforme fournit des informations à jour sur les matchs et actualités à travers plusieurs sports.",
+                aboutDesc2: "Nous croyons que le sport a le pouvoir d'unir les personnes à travers les cultures et les continents. C'est pourquoi nous avons construit une plateforme qui célèbre ce langage universel, fournissant aux fans tout ce dont ils ont besoin pour rester connectés aux jeux qu'ils aiment.",
+                aboutDesc3: "Notre équipe d'enthousiastes du sport dévoués travaille 24 heures sur 24 pour vous assurer un accès aux informations les plus précises et opportunes. Que vous soyez un fan occasionnel ou un supporter inconditionnel, Ganza Sport Hub est votre destination pour tout ce qui concerne le sport.",
+                aboutCaption: "Légende :",
+                aboutCaptionText: '"Chaque Score, Chaque Histoire"',
+                privacyTitle: "Politique de Confidentialité",
+                privacyDesc1: "Chez Ganza Sport Hub, nous prenons votre vie privée au sérieux. Cette politique décrit comment nous collectons, utilisons et protégeons vos informations personnelles.",
+                privacyDesc2: "Nous ne partageons pas vos données avec des tiers sans votre consentimiento. Nous utilisons des cookies et des outils d'analyse pour améliorer notre site web et fournir une expérience personnalisée.",
+                privacyDesc3: "En utilisant notre site web, vous acceptez nos conditions de service et pratiques de confidentialité. Vous avez le droit d'accéder, de modifier ou de supprimer vos informations à tout moment.",
+                newsTitle: "Dernières Actualités",
+                sportsNews: "Sports",
+                footballNews: "Football",
+                basketballNews: "Basketball",
+                loading: "Chargement des actualités...",
+                date: "Date",
+                homeTeam: "Équipe Domicile",
+                awayTeam: "Équipe Extérieur",
+                time: "Heure",
+                venue: "Lieu",
+                timezone: "Fuseau Horaire",
+                prediction: "Prédiction",
+                footballTitle: "⚽ Football"
+            },
+            zh: {
+                siteTitle: "甘扎体育中心",
+                siteSlogan: '"每个比分，每个故事"',
+                home: "首页",
+                fixtures: "即将举行的比赛",
+                football: "足球",
+                basketball: "篮球",
+                news: "新闻",
+                about: "关于我们",
+                privacy: "隐私政策",
+                currentLang: "中文",
+                english: "英语",
+                spanish: "西班牙语",
+                french: "法语",
+                chinese: "中文",
+                arabic: "阿拉伯语",
+                hindi: "印地语",
+                portuguese: "葡萄牙语",
+                russian: "俄语",
+                japanese: "日语",
+                german: "德语",
+                italian: "意大利语",
+                korean: "韩语",
+                turkish: "土耳其语",
+                welcomeTitle: "欢迎来到甘扎体育中心",
+                welcomeDesc: "您获取体育赛事、新闻和故事的终极目的地。随时了解足球、篮球、排球等领域的最新动态。",
+                footballDesc: "关注所有主要联赛，包括英超、西甲、意甲、德甲和欧冠。",
+                basketballDesc: "获取最新的NBA比分、欧洲联赛更新和来自世界各地的篮球新闻。",
+                aboutTitle: "关于我们",
+                aboutDesc1: "甘扎体育中心成立于2025年，使命很简单：通过全面报道粉丝喜爱的比赛和运动员，将体育迷们聚集在一起。我们的平台提供跨多个体育项目的最新赛程和新闻信息。",
+                aboutDesc2: "我们相信体育具有跨越文化和大陆团结人们的力量。这就是为什么我们建立了一个庆祝这种通用语言的平台，为粉丝提供与他们热爱的比赛保持联系所需的一切。",
+                aboutDesc3: "我们敬业的体育爱好者团队全天候工作，确保您能够访问最准确和及时的信息。无论您是休闲粉丝还是铁杆支持者，甘扎体育中心都是您获取所有体育相关内容的首选目的地。",
+                aboutCaption: "标语：",
+                aboutCaptionText: '"每个比分，每个故事"',
+                privacyTitle: "隐私政策",
+                privacyDesc1: "在甘扎体育中心，我们非常重视您的隐私。本政策概述了我们如何收集、使用和保护您的个人信息。",
+                privacyDesc2: "未经您同意，我们不会与第三方共享您的数据。我们使用cookie和分析工具来改进我们的网站并提供个性化体验。",
+                privacyDesc3: "使用我们的网站即表示您同意我们的服务条款和隐私实践。您有权随时访问、修改或删除您的信息。",
+                newsTitle: "最新新闻",
+                sportsNews: "体育",
+                footballNews: "足球",
+                basketballNews: "篮球",
+                loading: "正在加载新闻...",
+                date: "日期",
+                homeTeam: "主队",
+                awayTeam: "客队",
+                time: "时间",
+                venue: "场地",
+                timezone: "时区",
+                prediction: "预测",
+                footballTitle: "⚽ 足球"
+            },
+            ar: {
+                siteTitle: "مركز جانزا الرياضي",
+                siteSlogan: '"كل نتيجة، كل قصة"',
+                home: "الرئيسية",
+                fixtures: "المباريات القادمة",
+                football: "كرة القدم",
+                basketball: "كرة السلة",
+                news: "الأخبار",
+                about: "من نحن",
+                privacy: "سياسة الخصوصية",
+                currentLang: "العربية",
+                english: "الإنجليزية",
+                spanish: "الإسبانية",
+                french: "الفرنسية",
+                chinese: "الصينية",
+                arabic: "العربية",
+                hindi: "الهندية",
+                portuguese: "البرتغالية",
+                russian: "الروسية",
+                japanese: "اليابانية",
+                german: "الألمانية",
+                italian: "الإيطالية",
+                korean: "الكورية",
+                turkish: "التركية",
+                welcomeTitle: "مرحبًا بكم في مركز جانزا الرياضي",
+                welcomeDesc: "وجهتك النهائية للمباريات والأخبار والقصص من عالم الرياضة. ابق على اطلاع بآخر المستجدات في كرة القدم وكرة السلة والكرة الطائرة والمزيد.",
+                footballDesc: "تابع جميع البطولات الكبرى بما في ذلك الدوري الإنجليزي الممتاز والليغا والدوري الإيطالي والدرجة الأولى الألماني ودوري أبطال أوروبا.",
+                basketballDesc: "احصل على أحدث نتائج الدوري الاميركي للمحترفين وتحديثات الدوري الأوروبي وأخبار كرة السلة من جميع أنحاء العالم.",
+                aboutTitle: "من نحن",
+                aboutDesc1: "تأسس مركز جانزا الرياضي في عام 2025 بمهمة بسيطة: جمع عشاق الرياضة معًا من خلال التغطية الشاملة لألعابهم ورياضيهم المفضلين. توفر منصتنا معلومات محدثة عن المباريات والأخبار عبر رياضات متعددة.",
+                aboutDesc2: "نعتقد أن الرياضة لديها القدرة على توحيد الناس عبر الثقافات والقارات. لهذا السبب قمنا ببناء منصة تحتفل بهذه اللغة العالمية، وتوفر للجماهير كل ما يحتاجونه للبقاء على اتصال بالألعاب التي يحبونها.",
+                aboutDesc3: "يعمل فريقنا من المتحمسين للرياضة المخلصين على مدار الساعة لضمان وصولك إلى المعلومات الأكثر دقة وفي الوقت المناسب. سواء كنت من المشجعين العاديين أو من المؤيدين المخلصين، فإن مركز جانزا الرياضي هو وجهتك المفضلة لكل ما يتعلق بالرياضة.",
+                aboutCaption: "الشعار:",
+                aboutCaptionText: '"كل نتيجة، كل قصة"',
+                privacyTitle: "سياسة الخصوصية",
+                privacyDesc1: "في مركز جانزا الرياضي، نأخذ خصوصيتك على محمل الجد. تحدد هذه السياسة كيفية جمع معلوماتك الشخصية واستخدامها وحمايتها.",
+                privacyDesc2: "نحن لا نشارك بياناتك مع أطراف ثالثة دون موافقتك. نستخدم ملفات تعريف الارتباط وأدوات التحليلات لتحسين موقعنا وتقديم تجربة مخصصة.",
+                privacyDesc3: "باستخدام موقعنا، فإنك توافق على شروط الخدمة وممارسات الخصوصية الخاصة بنا. يحق لك الوصول إلى معلوماتك وتعديلها أو حذفها في أي وقت.",
+                newsTitle: "آخر الأخبار",
+                sportsNews: "الرياضة",
+                footballNews: "كرة القدم",
+                basketballNews: "كرة السلة",
+                loading: "جاري تحميل الأخبار...",
+                date: "التاريخ",
+                homeTeam: "الفريق المضيف",
+                awayTeam: "الفريق الضيف",
+                time: "الوقت",
+                venue: "المكان",
+                timezone: "المنطقة الزمنية",
+                prediction: "التنبؤ",
+                footballTitle: "⚽ كرة القدم"
+            },
+            hi: {
+                siteTitle: "गंजा स्पोर्ट हब",
+                siteSlogan: '"हर स्कोर, हर कहानी"',
+                home: "होम",
+                fixtures: "आगामी फिक्स्चर",
+                football: "फुटबॉल",
+                basketball: "बास्केटबॉल",
+                news: "समाचार",
+                about: "हमारे बारे में",
+                privacy: "गोपनीयता नीति",
+                currentLang: "हिन्दी",
+                english: "अंग्रेज़ी",
+                spanish: "स्पेनिश",
+                french: "फ्रेंच",
+                chinese: "चीनी",
+                arabic: "अरबी",
+                hindi: "हिन्दी",
+                portuguese: "पुर्तगाली",
+                russian: "रूसी",
+                japanese: "जापानी",
+                german: "जर्मन",
+                italian: "इतालवी",
+                korean: "कोरियाई",
+                turkish: "तुर्की",
+                welcomeTitle: "गंजा स्पोर्ट हब में आपका स्वागत है",
+                welcomeDesc: "खेल जगत से फिक्स्चर, समाचार और कहानियों के लिए आपकी अंतिम मंजिल। फुटबॉल, बास्केटबॉल, वॉलीबॉल और अन्य में नवीनतम घटनाओं से अपडेट रहें।",
+                footballDesc: "प्रीमियर लीग, ला लीगा, सीरी ए, बुंडेसलीगा और चैंपियंस लीग सहित सभी प्रमुख लीगों का पालन करें।",
+                basketballDesc: "दुनिया भर से नवीनतम एनबीए स्कोर, यूरोलीग अपडेट और बास्केटबॉल समाचार प्राप्त करें।",
+                aboutTitle: "हमारे बारे में",
+                aboutDesc1: "गंजा स्पोर्ट हब की स्थापना 2025 में एक साधारण मिशन के साथ की गई थी: अपने पसंदीदा खेलों और एथलीटों की व्यापक कवरेज के माध्यम से खेल प्रशंसकों को एक साथ लाना। हमारा प्लेटफॉर्म कई खेलों में फिक्स्चर और समाचारों पर अद्यतन जानकारी प्रदान करता है।",
+                aboutDesc2: "हम मानते हैं कि खेलों में संस्कृतियों और महाद्वीपों में लोगों को एकजुट करने की शक्ति है। इसीलिए हमने एक ऐसा प्लेटफॉर्म बनाया है जो इस सार्वभौमिक भाषा का जश्न मनाता है, जो प्रशंसकों को वह सब कुछ प्रदान करता है जो उन्हें उन खेलों से जुड़े रहने के लिए आवश्यक है जिनसे वे प्यार करते हैं।",
+                aboutDesc3: "समर्पित खेल उत्साही हमारी टीम चौबीसों घंटे काम करती है ताकि यह सुनिश्चित किया जा सके कि आपके पास सबसे सटीक और समय पर जानकारी तक पहुंच हो। चाहे आप एक आकस्मिक प्रशंसक हों या कट्टर समर्थक, गंजा स्पोर्ट हब खेलों से संबंधित सभी चीजों के लिए आपकी पसंदीदा मंजिल है।",
+                aboutCaption: "कैप्शन:",
+                aboutCaptionText: '"हर स्कोर, हर कहानी"',
+                privacyTitle: "गोपनीयता नीति",
+                privacyDesc1: "गंजा स्पोर्ट हब में, हम आपकी गोपनीयता को गंभीरता से लेते हैं। यह नीति बताती है कि हम आपकी व्यक्तिगत जानकारी कैसे एकत्र, उपयोग और सुरक्षित करते हैं।",
+                privacyDesc2: "हम आपकी सहमति के बिना तीसरे पक्ष के साथ आपके डेटा को साझा नहीं करते हैं। हम अपनी वेबसाइट में सुधार और व्यक्तिगत अनुभव प्रदान करने के लिए कुकीज़ और विश्लेषणात्मक उपकरणों का उपयोग करते हैं।",
+                privacyDesc3: "हमारी वेबसाइट का उपयोग करके, आप हमारी सेवा की शर्तों और गोपनीयता प्रथाओं से सहमत होते हैं। आपको किसी भी समय अपनी जानकारी तक पहुंचने, संशोधित करने या हटाने का अधिकार है।",
+                newsTitle: "ताजा समाचार",
+                sportsNews: "खेल",
+                footballNews: "फुटबॉल",
+                basketballNews: "बास्केटबॉल",
+                loading: "समाचार लोड हो रहे हैं...",
+                date: "तारीख",
+                homeTeam: "होम टीम",
+                awayTeam: "अवे टीम",
+                time: "समय",
+                venue: "स्थान",
+                timezone: "समय क्षेत्र",
+                prediction: "भविष्यवाणी",
+                footballTitle: "⚽ फुटबॉल"
+            },
+            pt: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Cada Placar, Cada História"',
+                home: "Início",
+                fixtures: "Próximos Jogos",
+                football: "Futebol",
+                basketball: "Basquete",
+                news: "Notícias",
+                about: "Sobre Nós",
+                privacy: "Política de Privacidade",
+                currentLang: "Português",
+                english: "Inglês",
+                spanish: "Espanhol",
+                french: "Francês",
+                chinese: "Chinês",
+                arabic: "Árabe",
+                hindi: "Hindi",
+                portuguese: "Português",
+                russian: "Russo",
+                japanese: "Japonês",
+                german: "Alemão",
+                italian: "Italiano",
+                korean: "Coreano",
+                turkish: "Turco",
+                welcomeTitle: "Bem-vindo ao Ganza Sport Hub",
+                welcomeDesc: "Seu destino final para jogos, notícias e histórias do mundo dos esportes. Mantenha-se atualizado com os últimos acontecimentos em futebol, basquete, vôlei e mais.",
+                footballDesc: "Acompanhe todas as ligas principais, incluindo Premier League, La Liga, Serie A, Bundesliga e Champions League.",
+                basketballDesc: "Obtenha os últimos resultados da NBA, atualizações da EuroLeague e notícias de basquete de todo o mundo.",
+                aboutTitle: "Sobre Nós",
+                aboutDesc1: "Ganza Sport Hub foi fundada em 2025 com uma missão simples: unir os fãs de esportes por meio da cobertura abrangente de seus jogos e atletas favoritos. Nossa plataforma fornece informações atualizadas sobre jogos e notícias em vários esportes.",
+                aboutDesc2: "Acreditamos que os esportes têm o poder de unir pessoas entre culturas e continentes. É por isso que construímos uma plataforma que celebra essa linguagem universal, fornecendo aos fãs tudo o que precisam para permanecer conectados aos jogos que amam.",
+                aboutDesc3: "Nossa equipe de entusiastas de esportes dedicados trabalha 24 horas por dia para garantir que você tenha acesso às informações mais precisas e oportunas. Seja você um fã casual ou um torcedor fanático, Ganza Sport Hub é seu destino para tudo relacionado a esportes.",
+                aboutCaption: "Legenda:",
+                aboutCaptionText: '"Cada Placar, Cada História"',
+                privacyTitle: "Política de Privacidade",
+                privacyDesc1: "No Ganza Sport Hub, levamos sua privacidade a sério. Esta política descreve como coletamos, usamos e protegemos suas informações pessoais.",
+                privacyDesc2: "Não compartilhamos seus dados com terceiros sem seu consentimento. Usamos cookies e ferramentas analíticas para melhorar nosso site e fornecer uma experiência personalizada.",
+                privacyDesc3: "Ao usar nosso site, você concorda com nossos termos de serviço e práticas de privacidade. Você tem o direito de acessar, modificar ou excluir suas informações a qualquer momento.",
+                newsTitle: "Últimas Notícias",
+                sportsNews: "Esportes",
+                footballNews: "Futebol",
+                basketballNews: "Basquete",
+                loading: "Carregando notícias...",
+                date: "Data",
+                homeTeam: "Time da Casa",
+                awayTeam: "Time Visitante",
+                time: "Hora",
+                venue: "Local",
+                timezone: "Fuso Horário",
+                prediction: "Previsão",
+                footballTitle: "⚽ Futebol"
+            },
+            ru: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Каждый Счет, Каждая История"',
+                home: "Главная",
+                fixtures: "Предстоящие Матчи",
+                football: "Футбол",
+                basketball: "Баскетбол",
+                news: "Новости",
+                about: "О Нас",
+                privacy: "Политика Конфиденциальности",
+                currentLang: "Русский",
+                english: "Английский",
+                spanish: "Испанский",
+                french: "Французский",
+                chinese: "Китайский",
+                arabic: "Арабский",
+                hindi: "Хинди",
+                portuguese: "Португальский",
+                russian: "Русский",
+                japanese: "Японский",
+                german: "Немецкий",
+                italian: "Итальянский",
+                korean: "Корейский",
+                turkish: "Турецкий",
+                welcomeTitle: "Добро пожаловать в Ganza Sport Hub",
+                welcomeDesc: "Ваш конечный пункт назначения для матчей, новостей и историй из мира спорта. Будьте в курсе последних событий в футболе, баскетболе, волейболе и многом другом.",
+                footballDesc: "Следите за всеми основными лигами, включая Премьер-лигу, Ла Лигу, Серию А, Бундеслигу и Лигу Чемпионов.",
+                basketballDesc: "Получайте последние результаты НБА, обновления Евролиги и новости баскетбола со всего мира.",
+                aboutTitle: "О Нас",
+                aboutDesc1: "Ganza Sport Hub была основана в 2025 году с простой миссией: объединить болельщиков спорта через всестороннее освещение их любимых игр и спортсменов. Наша платформа предоставляет актуальную информацию о матчах и новостях в различных видах спорта.",
+                aboutDesc2: "Мы верим, что спорт обладает силой объединять людей через культуры и континенты. Именно поэтому мы построили платформу, которая празднует этот универсальный язык, предоставляя болельщикам все, что им нужно, чтобы оставаться на связи с играми, которые они любят.",
+                aboutDesc3: "Наша команда преданных энтузиастов спорта работает круглосуточно, чтобы гарантировать вам доступ к самой точной и своевременной информации. Будь вы случайным болельщиком или заядлым сторонником, Ganza Sport Hub - ваш главный пункт назначения для всего, что связано со спортом.",
+                aboutCaption: "Девиз:",
+                aboutCaptionText: '"Каждый Счет, Каждая История"',
+                privacyTitle: "Политика Конфиденциальности",
+                privacyDesc1: "В Ganza Sport Hub мы серьезно относимся к вашей конфиденциальности. Эта политика описывает, как мы собираем, используем и защищаем вашу личную информацию.",
+                privacyDesc2: "Мы не передаем ваши данные третьим лицам без вашего согласия. Мы используем файлы cookie и аналитические инструменты для улучшения нашего сайта и предоставления персонализированного опыта.",
+                privacyDesc3: "Используя наш сайт, вы соглашаетесь с нашими условиями обслуживания и практикой конфиденциальности. Вы имеете право получать доступ, изменять или удалять вашу информацию в любое время.",
+                newsTitle: "Последние Новости",
+                sportsNews: "Спорт",
+                footballNews: "Футбол",
+                basketballNews: "Баскетбол",
+                loading: "Загрузка новостей...",
+                date: "Дата",
+                homeTeam: "Домашняя Команда",
+                awayTeam: "Гостевая Команда",
+                time: "Время",
+                venue: "Место",
+                timezone: "Часовой Пояс",
+                prediction: "Прогноз",
+                footballTitle: "⚽ Футбол"
+            },
+            ja: {
+                siteTitle: "ガンザスポーツハブ",
+                siteSlogan: '"すべてのスコア、すべてのストーリー"',
+                home: "ホーム",
+                fixtures: "今後の試合",
+                football: "サッカー",
+                basketball: "バスケットボール",
+                news: "ニュース",
+                about: "会社概要",
+                privacy: "プライバシーポリシー",
+                currentLang: "日本語",
+                english: "英語",
+                spanish: "スペイン語",
+                french: "フランス語",
+                chinese: "中国語",
+                arabic: "アラビア語",
+                hindi: "ヒンディー語",
+                portuguese: "ポルトガル語",
+                russian: "ロシア語",
+                japanese: "日本語",
+                german: "ドイツ語",
+                italian: "イタリア語",
+                korean: "韓国語",
+                turkish: "トルコ語",
+                welcomeTitle: "ガンザスポーツハブへようこそ",
+                welcomeDesc: "スポーツ界の試合、ニュース、ストーリーの究極の目的地。サッカー、バスケットボール、バレーボールなどの最新情報を常に把握してください。",
+                footballDesc: "プレミアリーグ、ラ・リーガ、セリエA、ブンデスリーガ、チャンピオンズリーグを含むすべての主要リーグをフォローします。",
+                basketballDesc: "世界中の最新のNBAスコア、ユーロリーグの更新、バスケットボールのニュースを入手してください。",
+                aboutTitle: "会社概要",
+                aboutDesc1: "ガンザスポーツハブは2025年に、好きなゲームやアスリートの包括的な報道を通じてスポーツファンを結集するというシンプルな使命で設立されました。私たちのプラットフォームは、複数のスポーツにおける試合とニュースに関する最新情報を提供します。",
+                aboutDesc2: "私たちは、スポーツには文化や大陸を越えて人々を結びつける力があると信じています。だからこそ、私たちはこの普遍的な言語を祝うプラットフォームを構築し、ファンが愛するゲームにつながるために必要なすべてを提供します。",
+                aboutDesc3: "献身的なスポーツ愛好家のチームは、24時間体制で最も正確でタイムリーな情報にアクセスできるようにします。カジュアルなファンでも熱心なサポーターでも、ガンザスポーツハブはスポーツに関するすべてのことへのあなたの行き先です。",
+                aboutCaption: "キャプション:",
+                aboutCaptionText: '"すべてのスコア、すべてのストーリー"',
+                privacyTitle: "プライバシーポリシー",
+                privacyDesc1: "ガンザスポーツハブでは、あなたのプライバシーを真剣に受け止めています。このポリシーは、個人情報の収集、使用、保護方法を概説しています。",
+                privacyDesc2: "あなたの同意なしに第三者とデータを共有することはありません。私たちは、ウェブサイトを改善し、パーソナライズされた体験を提供するためにクッキーと分析ツールを使用します。",
+                privacyDesc3: "当社のウェブサイトを使用することにより、あなたは当社の利用規約とプライバシー慣行に同意したことになります。あなたはいつでも自分の情報にアクセス、修正、削除する権利があります。",
+                newsTitle: "最新ニュース",
+                sportsNews: "スポーツ",
+                footballNews: "サッカー",
+                basketballNews: "バスケットボール",
+                loading: "ニュースを読み込み中...",
+                date: "日付",
+                homeTeam: "ホームチーム",
+                awayTeam: "アウェイチーム",
+                time: "時間",
+                venue: "会場",
+                timezone: "タイムゾーン",
+                prediction: "予測",
+                footballTitle: "⚽ サッカー"
+            },
+            de: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Jedes Ergebnis, Jede Geschichte"',
+                home: "Startseite",
+                fixtures: "Kommende Spiele",
+                football: "Fußball",
+                basketball: "Basketball",
+                news: "Nachrichten",
+                about: "Über Uns",
+                privacy: "Datenschutzrichtlinie",
+                currentLang: "Deutsch",
+                english: "Englisch",
+                spanish: "Spanisch",
+                french: "Französisch",
+                chinese: "Chinesisch",
+                arabic: "Arabisch",
+                hindi: "Hindi",
+                portuguese: "Portugiesisch",
+                russian: "Russisch",
+                japanese: "Japanisch",
+                german: "Deutsch",
+                italian: "Italienisch",
+                korean: "Koreanisch",
+                turkish: "Türkisch",
+                welcomeTitle: "Willkommen bei Ganza Sport Hub",
+                welcomeDesc: "Ihr ultimatives Ziel für Spiele, Nachrichten und Geschichten aus der Welt des Sports. Bleiben Sie auf dem Laufenden mit den neuesten Ereignissen in Fußball, Basketball, Volleyball und mehr.",
+                footballDesc: "Verfolgen Sie alle großen Ligen, einschließlich Premier League, La Liga, Serie A, Bundesliga und Champions League.",
+                basketballDesc: "Erhalten Sie die neuesten NBA-Ergebnisse, EuroLeague-Updates und Basketball-Nachrichten aus der ganzen Welt.",
+                aboutTitle: "Über Uns",
+                aboutDesc1: "Ganza Sport Hub wurde 2025 mit einer einfachen Mission gegründet: Sportfans durch umfassende Berichterstattung über ihre Lieblingsspiele und Athleten zusammenzubringen. Unsere Plattform bietet aktuelle Informationen zu Spielen und Nachrichten in mehreren Sportarten.",
+                aboutDesc2: "Wir glauben, dass Sport die Kraft hat, Menschen über Kulturen und Kontinente hinweg zu vereinen. Deshalb haben wir eine Plattform gebaut, die diese universelle Sprache feiert und den Fans alles bietet, was sie brauchen, um mit den Spielen, die sie lieben, in Verbindung zu bleiben.",
+                aboutDesc3: "Unser Team engagierter Sportenthusiasten arbeitet rund um die Uhr, um Ihnen Zugang zu den genauesten und zeitnahesten Informationen zu gewährleisten. Egal, ob Sie ein Gelegenheitsfan oder ein eingefleischter Unterstützer sind, Ganza Sport Hub ist Ihr Anlaufpunkt für alles rund um den Sport.",
+                aboutCaption: "Untertitel:",
+                aboutCaptionText: '"Jedes Ergebnis, Jede Geschichte"',
+                privacyTitle: "Datenschutzrichtlinie",
+                privacyDesc1: "Bei Ganza Sport Hub nehmen wir Ihre Privatsphäre ernst. Diese Richtlinie beschreibt, wie wir Ihre persönlichen Informationen sammeln, verwenden und schützen.",
+                privacyDesc2: "Wir geben Ihre Daten nicht ohne Ihre Zustimmung an Dritte weiter. Wir verwenden Cookies und Analysetools, um unsere Website zu verbessern und ein personalisiertes Erlebnis zu bieten.",
+                privacyDesc3: "Durch die Nutzung unserer Website stimmen Sie unseren Nutzungsbedingungen und Datenschutzpraktiken zu. Sie haben das Recht, jederzeit auf Ihre Informationen zuzugreifen, sie zu ändern oder zu löschen.",
+                newsTitle: "Neueste Nachrichten",
+                sportsNews: "Sport",
+                footballNews: "Fußball",
+                basketballNews: "Basketball",
+                loading: "Nachrichten werden geladen...",
+                date: "Datum",
+                homeTeam: "Heimmannschaft",
+                awayTeam: "Auswärtsmannschaft",
+                time: "Zeit",
+                venue: "Ort",
+                timezone: "Zeitzone",
+                prediction: "Vorhersage",
+                footballTitle: "⚽ Fußball"
+            },
+            it: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Ogni Punteggio, Ogni Storia"',
+                home: "Home",
+                fixtures: "Prossime Partite",
+                football: "Calcio",
+                basketball: "Pallacanestro",
+                news: "Notizie",
+                about: "Chi Siamo",
+                privacy: "Privacy Policy",
+                currentLang: "Italiano",
+                english: "Inglese",
+                spanish: "Spagnolo",
+                french: "Francese",
+                chinese: "Cinese",
+                arabic: "Arabo",
+                hindi: "Hindi",
+                portuguese: "Portoghese",
+                russian: "Russo",
+                japanese: "Giapponese",
+                german: "Tedesco",
+                italian: "Italiano",
+                korean: "Coreano",
+                turkish: "Turco",
+                welcomeTitle: "Benvenuto in Ganza Sport Hub",
+                welcomeDesc: "La tua destinazione definitiva per partite, notizie e storie dal mondo dello sport. Rimani aggiornato con gli ultimi avvenimenti in calcio, pallacanestro, pallavolo e altro.",
+                footballDesc: "Segui tutti i principali campionati tra cui Premier League, La Liga, Serie A, Bundesliga e Champions League.",
+                basketballDesc: "Ottieni gli ultimi risultati NBA, aggiornamenti EuroLeague e notizie di pallacanestro da tutto il mondo.",
+                aboutTitle: "Chi Siamo",
+                aboutDesc1: "Ganza Sport Hub è stata fondata nel 2025 con una semplice missione: riunire i tifosi sportivi attraverso una copertura completa dei loro giochi e atleti preferiti. La nostra piattaforma fornisce informazioni aggiornate su partite e notizie in più sport.",
+                aboutDesc2: "Crediamo che lo sport abbia il potere di unire le persone attraverso culture e continenti. Ecco perché abbiamo costruito una piattaforma che celebra questo linguaggio universale, fornendo ai tifosi tutto ciò di cui hanno bisogno per rimanere connessi ai giochi che amano.",
+                aboutDesc3: "Il nostro team di appassionati di sport dedicati lavora 24 ore su 24 per garantirti l'accesso alle informazioni più accurate e tempestive. Che tu sia un fan occasionale o un sostenitore accanito, Ganza Sport Hub è la tua destinazione per tutto ciò che riguarda lo sport.",
+                aboutCaption: "Didascalia:",
+                aboutCaptionText: '"Ogni Punteggio, Ogni Storia"',
+                privacyTitle: "Privacy Policy",
+                privacyDesc1: "In Ganza Sport Hub, prendiamo sul serio la tua privacy. Questa politica descrive come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali.",
+                privacyDesc2: "Non condividiamo i tuoi dati con terze parti senza il tuo consenso. Utilizziamo cookie e strumenti di analisi per migliorare il nostro sito web e fornire un'esperienza personalizzata.",
+                privacyDesc3: "Utilizzando il nostro sito web, accetti i nostri termini di servizio e le pratiche sulla privacy. Hai il diritto di accedere, modificare o eliminare le tue informazioni in qualsiasi momento.",
+                newsTitle: "Ultime Notizie",
+                sportsNews: "Sport",
+                footballNews: "Calcio",
+                basketballNews: "Pallacanestro",
+                loading: "Caricamento notizie...",
+                date: "Data",
+                homeTeam: "Squadra di Casa",
+                awayTeam: "Squadra Ospite",
+                time: "Ora",
+                venue: "Luogo",
+                timezone: "Fuso Orario",
+                prediction: "Previsione",
+                footballTitle: "⚽ Calcio"
+            },
+            ko: {
+                siteTitle: "간자 스포츠 허브",
+                siteSlogan: '"모든 점수, 모든 이야기"',
+                home: "홈",
+                fixtures: "다가오는 경기",
+                football: "축구",
+                basketball: "농구",
+                news: "뉴스",
+                about: "회사 소개",
+                privacy: "개인정보 보호정책",
+                currentLang: "한국어",
+                english: "영어",
+                spanish: "스페인어",
+                french: "프랑스어",
+                chinese: "중국어",
+                arabic: "아랍어",
+                hindi: "힌디어",
+                portuguese: "포르투갈어",
+                russian: "러시아어",
+                japanese: "일본어",
+                german: "독일어",
+                italian: "이탈리아어",
+                korean: "한국어",
+                turkish: "터키어",
+                welcomeTitle: "간자 스포츠 허브에 오신 것을 환영합니다",
+                welcomeDesc: "스포츠 세계의 경기, 뉴스 및 스토리를 위한 최종 목적지입니다. 축구, 농구, 배구 등의 최신 소식을 계속 업데이트하세요.",
+                footballDesc: "프리미어 리그, 라 리가, 세리에 A, 분데스리가 및 챔피언스 리그를 포함한 모든 주요 리그를 팔로우하세요.",
+                basketballDesc: "전 세계의 최신 NBA 점수, 유로리그 업데이트 및 농구 뉴스를 받아보세요.",
+                aboutTitle: "회사 소개",
+                aboutDesc1: "간자 스포츠 허브는 2025년 좋아하는 게임과 선수들에 대한 포괄적인 보도를 통해 스포츠 팬들을 하나로 모으는 간단한 사명으로 설립되었습니다. 우리 플랫폼은 여러 스포츠에서 경기 및 뉴스에 대한 최신 정보를 제공합니다.",
+                aboutDesc2: "우리는 스포츠가 문화와 대륙을 넘어 사람들을 하나로 모을 수 있는 힘을 가지고 있다고 믿습니다. 그래서 우리는 이 보편적인 언어를 축하하는 플랫폼을 구축하여 팬들이 사랑하는 게임과 연결을 유지하는 데 필요한 모든 것을 제공합니다.",
+                aboutDesc3: "전담 스포츠 애호가 팀은 가장 정확하고 시기적절한 정보에 접근할 수 있도록 24시간 내내 작업합니다. 캐주얼 팬이든 열성적인 지지자이든, 간자 스포츠 허브는 스포츠와 관련된 모든 것에 대한 당신의 최고 목적지입니다.",
+                aboutCaption: "캡션:",
+                aboutCaptionText: '"모든 점수, 모든 이야기"',
+                privacyTitle: "개인정보 보호정책",
+                privacyDesc1: "간자 스포츠 허브에서는 귀하의 개인정보를 진지하게 받아들입니다. 이 정책은 귀하의 개인정보를 수집, 사용 및 보호하는 방법을 설명합니다.",
+                privacyDesc2: "귀하의 동의 없이 제3자와 데이터를 공유하지 않습니다. 우리는 웹사이트를 개선하고 맞춤형 경험을 제공하기 위해 쿠키 및 분석 도구를 사용합니다.",
+                privacyDesc3: "우리 웹사이트를 사용함으로써 귀하는 우리의 서비스 약관 및 개인정보 보호 관행에 동의하게 됩니다. 귀하는 언제든지 귀하의 정보에 접근, 수정 또는 삭제할 권리가 있습니다.",
+                newsTitle: "최신 뉴스",
+                sportsNews: "스포츠",
+                footballNews: "축구",
+                basketballNews: "농구",
+                loading: "뉴스를 불러오는 중...",
+                date: "날짜",
+                homeTeam: "홈 팀",
+                awayTeam: "어웨이 팀",
+                time: "시간",
+                venue: "장소",
+                timezone: "시간대",
+                prediction: "예측",
+                footballTitle: "⚽ 축구"
+            },
+            tr: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Her Skor, Her Hikaye"',
+                home: "Ana Sayfa",
+                fixtures: "Yakın Maçlar",
+                football: "Futbol",
+                basketball: "Basketbol",
+                news: "Haberler",
+                about: "Hakkımızda",
+                privacy: "Gizlilik Politikası",
+                currentLang: "Türkçe",
+                english: "İngilizce",
+                spanish: "İspanyolca",
+                french: "Fransızca",
+                chinese: "Çince",
+                arabic: "Arapça",
+                hindi: "Hintçe",
+                portuguese: "Portekizce",
+                russian: "Rusça",
+                japanese: "Japonca",
+                german: "Almanca",
+                italian: "İtalyanca",
+                korean: "Korece",
+                turkish: "Türkçe",
+                welcomeTitle: "Ganza Sport Hub'a Hoş Geldiniz",
+                welcomeDesc: "Spor dünyasından maçlar, haberler ve hikayeler için nihai destinasyonunuz. Futbol, basketbol, voleybol ve daha fazlasında en son gelişmelerle güncel kalın.",
+                footballDesc: "Premier League, La Liga, Serie A, Bundesliga ve Şampiyonlar Ligi dahil tüm büyük ligleri takip edin.",
+                basketballDesc: "Dünyanın dört bir yanından en son NBA skorlarını, EuroLeague güncellemelerini ve basketbol haberlerini alın.",
+                aboutTitle: "Hakkımızda",
+                aboutDesc1: "Ganza Sport Hub, 2025 yılında basit bir misyonla kuruldu: Spor hayranlarını en sevdikleri oyunlar ve sporcular hakkında kapsamlı kapsam yoluyla bir araya getirmek. Platformumuz, birden fazla sporda maçlar ve haberler hakkında güncel bilgiler sağlar.",
+                aboutDesc2: "Sporun kültürler ve kıtalar arasında insanları birleştirme gücüne sahip olduğuna inanıyoruz. Bu yüzden bu evrensel dili kutlayan, hayranlara sevdikleri oyunlarla bağlantıda kalmak için ihtiyaç duydukları her şeyi sağlayan bir platform inşa ettik.",
+                aboutDesc3: "Adanmış spor tutkunlarından oluşan ekibimiz, en doğru ve zamanında bilgilere erişebilmenizi sağlamak için 7/24 çalışır. İster gündelik bir hayran olun, iser sadık bir destekçi, Ganza Sport Hub sporla ilgili her şey için başvurulacak yerinizdir.",
+                aboutCaption: "Başlık:",
+                aboutCaptionText: '"Her Skor, Her Hikaye"',
+                privacyTitle: "Gizlilik Politikası",
+                privacyDesc1: "Ganza Sport Hub'da gizliliğinizi ciddiye alıyoruz. Bu politika, kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.",
+                privacyDesc2: "Sizin rızanız olmadan verilerinizi üçüncü taraflarla paylaşmıyoruz. Web sitemizi iyileştirmek ve kişiselleştirilmiş bir deneyim sunmak için çerezler ve analitik araçlar kullanıyoruz.",
+                privacyDesc3: "Web sitemizi kullanarak hizmet şartlarımızı ve gizlilik uygulamalarımızı kabul etmiş olursunuz. Bilgilerinize her zaman erişme, değiştirme veya silme hakkına sahipsiniz.",
+                newsTitle: "Son Haberler",
+                sportsNews: "Spor",
+                footballNews: "Futbol",
+                basketballNews: "Basketbol",
+                loading: "Haberler yükleniyor...",
+                date: "Tarih",
+                homeTeam: "Ev Sahibi Takım",
+                awayTeam: "Deplasman Takımı",
+                time: "Saat",
+                venue: "Mekan",
+                timezone: "Saat Dilimi",
+                prediction: "Tahmin",
+                footballTitle: "⚽ Futbol"
             }
-        });
-        
-        // Update language button text
-        const languageBtns = document.querySelectorAll('.language-btn, .mobile-dropdown-toggle[data-key="currentLang"]');
-        languageBtns.forEach(btn => {
-            btn.innerHTML = `${translations[lang].currentLang} <i class="fas fa-chevron-down"></i>`;
-        });
-        
-        // Close mobile menu if open
-        const mobileNav = document.getElementById('mobileNav');
-        mobileNav.style.display = 'none';
-        
-        console.log('Language switched to:', lang);
-    }
+        };
 
-    // Fix for scrolling to sections
-    function scrollToSection(sectionId) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+        // Current language
+        let currentLang = 'en';
+
+        // Language switching function
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const textElements = document.querySelectorAll('[data-key]');
+            
+            textElements.forEach(el => {
+                const key = el.dataset.key;
+                if(translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update language button text
+            const languageBtns = document.querySelectorAll('.language-btn, .mobile-dropdown-toggle[data-key="currentLang"]');
+            languageBtns.forEach(btn => {
+                btn.innerHTML = `${translations[lang].currentLang} <i class="fas fa-chevron-down"></i>`;
+            });
+            
             // Close mobile menu if open
             const mobileNav = document.getElementById('mobileNav');
             mobileNav.style.display = 'none';
+            
+            console.log('Language switched to:', lang);
         }
-    }
 
-    // Cookie functions
-    function showCookieNotification() {
-        const cookieNotification = document.getElementById('cookieNotification');
-        // Check if user already made a choice
-        if (!localStorage.getItem('cookiesAccepted')) {
-            setTimeout(() => {
-                cookieNotification.classList.add('show');
-            }, 1000);
+        // Fix for scrolling to sections
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileNav = document.getElementById('mobileNav');
+                mobileNav.style.display = 'none';
+            }
         }
-    }
 
-    function acceptCookies() {
-        localStorage.setItem('cookiesAccepted', 'true');
-        document.getElementById('cookieNotification').classList.remove('show');
-        console.log('Cookies accepted');
-    }
+        // Back to top functionality
+        function setupBackToTop() {
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
-    function declineCookies() {
-        localStorage.setItem('cookiesAccepted', 'false');
-        document.getElementById('cookieNotification').classList.remove('show');
-        console.log('Cookies declined');
-    }
+        // Cookie functions
+        function showCookieNotification() {
+            const cookieNotification = document.getElementById('cookieNotification');
+            // Check if user already made a choice
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    cookieNotification.classList.add('show');
+                }, 1000);
+            }
+        }
 
-    // Hamburger mobile menu
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const mobileNav = document.getElementById('mobileNav');
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', () => {
-            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieNotification').classList.remove('show');
+            console.log('Cookies accepted');
+        }
+
+       
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookieNotification').classList.remove('show');
+            console.log('Cookies declined');
+        }
+
+        // Hamburger mobile menu
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        if (hamburgerMenu) {
+            hamburgerMenu.addEventListener('click', () => {
+                mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+
+        // Mobile dropdowns
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const parent = toggle.parentElement;
+                parent.classList.toggle('active');
+            });
         });
-    }
 
-    // Mobile dropdowns
-    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const parent = toggle.parentElement;
-            parent.classList.toggle('active');
-        });
-    });
+        // REAL NEWS API FUNCTION
+        async function fetchNews(category = 'sports') {
+            const newsContainer = document.getElementById('newsContainer');
+            const newsLoading = document.getElementById('newsLoading');
+            
+            if (!newsContainer) return;
+            
+            newsContainer.innerHTML = '';
+            newsLoading.style.display = 'block';
+            
+            try {
+                // Map categories to search queries
+                const queries = {
+                    sports: 'sports',
+                    football: 'football OR soccer',
+                    basketball: 'basketball OR NBA'
+                };
+                
+                const query = queries[category] || 'sports';
+                
+                // GNews API URL - Works in frontend
+                const apiUrl = `https://gnews.io/api/v4/search?q=${query}&lang=${currentLang}&max=4&apikey=${GNEWS_API_KEY}`;
+                
+                console.log('🌐 Fetching news from:', apiUrl);
+                
+                const response = await fetch(apiUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('📊 API Response:', data);
+                
+                if (data.articles && data.articles.length > 0) {
+                    const newsArticles = data.articles.slice(0, 4).map(article => ({
+                        title: article.title,
+                        image: article.image || 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80',
+                        date: article.publishedAt,
+                        source: article.source.name,
+                        description: article.description || 'Click to read more about this story.'
+                    }));
+                    
+                    newsLoading.style.display = 'none';
+                    displayNews(newsArticles);
+                    
+                } else {
+                    throw new Error('No articles found from API');
+                }
+                
+            } catch (error) {
+                console.error('❌ News API Error:', error);
+                
+                // Fallback to demo news if API fails
+                newsLoading.style.display = 'none';
+                useDemoNews(category);
+                
+                // Show error message
+                newsContainer.innerHTML += `
+                    <div class="error-message">
+                        📢 Using demo news. API issue: ${error.message}
+                    </div>
+                `;
+            }
+        }
 
-    // REAL NEWS API FUNCTION
-    async function fetchNews(category = 'sports') {
-        const newsContainer = document.getElementById('newsContainer');
-        const newsLoading = document.getElementById('newsLoading');
-        
-        if (!newsContainer) return;
-        
-        newsContainer.innerHTML = '';
-        newsLoading.style.display = 'block';
-        
-        try {
-            // Map categories to search queries
-            const queries = {
-                sports: 'sports',
-                football: 'football OR soccer',
-                basketball: 'basketball OR NBA'
+        // Demo news fallback
+        function useDemoNews(category) {
+            const demoNews = {
+                sports: [
+                    {
+                        title: "🏆 Latest Sports Updates",
+                        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Sports",
+                        description: "Stay updated with the latest sports news and events from around the world."
+                    },
+                    {
+                        title: "⚽ Match Highlights",
+                        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Sports",
+                        description: "Catch up on the latest match highlights and player performances."
+                    },
+                    {
+                        title: "🏀 Team Updates",
+                        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Sports",
+                        description: "Latest updates on team strategies and player conditions."
+                    },
+                    {
+                        title: "🎾 Tournament News",
+                        image: "https://images.unsplash.com/photo-1622279457486-62dcc4a431f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Sports",
+                        description: "Updates from major sports tournaments worldwide."
+                    }
+                ],
+                football: [
+                    {
+                        title: "⚽ Premier League News",
+                        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Football",
+                        description: "Latest scores and news from Premier League matches."
+                    },
+                    {
+                        title: "🌍 International Football",
+                        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Football",
+                        description: "World Cup qualifiers and international team updates."
+                    },
+                    {
+                        title: "⭐ Player Spotlight",
+                        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Football",
+                        description: "Featured players and their recent performances."
+                    },
+                    {
+                        title: "🏟️ Match Previews",
+                        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Football",
+                        description: "Upcoming match previews and team analysis."
+                    }
+                ],
+                basketball: [
+                    {
+                        title: "🏀 NBA Updates",
+                        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Basketball",
+                        description: "Latest NBA scores, standings and player stats."
+                    },
+                    {
+                        title: "⭐ Player Performance",
+                        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Basketball",
+                        description: "Top performers and standout players this season."
+                    },
+                    {
+                        title: "🌍 EuroLeague News",
+                        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Basketball",
+                        description: "European basketball league updates and results."
+                    },
+                    {
+                        title: "🏆 Championship Race",
+                        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
+                        date: new Date().toISOString(),
+                        source: "Ganza Basketball",
+                        description: "Teams competing for championship titles this season."
+                    }
+                ]
             };
             
-            const query = queries[category] || 'sports';
+            displayNews(demoNews[category] || demoNews.sports);
+        }
+
+        function displayNews(newsArray) {
+            const newsContainer = document.getElementById('newsContainer');
+            if (!newsContainer) return;
             
-            // GNews API URL - Works in frontend
-            const apiUrl = `https://gnews.io/api/v4/search?q=${query}&lang=${currentLang}&max=4&apikey=${GNEWS_API_KEY}`;
-            
-            console.log('🌐 Fetching news from:', apiUrl);
-            
-            const response = await fetch(apiUrl);
-            
-            if (!response.ok) {
-                throw new Error(`API Error: ${response.status}`);
+            if (!newsArray || newsArray.length === 0) {
+                newsContainer.innerHTML = '<div class="error-message">No news available at the moment</div>';
+                return;
             }
             
-            const data = await response.json();
-            console.log('📊 API Response:', data);
-            
-            if (data.articles && data.articles.length > 0) {
-                const newsArticles = data.articles.slice(0, 4).map(article => ({
-                    title: article.title,
-                    image: article.image || 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80',
-                    date: article.publishedAt,
-                    source: article.source.name,
-                    description: article.description || 'Click to read more about this story.'
-                }));
-                
-                newsLoading.style.display = 'none';
-                displayNews(newsArticles);
-                
-            } else {
-                throw new Error('No articles found from API');
-            }
-            
-        } catch (error) {
-            console.error('❌ News API Error:', error);
-            
-            // Fallback to demo news if API fails
-            newsLoading.style.display = 'none';
-            useDemoNews(category);
-            
-            // Show error message
-            newsContainer.innerHTML += `
-                <div class="error-message">
-                    📢 Using demo news. API issue: ${error.message}
+            newsContainer.innerHTML = newsArray.map(article => `
+                <div class="newsCard">
+                    <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80'">
+                    <h3>${article.title}</h3>
+                    <div class="news-date">${new Date(article.date).toLocaleDateString()}</div>
+                    <div class="news-source">${article.source}</div>
+                    <p>${article.description}</p>
                 </div>
-            `;
+            `).join('');
         }
-    }
 
-    // Demo news fallback
-    function useDemoNews(category) {
-        const demoNews = {
-            sports: [
-                {
-                    title: "🏆 Latest Sports Updates",
-                    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Sports",
-                    description: "Stay updated with the latest sports news and events from around the world."
-                },
-                {
-                    title: "⚽ Match Highlights",
-                    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Sports",
-                    description: "Catch up on the latest match highlights and player performances."
-                },
-                {
-                    title: "🏀 Team Updates",
-                    image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Sports",
-                    description: "Latest updates on team strategies and player conditions."
-                },
-                {
-                    title: "🎾 Tournament News",
-                    image: "https://images.unsplash.com/photo-1622279457486-62dcc4a431f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Sports",
-                    description: "Updates from major sports tournaments worldwide."
-                }
-            ],
-            football: [
-                {
-                    title: "⚽ Premier League News",
-                    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Football",
-                    description: "Latest scores and news from Premier League matches."
-                },
-                {
-                    title: "🌍 International Football",
-                    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Football",
-                    description: "World Cup qualifiers and international team updates."
-                },
-                {
-                    title: "⭐ Player Spotlight",
-                    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Football",
-                    description: "Featured players and their recent performances."
-                },
-                {
-                    title: "🏟️ Match Previews",
-                    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Football",
-                    description: "Upcoming match previews and team analysis."
-                }
-            ],
-            basketball: [
-                {
-                    title: "🏀 NBA Updates",
-                    image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Basketball",
-                    description: "Latest NBA scores, standings and player stats."
-                },
-                {
-                    title: "⭐ Player Performance",
-                    image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Basketball",
-                    description: "Top performers and standout players this season."
-                },
-                {
-                    title: "🌍 EuroLeague News",
-                    image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Basketball",
-                    description: "European basketball league updates and results."
-                },
-                {
-                    title: "🏆 Championship Race",
-                    image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80",
-                    date: new Date().toISOString(),
-                    source: "Ganza Basketball",
-                    description: "Teams competing for championship titles this season."
-                }
-            ]
-        };
-        
-        displayNews(demoNews[category] || demoNews.sports);
-    }
-
-    function displayNews(newsArray) {
-        const newsContainer = document.getElementById('newsContainer');
-        if (!newsContainer) return;
-        
-        if (!newsArray || newsArray.length === 0) {
-            newsContainer.innerHTML = '<div class="error-message">No news available at the moment</div>';
-            return;
-        }
-        
-        newsContainer.innerHTML = newsArray.map(article => `
-            <div class="newsCard">
-                <img src="${article.image}" alt="${article.title}" onerror="this.src='https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=150&q=80'">
-                <h3>${article.title}</h3>
-                <div class="news-date">${new Date(article.date).toLocaleDateString()}</div>
-                <div class="news-source">${article.source}</div>
-                <p>${article.description}</p>
-            </div>
-        `).join('');
-    }
-
-    // News filter buttons
-    document.querySelectorAll('.news-filter button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.news-filter button').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            fetchNews(btn.dataset.category);
-        });
-    });
-
-    // Initialize everything when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        // Show cookie notification
-        showCookieNotification();
-        
-        // Add click events to all language links
-        document.querySelectorAll('[data-lang]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                switchLanguage(lang);
-            });
-        });
-        
-        // Add click events to all fixture links
-        document.querySelectorAll('.fixtures-options a, .mobile-dropdown-content a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const sectionId = this.getAttribute('href').substring(1);
-                scrollToSection(sectionId);
+        // News filter buttons
+        document.querySelectorAll('.news-filter button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.news-filter button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                fetchNews(btn.dataset.category);
             });
         });
 
-        // Start with sports news
-        fetchNews('sports');
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show cookie notification
+            showCookieNotification();
+            
+            // Set up back to top button
+            setupBackToTop();
+            
+            // Add click events to all language links
+            document.querySelectorAll('[data-lang]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            
+            // Add click events to all fixture links
+            document.querySelectorAll('.fixtures-options a, .mobile-dropdown-content a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    scrollToSection(sectionId);
+                });
+            });
 
-        console.log('Ganza Sport Hub initialized successfully!');
-        console.log('API Key:', GNEWS_API_KEY);
-    });
-</script>
+            // Start with sports news
+            fetchNews('sports');
+
+            console.log('Ganza Sport Hub initialized successfully!');
+            console.log('API Key:', GNEWS_API_KEY);
+        });
+    </script>
+
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </body>
 </html>
