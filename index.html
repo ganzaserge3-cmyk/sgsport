@@ -8,42 +8,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Google AdSense Library Script - Only loaded on content pages -->
-    <script>
-        // Check if current page has substantial content (not policy pages)
-        function shouldShowAds() {
-            // List of pages where ads should NOT appear
-            const noAdPages = ['about', 'privacy', 'contact', 'coming-soon', 'under-construction'];
-            const currentPath = window.location.pathname.toLowerCase();
-            const currentHash = window.location.hash.toLowerCase();
-            
-            // Check if current page is a content page (has fixtures, tables, etc.)
-            const hasContent = document.querySelector('table, .sports-showcase, .fixtures-dropdown') !== null;
-            
-            // Check if we're on a restricted page
-            const isRestrictedPage = noAdPages.some(page => 
-                currentPath.includes(page) || currentHash.includes(page)
-            );
-            
-            return hasContent && !isRestrictedPage;
-        }
-        
-        // Load AdSense only on content pages
-        if (shouldShowAds()) {
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3486690881489807';
-            script.crossOrigin = 'anonymous';
-            document.head.appendChild(script);
-        }
-    </script>
-
     <style>
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
         body { background:#0d1b2a; color:#e0e1dd; }
         a { text-decoration:none; color:inherit; }
         
-        /* Large Top Ad Space - Before Everything (Only on content pages) */
+        /* Large Top Ad Space - Before Everything */
         .top-ad-container {
             width: 100%;
             margin: 0;
@@ -53,10 +23,9 @@
             justify-content: center;
             align-items: center;
             border-bottom: 2px solid #1b263b;
-            display: none; /* Hidden by default, shown only on content pages */
         }
-        .top-ad-container.show {
-            display: flex;
+        .top-ad-container.hide-ads {
+            display: none !important;
         }
         .top-ad-container ins {
             width: 100%;
@@ -462,9 +431,20 @@
     </style>
 </head>
 <body>
-    <!-- Large Top Ad Space - Before Everything (Conditionally shown) -->
+    <!-- Large Top Ad Space - Before Everything (Conditional) -->
     <div class="top-ad-container" id="topAdContainer">
-        <!-- Ad will be dynamically inserted here only on content pages -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3486690881489807"
+            crossorigin="anonymous"></script>
+        <!-- the ad -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3486690881489807"
+            data-ad-slot="6589752901"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     <!-- Cookie Notification -->
@@ -654,57 +634,34 @@
     </footer>
 
     <script>
-        // Check if current page should show ads
+        // Check if current page has substantial content
         function shouldShowAds() {
-            // List of pages where ads should NOT appear
-            const noAdPages = ['about', 'privacy', 'contact', 'coming-soon', 'under-construction'];
-            const currentPath = window.location.pathname.toLowerCase();
+            // Check if we're on a policy page (About Us, Privacy Policy, etc.)
             const currentHash = window.location.hash.toLowerCase();
+            const isPolicyPage = currentHash === '#about' || currentHash === '#privacy';
             
-            // Check if current page is a content page (has fixtures, tables, etc.)
-            const hasContent = document.querySelector('table, .sports-showcase, .fixtures-dropdown') !== null;
+            // Check if page has substantial content (tables, sports cards, etc.)
+            const hasSubstantialContent = document.querySelector('table, .sports-showcase, .fixtures-dropdown') !== null;
             
-            // Check if we're on a restricted page
-            const isRestrictedPage = noAdPages.some(page => 
-                currentPath.includes(page) || currentHash.includes(page)
-            );
-            
-            return hasContent && !isRestrictedPage;
+            return hasSubstantialContent && !isPolicyPage;
         }
 
-        // Initialize ads only on content pages
+        // Initialize ads based on content
         function initializeAds() {
-            if (shouldShowAds()) {
-                // Show ad container
-                const topAdContainer = document.getElementById('topAdContainer');
+            const topAdContainer = document.getElementById('topAdContainer');
+            
+            if (!shouldShowAds()) {
+                // Hide ads on policy pages and pages without substantial content
                 if (topAdContainer) {
-                    topAdContainer.classList.add('show');
-                    
-                    // Create and insert ad
-                    const adScript = document.createElement('script');
-                    adScript.innerHTML = `
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    `;
-                    
-                    const adIns = document.createElement('ins');
-                    adIns.className = 'adsbygoogle';
-                    adIns.style.display = 'block';
-                    adIns.setAttribute('data-ad-client', 'ca-pub-3486690881489807');
-                    adIns.setAttribute('data-ad-slot', '6589752901');
-                    adIns.setAttribute('data-ad-format', 'auto');
-                    adIns.setAttribute('data-full-width-responsive', 'true');
-                    
-                    topAdContainer.appendChild(adIns);
-                    topAdContainer.appendChild(adScript);
-                    
-                    console.log('AdSense ads initialized on content page');
+                    topAdContainer.classList.add('hide-ads');
                 }
+                console.log('Ads hidden - policy page or insufficient content');
             } else {
-                console.log('AdSense ads not shown - policy page or insufficient content');
+                console.log('Ads shown - content page with substantial content');
             }
         }
 
-        // Language data with complete translations
+        // Language data with complete translations for all 12 languages
         const translations = {
             en: {
                 siteTitle: "Ganza Sport Hub",
@@ -750,8 +707,490 @@
                 timezone: "Timezone",
                 footballTitle: "⚽ Football"
             },
-            // ... (other language translations remain exactly the same)
-            // Note: I've truncated the translations object for brevity, but you should keep all your existing translations
+            es: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Cada Puntuación, Cada Historia"',
+                home: "Inicio",
+                fixtures: "Próximos Partidos",
+                football: "Fútbol",
+                basketball: "Baloncesto",
+                about: "Sobre Nosotros",
+                privacy: "Política de Privacidad",
+                currentLang: "Español",
+                english: "Inglés",
+                spanish: "Español",
+                french: "Francés",
+                german: "Alemán",
+                italian: "Italiano",
+                portuguese: "Portugués",
+                russian: "Ruso",
+                arabic: "Árabe",
+                japanese: "Japonés",
+                korean: "Coreano",
+                chinese: "Chino",
+                hindi: "Hindi",
+                welcomeTitle: "Bienvenido a Ganza Sport Hub",
+                welcomeDesc: "Tu destino definitivo para partidos, noticias e historias del mundo del deporte. Mantente actualizado con los últimos acontecimientos en fútbol, baloncesto, voleibol y más.",
+                footballDesc: "Sigue todas las ligas importantes, incluida la Premier League, La Liga, Serie A, Bundesliga y Champions League.",
+                basketballDesc: "Obtén los últimos resultados de la NBA, actualizaciones de la EuroLeague y noticias de baloncesto de todo el mundo.",
+                aboutTitle: "Sobre Nosotros",
+                aboutDesc1: "Ganza Sport Hub fue fundada en 2025 con una misión simple: unir a los aficionados al deporte a través de una cobertura integral de sus juegos y atletas favoritos. Nuestra plataforma proporciona información actualizada sobre partidos y noticias en múltiples deportes.",
+                aboutDesc2: "Creemos que el deporte tiene el poder de unir a las personas a través de culturas y continentes. Por eso hemos construido una plataforma que celebra este lenguaje universal, proporcionando a los aficionados todo lo que necesitan para mantenerse conectados con los juegos que aman.",
+                aboutDesc3: "Nuestro equipo de entusiastas del deporte dedicados trabaja las 24 horas para garantizar que tengas acceso a la información más precisa y oportuna. Ya seas un aficionado casual o un seguidor incondicional, Ganza Sport Hub es tu destino para todo lo relacionado con el deporte.",
+                aboutCaption: "Lema:",
+                aboutCaptionText: '"Cada Puntuación, Cada Historia"',
+                privacyTitle: "Política de Privacidad",
+                privacyDesc1: "En Ganza Sport Hub, nos tomamos en serio su privacidad. Esta política describe cómo recopilamos, usamos y protegemos su información personal.",
+                privacyDesc2: "No compartimos sus datos con terceros sin su consentimiento. Utilizamos cookies y herramientas de análisis para mejorar nuestro sitio web y proporcionar una experiencia personalizada.",
+                privacyDesc3: "Al utilizar nuestro sitio web, usted acepta nuestros términos de servicio y prácticas de privacidad. Tiene derecho a acceder, modificar o eliminar su información en cualquier momento.",
+                date: "Fecha",
+                homeTeam: "Equipo Local",
+                awayTeam: "Equipo Visitante",
+                time: "Hora",
+                venue: "Lugar",
+                timezone: "Zona Horaria",
+                footballTitle: "⚽ Fútbol"
+            },
+            fr: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Chaque Score, Chaque Histoire"',
+                home: "Accueil",
+                fixtures: "Prochains Matchs",
+                football: "Football",
+                basketball: "Basketball",
+                about: "À Propos",
+                privacy: "Politique de Confidentialité",
+                currentLang: "Français",
+                english: "Anglais",
+                spanish: "Espagnol",
+                french: "Français",
+                german: "Allemand",
+                italian: "Italien",
+                portuguese: "Portugais",
+                russian: "Russe",
+                arabic: "Arabe",
+                japanese: "Japonais",
+                korean: "Coréen",
+                chinese: "Chinois",
+                hindi: "Hindi",
+                welcomeTitle: "Bienvenue sur Ganza Sport Hub",
+                welcomeDesc: "Votre destination ultime pour les matchs, actualités et histoires du monde du sport. Restez informé des derniers événements en football, basketball, volleyball et plus encore.",
+                footballDesc: "Suivez toutes les grandes ligues dont la Premier League, La Liga, Serie A, Bundesliga et Ligue des Champions.",
+                basketballDesc: "Obtenez les derniers scores NBA, mises à jour de l'EuroLeague et actualités basketball du monde entier.",
+                aboutTitle: "À Propos de Nous",
+                aboutDesc1: "Ganza Sport Hub a été fondée en 2025 avec une mission simple : rassembler les fans de sport grâce à une couverture complète de leurs jeux et athlètes préférés. Notre plateforme fournit des informations à jour sur les matchs et actualités à travers plusieurs sports.",
+                aboutDesc2: "Nous croyons que le sport a le pouvoir d'unir les personnes à travers les cultures et les continents. C'est pourquoi nous avons construit une plateforme qui célèbre ce langage universel, fournissant aux fans tout ce dont ils ont besoin pour rester connectés aux jeux qu'ils aiment.",
+                aboutDesc3: "Notre équipe d'enthousiastes du sport dévoués travaille 24 heures sur 24 pour vous assurer un accès aux informations les plus précises et opportunes. Que vous soyez un fan occasionnel ou un supporter inconditionnel, Ganza Sport Hub est votre destination pour tout ce qui concerne le sport.",
+                aboutCaption: "Légende :",
+                aboutCaptionText: '"Chaque Score, Chaque Histoire"',
+                privacyTitle: "Politique de Confidentialité",
+                privacyDesc1: "Chez Ganza Sport Hub, nous prenons votre vie privée au sérieux. Cette politique décrit comment nous collectons, utilisons et protégeons vos informations personnelles.",
+                privacyDesc2: "Nous ne partageons pas vos données avec des tiers sans votre consentement. Nous utilisons des cookies et des outils d'analyse pour améliorer notre site web et fournir une expérience personnalisée.",
+                privacyDesc3: "En utilisant notre site web, vous acceptez nos conditions de service et pratiques de confidentialité. Vous avez le droit d'accéder, de modifier ou de supprimer vos informations à tout moment.",
+                date: "Date",
+                homeTeam: "Équipe Domicile",
+                awayTeam: "Équipe Extérieur",
+                time: "Heure",
+                venue: "Lieu",
+                timezone: "Fuseau Horaire",
+                footballTitle: "⚽ Football"
+            },
+            de: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Jedes Ergebnis, Jede Geschichte"',
+                home: "Startseite",
+                fixtures: "Kommende Spiele",
+                football: "Fußball",
+                basketball: "Basketball",
+                about: "Über uns",
+                privacy: "Datenschutzrichtlinie",
+                currentLang: "Deutsch",
+                english: "Englisch",
+                spanish: "Spanisch",
+                french: "Französisch",
+                german: "Deutsch",
+                italian: "Italienisch",
+                portuguese: "Portugiesisch",
+                russian: "Russisch",
+                arabic: "Arabisch",
+                japanese: "Japanisch",
+                korean: "Koreanisch",
+                chinese: "Chinesisch",
+                hindi: "Hindi",
+                welcomeTitle: "Willkommen bei Ganza Sport Hub",
+                welcomeDesc: "Ihr ultimatives Ziel für Spiele, Nachrichten und Geschichten aus der Welt des Sports. Bleiben Sie auf dem Laufenden mit den neuesten Ereignissen in Fußball, Basketball, Volleyball und mehr.",
+                footballDesc: "Verfolgen Sie alle großen Ligen einschließlich Premier League, La Liga, Serie A, Bundesliga und Champions League.",
+                basketballDesc: "Erhalten Sie die neuesten NBA-Ergebnisse, EuroLeague-Updates und Basketball-Nachrichten aus der ganzen Welt.",
+                aboutTitle: "Über uns",
+                aboutDesc1: "Ganza Sport Hub wurde 2025 mit einer einfachen Mission gegründet: Sportfans durch umfassende Berichterstattung über ihre Lieblingsspiele und Athleten zusammenzubringen. Unsere Plattform bietet aktuelle Informationen zu Spielen und Nachrichten in mehreren Sportarten.",
+                aboutDesc2: "Wir glauben, dass Sport die Kraft hat, Menschen über Kulturen und Kontinente hinweg zu vereinen. Deshalb haben wir eine Plattform aufgebaut, die diese universelle Sprache feiert und Fans alles bietet, was sie brauchen, um mit den Spielen, die sie lieben, verbunden zu bleiben.",
+                aboutDesc3: "Unser Team engagierter Sportenthusiasten arbeitet rund um die Uhr, um Ihnen Zugang zu den genauesten und zeitnahesten Informationen zu gewährleisten. Ob Sie ein Gelegenheitsfan oder ein eingefleischter Anhänger sind, Ganza Sport Hub ist Ihr Ziel für alles rund um den Sport.",
+                aboutCaption: "Motto:",
+                aboutCaptionText: '"Jedes Ergebnis, Jede Geschichte"',
+                privacyTitle: "Datenschutzrichtlinie",
+                privacyDesc1: "Bei Ganza Sport Hub nehmen wir Ihre Privatsphäre ernst. Diese Richtlinie beschreibt, wie wir Ihre persönlichen Daten sammeln, verwenden und schützen.",
+                privacyDesc2: "Wir geben Ihre Daten nicht ohne Ihre Zustimmung an Dritte weiter. Wir verwenden Cookies und Analysetools, um unsere Website zu verbessern und ein personalisiertes Erlebnis zu bieten.",
+                privacyDesc3: "Durch die Nutzung unserer Website stimmen Sie unseren Nutzungsbedingungen und Datenschutzpraktiken zu. Sie haben das Recht, jederzeit auf Ihre Informationen zuzugreifen, sie zu ändern oder zu löschen.",
+                date: "Datum",
+                homeTeam: "Heimmannschaft",
+                awayTeam: "Auswärtsmannschaft",
+                time: "Zeit",
+                venue: "Spielort",
+                timezone: "Zeitzone",
+                footballTitle: "⚽ Fußball"
+            },
+            it: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Ogni Punteggio, Ogni Storia"',
+                home: "Home",
+                fixtures: "Prossime Partite",
+                football: "Calcio",
+                basketball: "Pallacanestro",
+                about: "Chi Siamo",
+                privacy: "Informativa sulla Privacy",
+                currentLang: "Italiano",
+                english: "Inglese",
+                spanish: "Spagnolo",
+                french: "Francese",
+                german: "Tedesco",
+                italian: "Italiano",
+                portuguese: "Portoghese",
+                russian: "Russo",
+                arabic: "Arabo",
+                japanese: "Giapponese",
+                korean: "Coreano",
+                chinese: "Cinese",
+                hindi: "Hindi",
+                welcomeTitle: "Benvenuto in Ganza Sport Hub",
+                welcomeDesc: "La tua destinazione definitiva per partite, notizie e storie dal mondo dello sport. Rimani aggiornato con gli ultimi avvenimenti in calcio, pallacanestro, pallavolo e altro ancora.",
+                footballDesc: "Segui tutti i principali campionati inclusi Premier League, La Liga, Serie A, Bundesliga e Champions League.",
+                basketballDesc: "Ottieni gli ultimi punteggi NBA, aggiornamenti EuroLeague e notizie di pallacanestro da tutto il mondo.",
+                aboutTitle: "Chi Siamo",
+                aboutDesc1: "Ganza Sport Hub è stata fondata nel 2025 con una semplice missione: riunire i tifosi sportivi attraverso una copertura completa dei loro giochi e atleti preferiti. La nostra piattaforma fornisce informazioni aggiornate su partite e notizie in più sport.",
+                aboutDesc2: "Crediamo che lo sport abbia il potere di unire le persone attraverso culture e continenti. Ecco perché abbiamo costruito una piattaforma che celebra questo linguaggio universale, fornendo ai tifosi tutto ciò di cui hanno bisogno per rimanere connessi ai giochi che amano.",
+                aboutDesc3: "Il nostro team di appassionati di sport dedicati lavora 24 ore su 24 per garantirti l'accesso alle informazioni più accurate e tempestive. Che tu sia un fan occasionale o un sostenitore accanito, Ganza Sport Hub è la tua destinazione per tutto ciò che riguarda lo sport.",
+                aboutCaption: "Didascalia:",
+                aboutCaptionText: '"Ogni Punteggio, Ogni Storia"',
+                privacyTitle: "Informativa sulla Privacy",
+                privacyDesc1: "In Ganza Sport Hub, prendiamo sul serio la tua privacy. Questa politica descrive come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali.",
+                privacyDesc2: "Non condividiamo i tuoi dati con terze parti senza il tuo consenso. Utilizziamo cookie e strumenti di analisi per migliorare il nostro sito web e fornire un'esperienza personalizzata.",
+                privacyDesc3: "Utilizzando il nostro sito web, accetti i nostri termini di servizio e le pratiche sulla privacy. Hai il diritto di accedere, modificare o eliminare le tue informazioni in qualsiasi momento.",
+                date: "Data",
+                homeTeam: "Squadra di Casa",
+                awayTeam: "Squadra Ospite",
+                time: "Ora",
+                venue: "Luogo",
+                timezone: "Fuso Orario",
+                footballTitle: "⚽ Calcio"
+            },
+            pt: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Cada Placar, Cada História"',
+                home: "Início",
+                fixtures: "Próximas Partidas",
+                football: "Futebol",
+                basketball: "Basquete",
+                about: "Sobre Nós",
+                privacy: "Política de Privacidade",
+                currentLang: "Português",
+                english: "Inglês",
+                spanish: "Espanhol",
+                french: "Francês",
+                german: "Alemão",
+                italian: "Italiano",
+                portuguese: "Português",
+                russian: "Russo",
+                arabic: "Árabe",
+                japanese: "Japonês",
+                korean: "Coreano",
+                chinese: "Chinês",
+                hindi: "Hindi",
+                welcomeTitle: "Bem-vindo ao Ganza Sport Hub",
+                welcomeDesc: "Seu destino definitivo para partidas, notícias e histórias do mundo do esporte. Mantenha-se atualizado com os últimos acontecimentos em futebol, basquete, vôlei e muito mais.",
+                footballDesc: "Acompanhe todas as principais ligas, incluindo Premier League, La Liga, Serie A, Bundesliga e Champions League.",
+                basketballDesc: "Obtenha os últimos resultados da NBA, atualizações da EuroLeague e notícias de basquete de todo o mundo.",
+                aboutTitle: "Sobre Nós",
+                aboutDesc1: "O Ganza Sport Hub foi fundado em 2025 com uma missão simples: unir os fãs de esportes por meio de uma cobertura abrangente de seus jogos e atletas favoritos. Nossa plataforma fornece informações atualizadas sobre partidas e notícias em vários esportes.",
+                aboutDesc2: "Acreditamos que o esporte tem o poder de unir pessoas entre culturas e continentes. É por isso que construímos uma plataforma que celebra essa linguagem universal, fornecendo aos fãs tudo o que precisam para permanecer conectados aos jogos que amam.",
+                aboutDesc3: "Nossa equipe de entusiastas do esporte dedicados trabalha 24 horas por dia para garantir que você tenha acesso às informações mais precisas e oportunas. Seja você um fã casual ou um torcedor incondicional, o Ganza Sport Hub é seu destino para tudo relacionado ao esporte.",
+                aboutCaption: "Legenda:",
+                aboutCaptionText: '"Cada Placar, Cada História"',
+                privacyTitle: "Política de Privacidade",
+                privacyDesc1: "No Ganza Sport Hub, levamos sua privacidade a sério. Esta política descreve como coletamos, usamos e protegemos suas informações pessoais.",
+                privacyDesc2: "Não compartilhamos seus dados com terceiros sem o seu consentimento. Usamos cookies e ferramentas de análise para melhorar nosso site e fornecer uma experiência personalizada.",
+                privacyDesc3: "Ao usar nosso site, você concorda com nossos termos de serviço e práticas de privacidade. Você tem o direito de acessar, modificar ou excluir suas informações a qualquer momento.",
+                date: "Data",
+                homeTeam: "Time da Casa",
+                awayTeam: "Time Visitante",
+                time: "Hora",
+                venue: "Local",
+                timezone: "Fuso Horário",
+                footballTitle: "⚽ Futebol"
+            },
+            ru: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"Каждый Счет, Каждая История"',
+                home: "Главная",
+                fixtures: "Предстоящие Матчи",
+                football: "Футбол",
+                basketball: "Баскетбол",
+                about: "О Нас",
+                privacy: "Политика Конфиденциальности",
+                currentLang: "Русский",
+                english: "Английский",
+                spanish: "Испанский",
+                french: "Французский",
+                german: "Немецкий",
+                italian: "Итальянский",
+                portuguese: "Португальский",
+                russian: "Русский",
+                arabic: "Арабский",
+                japanese: "Японский",
+                korean: "Корейский",
+                chinese: "Китайский",
+                hindi: "Хинди",
+                welcomeTitle: "Добро пожаловать в Ganza Sport Hub",
+                welcomeDesc: "Ваш главный источник информации о матчах, новостях и историях из мира спорта. Будьте в курсе последних событий в футболе, баскетболе, волейболе и многом другом.",
+                footballDesc: "Следите за всеми основными лигами, включая Премьер-лигу, Ла Лигу, Серию А, Бундеслигу и Лигу Чемпионов.",
+                basketballDesc: "Получайте последние результаты НБА, обновления Евролиги и новости баскетбола со всего мира.",
+                aboutTitle: "О Нас",
+                aboutDesc1: "Ganza Sport Hub была основана в 2025 году с простой миссией: объединить спортивных болельщиков через всестороннее освещение их любимых игр и спортсменов. Наша платформа предоставляет актуальную информацию о матчах и новостях в различных видах спорта.",
+                aboutDesc2: "Мы верим, что спорт обладает силой объединять людей через культуры и континенты. Вот почему мы создали платформу, которая прославляет этот универсальный язык, предоставляя болельщикам все, что им нужно, чтобы оставаться на связи с играми, которые они любят.",
+                aboutDesc3: "Наша команда преданных спортивных энтузиастов работает круглосуточно, чтобы обеспечить вам доступ к самой точной и своевременной информации. Будь вы случайным болельщиком или заядлым сторонником, Ganza Sport Hub - ваш источник всего, что связано со спортом.",
+                aboutCaption: "Подпись:",
+                aboutCaptionText: '"Каждый Счет, Каждая История"',
+                privacyTitle: "Политика Конфиденциальности",
+                privacyDesc1: "В Ganza Sport Hub мы серьезно относимся к вашей конфиденциальности. Эта политика описывает, как мы собираем, используем и защищаем вашу личную информацию.",
+                privacyDesc2: "Мы не передаем ваши данные третьим лицам без вашего согласия. Мы используем файлы cookie и аналитические инструменты для улучшения нашего веб-сайта и предоставления персонализированного опыта.",
+                privacyDesc3: "Используя наш веб-сайт, вы соглашаетесь с нашими условиями обслуживания и практикой конфиденциальности. Вы имеете право получать доступ, изменять или удалять свою информацию в любое время.",
+                date: "Дата",
+                homeTeam: "Домашняя Команда",
+                awayTeam: "Гостевая Команда",
+                time: "Время",
+                venue: "Место",
+                timezone: "Часовой Пояс",
+                footballTitle: "⚽ Футбол"
+            },
+            ar: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"كل نتيجة، كل قصة"',
+                home: "الرئيسية",
+                fixtures: "المباريات القادمة",
+                football: "كرة القدم",
+                basketball: "كرة السلة",
+                about: "من نحن",
+                privacy: "سياسة الخصوصية",
+                currentLang: "العربية",
+                english: "الإنجليزية",
+                spanish: "الإسبانية",
+                french: "الفرنسية",
+                german: "الألمانية",
+                italian: "الإيطالية",
+                portuguese: "البرتغالية",
+                russian: "الروسية",
+                arabic: "العربية",
+                japanese: "اليابانية",
+                korean: "الكورية",
+                chinese: "الصينية",
+                hindi: "الهندية",
+                welcomeTitle: "مرحبًا بك في Ganza Sport Hub",
+                welcomeDesc: "وجهتك النهائية للمباريات والأخبار والقصص من عالم الرياضة. ابق على اطلاع بأحدث الأحداث في كرة القدم وكرة السلة والكرة الطائرة والمزيد.",
+                footballDesc: "تابع جميع البطولات الكبرى بما في ذلك الدوري الإنجليزي الممتاز، الليغا، الدوري الإيطالي، البوندسليجا ودوري أبطال أوروبا.",
+                basketballDesc: "احصل على أحدث نتائج الدوري الاميركي للمحترفين، تحديات الدوري الأوروبي وأخبار كرة السلة من جميع أنحاء العالم.",
+                aboutTitle: "من نحن",
+                aboutDesc1: "تأسس Ganza Sport Hub في عام 2025 بمهمة بسيطة: جمع عشاق الرياضة من خلال تغطية شاملة لألعابهم ورياضيهم المفضلين. توفر منصتنا معلومات محدثة عن المباريات والأخبار عبر رياضات متعددة.",
+                aboutDesc2: "نعتقد أن الرياضة لديها القدرة على توحيد الناس عبر الثقافات والقارات. لهذا السبب قمنا ببناء منصة تحتفل بهذه اللغة العالمية، وتوفر للجماهير كل ما يحتاجونه للبقاء على اتصال بالألعاب التي يحبونها.",
+                aboutDesc3: "يعمل فريقنا من عشاق الرياضة المتفانين على مدار الساعة لضمان وصولك إلى المعلومات الأكثر دقة وفي الوقت المناسب. سواء كنت مشجعًا عاديًا أو مؤيدًا مخلصًا، فإن Ganza Sport Hub هو وجهتك لكل ما يتعلق بالرياضة.",
+                aboutCaption: "التسمية التوضيحية:",
+                aboutCaptionText: '"كل نتيجة، كل قصة"',
+                privacyTitle: "سياسة الخصوصية",
+                privacyDesc1: "في Ganza Sport Hub، نحن نأخذ خصوصيتك على محمل الجد. توضح هذه السياسة كيفية جمعنا واستخدامنا وحماية معلوماتك الشخصية.",
+                privacyDesc2: "نحن لا نشارك بياناتك مع أطراف ثالثة دون موافقتك. نستخدم ملفات تعريف الارتباط وأدوات التحليلات لتحسين موقعنا على الويب وتقديم تجربة مخصصة.",
+                privacyDesc3: "باستخدام موقعنا على الويب، فإنك توافق على شروط الخدمة وممارسات الخصوصية الخاصة بنا. لديك الحق في الوصول إلى معلوماتك وتعديلها أو حذفها في أي وقت.",
+                date: "التاريخ",
+                homeTeam: "الفريق المضيف",
+                awayTeam: "الفريق الضيف",
+                time: "الوقت",
+                venue: "المكان",
+                timezone: "المنطقة الزمنية",
+                footballTitle: "⚽ كرة القدم"
+            },
+            ja: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"すべてのスコア、すべてのストーリー"',
+                home: "ホーム",
+                fixtures: "今後の試合",
+                football: "サッカー",
+                basketball: "バスケットボール",
+                about: "私たちについて",
+                privacy: "プライバシーポリシー",
+                currentLang: "日本語",
+                english: "英語",
+                spanish: "スペイン語",
+                french: "フランス語",
+                german: "ドイツ語",
+                italian: "イタリア語",
+                portuguese: "ポルトガル語",
+                russian: "ロシア語",
+                arabic: "アラビア語",
+                japanese: "日本語",
+                korean: "韓国語",
+                chinese: "中国語",
+                hindi: "ヒンディー語",
+                welcomeTitle: "Ganza Sport Hubへようこそ",
+                welcomeDesc: "スポーツ界の試合、ニュース、ストーリーの究極の目的地。サッカー、バスケットボール、バレーボールなどの最新情報を常に把握しましょう。",
+                footballDesc: "プレミアリーグ、ラ・リーガ、セリエA、ブンデスリーガ、チャンピオンズリーグを含むすべての主要リーグをフォローできます。",
+                basketballDesc: "NBAの最新スコア、ユーロリーグのアップデート、世界中のバスケットボールニュースを入手できます。",
+                aboutTitle: "私たちについて",
+                aboutDesc1: "Ganza Sport Hubは2025年に、好きなゲームやアスリートを包括的にカバーすることでスポーツファンを結集するというシンプルな使命で設立されました。私たちのプラットフォームは、複数のスポーツにわたる試合とニュースの最新情報を提供します。",
+                aboutDesc2: "私たちは、スポーツには文化や大陸を超えて人々を結びつける力があると信じています。だからこそ、私たちはこの普遍的な言語を称えるプラットフォームを構築し、ファンが愛するゲームとつながり続けるために必要なすべてを提供しています。",
+                aboutDesc3: "私たちの献身的なスポーツ愛好家のチームは、最も正確でタイムリーな情報にアクセスできるように24時間体制で働いています。カジュアルなファンでも熱心なサポーターでも、Ganza Sport Hubはスポーツに関するすべてのものへのあなたの行き先です。",
+                aboutCaption: "キャプション:",
+                aboutCaptionText: '"すべてのスコア、すべてのストーリー"',
+                privacyTitle: "プライバシーポリシー",
+                privacyDesc1: "Ganza Sport Hubでは、あなたのプライバシーを真剣に受け止めています。このポリシーは、個人情報の収集、使用、保護方法について概説しています。",
+                privacyDesc2: "私たちはあなたの同意なしに第三者とデータを共有しません。私たちはウェブサイトを改善し、パーソナライズされた体験を提供するためにクッキーと分析ツールを使用しています。",
+                privacyDesc3: "当社のウェブサイトを使用することにより、お客様は当社の利用規約とプライバシー慣行に同意したものとみなされます。お客様はいつでも自分の情報にアクセス、変更、削除する権利があります。",
+                date: "日付",
+                homeTeam: "ホームチーム",
+                awayTeam: "アウェーチーム",
+                time: "時間",
+                venue: "会場",
+                timezone: "タイムゾーン",
+                footballTitle: "⚽ サッカー"
+            },
+            ko: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"모든 점수, 모든 이야기"',
+                home: "홈",
+                fixtures: "다가오는 경기",
+                football: "축구",
+                basketball: "농구",
+                about: "회사 소개",
+                privacy: "개인정보 보호정책",
+                currentLang: "한국어",
+                english: "영어",
+                spanish: "스페인어",
+                french: "프랑스어",
+                german: "독일어",
+                italian: "이탈리아어",
+                portuguese: "포르투갈어",
+                russian: "러시아어",
+                arabic: "아랍어",
+                japanese: "일본어",
+                korean: "한국어",
+                chinese: "중국어",
+                hindi: "힌디어",
+                welcomeTitle: "Ganza Sport Hub에 오신 것을 환영합니다",
+                welcomeDesc: "스포츠 세계의 경기, 뉴스 및 이야기를 위한 최고의 목적지입니다. 축구, 농구, 배구 등의 최신 소식을 계속 업데이트하세요.",
+                footballDesc: "프리미어 리그, 라 리가, 세리에 A, 분데스리가 및 챔피언스 리그를 포함한 모든 주요 리그를 팔로우하세요.",
+                basketballDesc: "전 세계의 최신 NBA 점수, 유로리그 업데이트 및 농구 뉴스를 받아보세요.",
+                aboutTitle: "회사 소개",
+                aboutDesc1: "Ganza Sport Hub는 2025년에 단순한 사명으로 설립되었습니다: 좋아하는 게임과 선수에 대한 포괄적인 보도를 통해 스포츠 팬들을 하나로 모으는 것입니다. 우리 플랫폼은 여러 스포츠에 걸친 경기 및 뉴스에 대한 최신 정보를 제공합니다.",
+                aboutDesc2: "우리는 스포츠가 문화와 대륙을 넘어 사람들을 하나로 모을 수 있는 힘을 가지고 있다고 믿습니다. 그래서 우리는 이 보편적인 언어를 축하하는 플랫폼을 구축하여 팬들이 사랑하는 게임과 연결을 유지하는 데 필요한 모든 것을 제공합니다.",
+                aboutDesc3: "우리의 헌신적인 스포츠 애호가 팀은 가장 정확하고 시의적절한 정보에 접근할 수 있도록 24시간 내내 일하고 있습니다. 캐주얼 팬이든 열성적인 서포터든, Ganza Sport Hub는 스포츠에 관한 모든 것에 대한 당신의 목적지입니다.",
+                aboutCaption: "캡션:",
+                aboutCaptionText: '"모든 점수, 모든 이야기"',
+                privacyTitle: "개인정보 보호정책",
+                privacyDesc1: "Ganza Sport Hub에서는 귀하의 개인정보를 진지하게 받아들입니다. 이 정책은 귀하의 개인정보를 수집, 사용 및 보호하는 방법을 설명합니다.",
+                privacyDesc2: "우리는 귀하의 동의 없이 제3자와 데이터를 공유하지 않습니다. 우리는 웹사이트를 개선하고 맞춤형 경험을 제공하기 위해 쿠키 및 분석 도구를 사용합니다.",
+                privacyDesc3: "당사 웹사이트를 사용함으로써 귀하는 당사의 서비스 약관 및 개인정보 보호 관행에 동의하는 것입니다. 귀하는 언제든지 귀하의 정보에 접근, 수정 또는 삭제할 권리가 있습니다.",
+                date: "날짜",
+                homeTeam: "홈팀",
+                awayTeam: "원정팀",
+                time: "시간",
+                venue: "장소",
+                timezone: "시간대",
+                footballTitle: "⚽ 축구"
+            },
+            zh: {
+                siteTitle: "甘扎体育中心",
+                siteSlogan: '"每个比分，每个故事"',
+                home: "首页",
+                fixtures: "即将举行的比赛",
+                football: "足球",
+                basketball: "篮球",
+                about: "关于我们",
+                privacy: "隐私政策",
+                currentLang: "中文",
+                english: "英语",
+                spanish: "西班牙语",
+                french: "法语",
+                german: "德语",
+                italian: "意大利语",
+                portuguese: "葡萄牙语",
+                russian: "俄语",
+                arabic: "阿拉伯语",
+                japanese: "日语",
+                korean: "韩语",
+                chinese: "中文",
+                hindi: "印地语",
+                welcomeTitle: "欢迎来到甘扎体育中心",
+                welcomeDesc: "您获取体育赛事、新闻和故事的终极目的地。随时了解足球、篮球、排球等领域的最新动态。",
+                footballDesc: "关注所有主要联赛，包括英超、西甲、意甲、德甲和欧冠。",
+                basketballDesc: "获取最新的NBA比分、欧洲联赛更新和来自世界各地的篮球新闻。",
+                aboutTitle: "关于我们",
+                aboutDesc1: "甘扎体育中心成立于2025年，使命很简单：通过全面报道粉丝喜爱的比赛和运动员，将体育迷们聚集在一起。我们的平台提供跨多个体育项目的最新赛程和新闻信息。",
+                aboutDesc2: "我们相信体育具有跨越文化和大陆团结人们的力量。这就是为什么我们建立了一个庆祝这种通用语言的平台，为粉丝提供与他们热爱的比赛保持联系所需的一切。",
+                aboutDesc3: "我们敬业的体育爱好者团队全天候工作，确保您能够访问最准确和及时的信息。无论您是休闲粉丝还是铁杆支持者，甘扎体育中心都是您获取所有体育相关内容的首选目的地。",
+                aboutCaption: "标语：",
+                aboutCaptionText: '"每个比分，每个故事"',
+                privacyTitle: "隐私政策",
+                privacyDesc1: "在甘扎体育中心，我们非常重视您的隐私。本政策概述了我们如何收集、使用和保护您的个人信息。",
+                privacyDesc2: "未经您同意，我们不会与第三方共享您的数据。我们使用cookie和分析工具来改进我们的网站并提供个性化体验。",
+                privacyDesc3: "使用我们的网站即表示您同意我们的服务条款和隐私实践。您有权随时访问、修改或删除您的信息。",
+                date: "日期",
+                homeTeam: "主队",
+                awayTeam: "客队",
+                time: "时间",
+                venue: "场地",
+                timezone: "时区",
+                footballTitle: "⚽ 足球"
+            },
+            hi: {
+                siteTitle: "Ganza Sport Hub",
+                siteSlogan: '"हर स्कोर, हर कहानी"',
+                home: "होम",
+                fixtures: "आगामी फिक्स्चर",
+                football: "फुटबॉल",
+                basketball: "बास्केटबॉल",
+                about: "हमारे बारे में",
+                privacy: "गोपनीयता नीति",
+                currentLang: "हिन्दी",
+                english: "अंग्रेज़ी",
+                spanish: "स्पेनिश",
+                french: "फ्रेंच",
+                german: "जर्मन",
+                italian: "इतालवी",
+                portuguese: "पुर्तगाली",
+                russian: "रूसी",
+                arabic: "अरबी",
+                japanese: "जापानी",
+                korean: "कोरियाई",
+                chinese: "चीनी",
+                hindi: "हिन्दी",
+                welcomeTitle: "Ganza Sport Hub में आपका स्वागत है",
+                welcomeDesc: "खेल जगत की फिक्स्चर, समाचार और कहानियों के लिए आपकी अंतिम मंजिल। फुटबॉल, बास्केटबॉल, वॉलीबॉल और अन्य में नवीनतम घटनाओं के साथ अपडेट रहें।",
+                footballDesc: "प्रीमियर लीग, ला लीगा, सेरी ए, बुंडेसलीगा और चैंपियंस लीग सहित सभी प्रमुख लीगों का पालन करें।",
+                basketballDesc: "दुनिया भर से नवीनतम एनबीए स्कोर, यूरोलीग अपडेट और बास्केटबॉल समाचार प्राप्त करें।",
+                aboutTitle: "हमारे बारे में",
+                aboutDesc1: "Ganza Sport Hub की स्थापना 2025 में एक साधारण मिशन के साथ की गई थी: उनके पसंदीदा खेलों और एथलीटों की व्यापक कवरेज के माध्यम से खेल प्रशंसकों को एक साथ लाना। हमारा प्लेटफॉर्म कई खेलों में फिक्स्चर और समाचारों पर अद्यतन जानकारी प्रदान करता है।",
+                aboutDesc2: "हम मानते हैं कि खेलों में संस्कृतियों और महाद्वीपों में लोगों को एकजुट करने की शक्ति है। इसीलिए हमने एक ऐसा प्लेटफॉर्म बनाया है जो इस सार्वभौमिक भाषा का जश्न मनाता है, प्रशंसकों को वह सब कुछ प्रदान करता है जो उन्हें उन खेलों से जुड़े रहने के लिए आवश्यक है जिनसे वे प्यार करते हैं।",
+                aboutDesc3: "समर्पित खेल उत्साही हमारी टीम घड़ी के चारों ओर काम करती है ताकि यह सुनिश्चित किया जा सके कि आपके पास सबसे सटीक और समय पर जानकारी तक पहुंच हो। चाहे आप एक आकस्मिक प्रशंसक हों या एक कट्टर समर्थक, Ganza Sport Hub खेलों से संबंधित सभी चीजों के लिए आपकी मंजिल है।",
+                aboutCaption: "कैप्शन:",
+                aboutCaptionText: '"हर स्कोर, हर कहानी"',
+                privacyTitle: "गोपनीयता नीति",
+                privacyDesc1: "Ganza Sport Hub में, हम आपकी गोपनीयता को गंभीरता से लेते हैं। यह नीति बताती है कि हम आपकी व्यक्तिगत जानकारी कैसे एकत्र, उपयोग और सुरक्षित करते हैं।",
+                privacyDesc2: "हम आपकी सहमति के बिना तीसरे पक्ष के साथ आपके डेटा को साझा नहीं करते हैं। हम अपनी वेबसाइट को बेहतर बनाने और एक व्यक्तिगत अनुभव प्रदान करने के लिए कुकीज़ और विश्लेषणात्मक उपकरणों का उपयोग करते हैं।",
+                privacyDesc3: "हमारी वेबसाइट का उपयोग करके, आप हमारी सेवा की शर्तों और गोपनीयता प्रथाओं से सहमत होते हैं। आपको किसी भी समय अपनी जानकारी तक पहुंचने, संशोधित करने या हटाने का अधिकार है।",
+                date: "तारीख",
+                homeTeam: "होम टीम",
+                awayTeam: "अवे टीम",
+                time: "समय",
+                venue: "स्थान",
+                timezone: "समय क्षेत्र",
+                footballTitle: "⚽ फुटबॉल"
+            }
         };
 
         // Current language
@@ -1098,7 +1537,7 @@
 
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize ads only on content pages
+            // Initialize ads based on content
             initializeAds();
             
             // Show cookie notification
