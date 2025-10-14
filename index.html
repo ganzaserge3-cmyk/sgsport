@@ -364,6 +364,33 @@
             background: #344a67;
         }
         
+        /* Infinite Scroll Loading */
+        .loading-section {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+        
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #ff9e00;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Hidden sections for infinite scroll */
+        .hidden-content {
+            display: none;
+        }
+        
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -450,11 +477,11 @@
     <!-- Cookie Notification -->
     <div id="cookieNotification" class="cookie-notification">
         <div class="cookie-content">
-            <h3>🍪 Cookie Consent</h3>
-            <p>We use cookies to enhance your experience on our website. By clicking "Accept", you agree to our use of cookies for analytics and personalized content.</p>
+            <h3 data-key="cookieTitle">🍪 Cookie Consent</h3>
+            <p data-key="cookieDesc">We use cookies to enhance your experience on our website. By clicking "Accept", you agree to our use of cookies for analytics and personalized content.</p>
             <div class="cookie-buttons">
-                <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
-                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+                <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-key="cookieDecline">Decline</button>
+                <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-key="cookieAccept">Accept</button>
             </div>
         </div>
     </div>
@@ -548,18 +575,18 @@
 
     <section class="welcome-section" id="home">
         <h1 data-key="welcomeTitle">Welcome to Ganza Sport Hub</h1>
-        <p data-key="welcomeDesc">Your ultimate destination for fixtures, news, and stories from the world of sports. Stay updated with the latest happenings in football, basketball, volleyball and more.</p>
+        <p data-key="welcomeDesc">Your Ultimate Destination For Fixtures, News, And Stories From The World Of Sports. Stay Updated With The Latest Happenings In Football, Basketball, and More.</p>
         
         <div class="sports-showcase">
             <div class="sport-card">
                 <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Football">
                 <h3 data-key="football">Football</h3>
-                <p data-key="footballDesc">Follow all major leagues including Premier League, La Liga, Serie A, Bundesliga, and Champions League.</p>
+                <p data-key="footballDesc">Follow All Major Leagues Including Premier League, La Liga, Serie A, Bundesliga, and Champions League.</p>
             </div>
             <div class="sport-card">
                 <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Basketball">
                 <h3 data-key="basketball">Basketball</h3>
-                <p data-key="basketballDesc">Get the latest NBA scores, EuroLeague updates, and basketball news from around the world.</p>
+                <p data-key="basketballDesc">Get The Latest NBA Scores, EuroLeague Updates, And Basketball From Around The World.</p>
             </div>
         </div>
     </section>
@@ -568,15 +595,309 @@
     <!-- About & Privacy Sections -->
     <section class="info-section" id="about">
     <h2 data-key="aboutTitle">About Us</h2>
-    <p data-key="aboutDesc1">Ganza Sport Hub was founded in 2025 with a simple mission: to bring sports fans together through comprehensive coverage of their favorite games and athletes. Our platform provides up-to-date information on fixtures, and news across multiple sports.</p>
-    <p data-key="aboutDesc2">We believe that sports have the power to unite people across cultures and continents. That's why we've built a platform that celebrates this universal language, providing fans with everything they need to stay connected to the games they love.</p>
-    <p data-key="aboutDesc3">Our team of dedicated sports enthusiasts works around the clock to ensure you have access to the most accurate and timely information. Whether you're a casual fan or a die-hard supporter, Ganza Sport Hub is your go-to destination for all things sports.</p>
+    <p data-key="aboutDesc1">Ganza Sport Hub Was Founded In 2025 With A Simple Mission: To Bring Sports Fans Together Through Comprehensive Coverage Of Their Favorite Games And Athletes. Our Platform Provides Up-To-Date Information On Fixtures, And News Across Multiple Sports.</p>
+    <p data-key="aboutDesc2">We Believe That Sports Have The Power To Unite People Across Cultures And Continents. That's Why We've Built A Platform That Celebrates This Universal Language, Providing Fans With Everything They Need To Stay Connected To The Games They Love.</p>
+    <p data-key="aboutDesc3">Our team of Dedicated Sports Enthusiasts Works Around The Clock To Ensure You Have Access To The Most Accurate And Timely Information. Whether You're A Casual Fan Or A Die-Hard Supporter, Ganza Sport Hub Is Your Go-To Destination For All Things Sports.</p>
     <p><strong data-key="aboutCaption">Caption:</strong> <span data-key="aboutCaptionText">"Every Score, Every Story"</span></p>
     </section>
 
-   
-        <!-- NBA -->
-        <h3 class="league-title">NBA Pre-season</h3>
+     <!-- TOP ASSIST --> 
+        <h3 class="league-title">  TOP  ASSIST PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th> 
+                   <th>TEAM </th> 
+                   <th>ASSIST</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>Mohammed Kudus</td>
+                    <td>Tottenham Hotspurs</td>
+                    <td>4</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jack Grealish</td>
+                    <td>Everton</td>
+                    <td>4</td>
+                
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Granit Xhaka</td>
+                    <td>Sunderland</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>El hadji Malick Diouf</td>
+                    <td>West Ham United</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Joao Pedro</td>
+                    <td>Chelsea</td>
+                    <td>3</td>
+</tr>
+            
+            </table>
+
+
+  <!-- TOP SCORER--> 
+        <h3 class="league-title">  TOP  SCORER  PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM</th>
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>Erling Haaland</td>
+                    <td>Man City</td>
+                    <td>9</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Antonie Semenyo</td>
+                    <td>Bournemouth</td>
+                    <td>6</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Igor Thiago</td>
+                    <td>Brentford</td>
+                    <td>4</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Jaidon Anthony</td>
+                    <td>Burnley</td>
+                    <td>4</td>
+
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Hugo Ekitike</td>
+                    <td>Liverpool</td>
+                    <td>3</td>
+</tr> 
+            
+            </table>
+
+
+  <!-- TOP SCORING TEAMS--> 
+        <h3 class="league-title">  TOP  SCORING TEAMS  PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM NAME</th>  
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>MAN CITY</td>
+                    <td>15</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ARSENAL</td>
+                    <td>14</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>CHELSEA</td>
+                    <td>13</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>SPURS</td>
+                    <td>13</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>LIVERPOOL</td>
+                    <td>13</td>
+
+</tr> 
+
+
+<table>
+
+<!-- TOP CLEAN SHEETS--> 
+        <h3 class="league-title">  TOP CLEAN SHEETS PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM NAME</th>
+                   <th>CLEAN SHEETS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>Nick Pope</td>
+                    <td>Newcastle United</td>
+                    <td>5</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>David Raya</td>
+                    <td>Arsenal</td>
+                    <td>4</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Robin Roefs</td>
+                    <td>Sunderland</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Djordje Petrovic</td>
+                    <td>Bournemouth</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Guglielmo Vicario</td>
+                    <td>Tottenham Hotspurs</td>
+                    <td>3</td>
+
+</tr> 
+
+
+<table>
+            <!-- TOTAL PASSES--> 
+        <h3 class="league-title">  TOTAL PASSES PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM NAME</th>
+                   <th>TOTAL PASSES </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>Elliot Anderson</td>
+                    <td>Nottingham Forets </td>
+                    <td>563</td>
+                
+
+         </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Virgil Van Dijk</td>
+                    <td>Liverpool</td>
+                    <td>554</td>
+                 
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Lewis Dunk </td>
+                    <td>Brighton and Hove Albion</td>
+                    <td>463</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Jan Paul Van Hecke</td>
+                    <td>Brighton and Hove Albion</td>
+                    <td>440</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Joachim Andersen </td>
+                    <td>Fulham</td>
+                    <td>439</td>
+
+</tr>
+<table>
+
+       <!-- TOTAL TEAMS  PASSES--> 
+         <h3 class="league-title">TOTAL TEAMS  PASSES PREMIER LEAGUE</h3>
+          <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM NAME</th>
+                   <th>TOTAL TEAMS  PASSES </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>Man City</td>
+                    <td>3785</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Chelsea</td>
+                    <td>3737</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Liverpool</td>
+                    <td>3679</td>
+                
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nott'm Forest</td>
+                    <td>3542</td>
+                    
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Arsenal</td>
+                    <td>3385</td>           
+
+</tr>  
+           </table>
+
+     <!-- PREMIER LEAGUE -->
+        <h3 class="league-title">PREMIER LEAGUE</h3>
         <table>
             <thead>
                 <tr>
@@ -589,24 +910,1324 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>2025-10-08</td><td>Cleveland Cavaliers</td><td>Chicago Bulls</td><td>01:00</td><td>Rocket Mortgage FieldHouse</td><td>CAT</td></tr>
-                <tr><td>2025-10-09</td><td>Miami Heat</td><td>San Antonio Spurs</td><td>01:30</td><td>Kaseya Center</td><td>CAT</td></tr>
-                <tr><td>2025-10-09</td><td>Memphis Grizzlies</td><td>Boston Celtics</td><td>02:00</td><td>FedExForum</td><td>CAT</td></tr>
-                <tr><td>2025-10-09</td><td>Golden State Warriors</td><td>Portland Trail Blazers</td><td>04:00</td><td>Chase Center</td><td>CAT</td></tr>
-                <tr><td>2025-10-10</td><td>New York Knicks</td><td>Minnesota Timberwolves</td><td>01:30</td><td>Madison Square Garden</td><td>CAT</td></tr>
-                <tr><td>2025-10-10</td><td>Brooklyn Nets</td><td>Phoenix Suns</td><td>14:00</td><td>Barclays Center</td><td>CAT</td></tr>
-                <tr><td>2025-10-10</td><td>Milwaukee Bucks</td><td>Detroit Pistons</td><td>02:00</td><td>Fiserv Forum</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>NOTTM FOREST</td><td>CHELSEA</td><td>13:30</td><td>CITY GROUND </td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>SUNDERLLAND </td><td>WOLVES </td><td>16:00</td><td>STADIUM OF LIGHT</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>BURNLEY</td><td>LEEDS UNITED</td><td>16:00</td><td>TURF MOOR </td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>CRYSTAL PALACE</td><td>BOURNEMOUTH</td><td>16:00</td><td>SELHURST PARK</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>BRIGHTON</td><td>NEWCASTLE</td><td>16:00</td><td>AMERICAN EXPRESS STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>MAN CITY</td><td>EVERTON</td><td>16:00</td><td>ETIHAD STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>FULHAM</td><td>ARSENAL</td><td>18:30</td><td>CRAVEN COTTAGE</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>TOTTENHAM</td><td>ASTON VILLA</td><td>15:00</td><td>TOTTENHAM HOTSPUR STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>LIVERPOOL</td><td>MAN UNITED</td><td>17:30</td><td>ANFIELD</td><td>CAT</td></tr>
+                <tr><td>2025-10-20</td><td>WESTHAM</td><td>BRENTFORD</td><td>21:00</td><td>ANFIELD </td><td>CAT</td></tr>
+              
             </tbody>
         </table>
-        
-        <!-- Comments Section for NBA -->
-        <div class="comments-section" id="nba-comments">
+
+      <!-- Comments Section for PREMIER LEAGUE-->
+        <div class="comments-section" id="premier league-comments">
             <h3>Comments</h3>
             <div class="comment-form">
-                <textarea placeholder="Add your comment..." id="nba-comment-input"></textarea>
-                <button onclick="addComment('nba')">Post Comment</button>
+                <textarea placeholder="Add your comment..." id="premier league-comment-input"></textarea>
+                <button onclick="addComment('premier league')">Post Comment</button>
             </div>
-            <div id="nba-comments-list">
+            <div id="premier league-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    
+  <!-- TOP ASSIST --> 
+        <h3 class="league-title">  TOP  ASSIST LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM </th>
+                   <th>ASSISTS </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>LUIS MILLA</td>
+                    <td>GETAFE CF</td>
+                    <td>5</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>VINICIUS JUNIOR</td>
+                    <td>REAL MADRID</td>
+                    <td>4</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>RUBEN VARGAS</td>
+                    <td>SEVILLA FC</td>
+                    <td>4</td>
+
+         </tr>
+                <tr> <td>4</td>
+                     <td>MARCUS RASHFORD</td>
+                     <td>FC BARCELONA</td>
+                     <td>3</td>
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>LAMINE YAMAL</td>
+                    <td>FC BARCELONA</td>
+                    <td>3</td>
+</tr> 
+            
+            </table>
+
+
+  <!-- TOP SCORER--> 
+        <h3 class="league-title">  TOP  SCORER  LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM</th>
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>KYLIAN MBAPPE</td>
+                    <td>REAL MADRID</td>
+                    <td>9</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>JULIAN ALVALEZ</td>
+                    <td>ATLETICO MADRID</td>
+                    <td>6</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>VINICIOUS JUNIOR</td>
+                    <td>REAL MADRID</td>
+                    <td>5</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>KARL EDOUARD BLAISE ETTA EYONG </td>
+                    <td>LEVANTE UD</td>
+                    <td>5</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>FERRAN TORRES</td>
+                    <td>FC BARCELONA</td>
+                    <td>4</td>
+</tr> 
+            
+            </table>
+
+
+  <!-- TOP SCORING TEAMS--> 
+        <h3 class="league-title">  TOP  SCORING TEAMS  LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM NAME</th>  
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>FC BARCELONA</td>
+                    <td>22</td>
+
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>REAL MADRID</td>
+                    <td>19</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ATLETICO MADRID</td>
+                    <td>15</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>SEVILLA</td>
+                    <td>15</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>VILLAREAL</td>
+                    <td>14</td>
+</tr> 
+       </table>
+
+<!-- TOP CLEAN SHEETS--> 
+        <h3 class="league-title">  TOP CLEAN SHEETS LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM NAME</th>
+                   <th>CLEAN SHEETS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>LUIZ JUNIOR</td>
+                    <td>VILLARREAL CF</td>
+                    <td>3</td>
+                
+
+         </tr>
+                <tr>
+                    <td>1</td>
+                    <td>JOAN GARCIA</td>
+                    <td>FC BARCELONA</td>
+                    <td>3</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>1</td>
+                    <td>THIBAUT COURTOIS</td>
+                    <td>REAL MADRID</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>ss
+                    <td>PAUL LOPEZ </td>
+                    <td>REAL BETIS BALOMPIE</td>
+                    <td>2</td>
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>MATHEW RYAN </td>
+                    <td>LEVANTE UD</td>
+                    <td>2</td>
+
+</tr>
+<table>
+
+       <!-- TOTAL PASSES--> 
+         <h3 class="league-title">TOTAL PASSES LA LIGA</h3>
+          <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th> NAME</th>
+                   <th>TEAM NAME</th>
+                   <th>PASSES</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>PEDRI</td>
+                    <td>FC BARCELONA</td>
+                    <td>763</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ALVARO CARRRERAS</td>
+                    <td>REAL MADRID</td>
+                    <td>569</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ERIC GARCIA</td>
+                    <td>FC BARCELONA</td>
+                    <td>524</td>
+                
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>MARCOS LLORENTE</td>
+                    <td>ATLETICO MADRID</td>
+                    <td>522</td>
+                    
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>DEAN HUIJSEN</td>
+                    <td>REAL MADRID</td>   
+                    <td>513</td>        
+
+</tr>  
+           </table>
+
+            
+   <!-- LA LIGA -->
+        <h3 class="league-title">LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th data-key="date">Date</th>
+                    <th data-key="homeTeam">Home Team</th>
+                    <th data-key="awayTeam">Away Team</th>
+                    <th data-key="time">Time</th>
+                    <th data-key="venue">Venue</th>
+                    <th data-key="timezone">TimeZone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2025-10-17</td><td>OVIEDO</td><td>ESPANYOL</td><td>21:00</td><td>CARLOS TARTIERE STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>SEVILLA</td><td>MALLORCA</td><td>14:00</td><td>RAMON SANCHEZ PIZJUAN STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>BARCELONA</td><td>GIRONA</td><td>16:15</td><td>ESTADI OLIMPIC LIUIS COMPANYS</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>VILLAREAL</td><td>REAL BETIS</td><td>18:30</td><td>ESTADIO DE LA CERAMICA</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>ATLETICO MADRID</td><td>OSASUNA</td><td>21:00</td><td>RIYADH AIR METROPOLITANO</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>ELCHE</td><td>ATLETIC CLUB</td><td>14:00</td><td>ESTADIO MARTINEZ VALERO</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>CELTA VIGO</td><td>REAL SOCIEDAD</td><td>16:15</td><td>ESTADIO DE BALAIDOS</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>LEVANTE</td><td>RAYO VALLECANO</td><td>18:30</td><td>ESTADIO CIUDAD DE VALENCIA</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>GETAFE</td><td>REAL MADRID</td><td>21:00</td><td>COLISEUM SATDIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-20</td><td>ALAVES </td><td>VALENCIA</td><td>21:00</td><td>MENDIZORROTZA STADIUM</td><td>CAT</td></tr>
+            </tbody>
+        </table>
+    
+      <!-- Comments Section for LA LIGA-->
+        <div class="comments-section" id="la liga-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="la liga-comment-input"></textarea>
+                <button onclick="addComment('la liga')">Post Comment</button>
+            </div>
+            <div id="la liga-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+
+  <!-- TOP ASSIST --> 
+        <h3 class="league-title">  TOP  ASSIST SERIE A </h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM </th>
+                   <th>ASSISTS </th>
+                
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>k YILDIZ</td>
+                    <td>JUVENTUS</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>A BONNY</td>
+                    <td>INTER</td>
+                    <td>3</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>N KRSTOVIC</td>
+                    <td>ATALANTA</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>F DIMARCO</td>
+                    <td>INTER</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>V CASTELLANOS</td>
+                    <td>ATALANTA</td>
+                    <td>3</td>
+</tr> 
+            
+            </table>
+
+
+  <!-- TOP SCORER--> 
+        <h3 class="league-title">  TOP  SCORER  SERIE A</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th> 
+                   <th>TEAM </th> 
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>CHRISTIAN PULISIC</td>
+                    <td> AC MILAN</td>
+                    <td>4</td>
+                
+
+         </tr>
+                <tr>
+                    <td>1</td>
+                    <td>RICCARDO ORSOLINI</td>
+                    <td>BOLOGNA</td>
+                    <td>4</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>NICOLAS MARTINEZ</td>
+                    <td>COMO</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>MATIAS SOULE</td>
+                    <td>ROMA</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>MARCUS THURAM</td>
+                    <td>INTER</td>
+                    <td>3</td>
+</tr> 
+            
+            </table>
+         <!-- TOP SCORING TEAMS--> 
+        <h3 class="league-title">  TOP  SCORING TEAMS  SERIE A </h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM NAME</th>  
+                   <th>GOALS</th>
+
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>INTER</td>
+                    <td>17</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>NAPOLI</td>
+                    <td>12</td>           
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ATALANTA</td>
+                    <td>11</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>LAZIO</td>
+                    <td>10</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>JUVENTUS</td>
+                    <td>9</td>
+        
+</tr> 
+       </table>
+   <!-- TOTAL PASSES--> 
+         <h3 class="league-title">TOTAL PASSES SERIE A</h3>
+          <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th> NAME</th>
+                   <th>TEAM NAME</th>
+                   <th>PASSES</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>KEVIN DE BRYUNE</td>
+                    <td>NAPOLI</td>
+                    <td>306</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ANDRE ZAMBO ANGUISSA</td>
+                    <td>NAPOLI</td>
+                    <td>265</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>HAKAN CALHANOGLU</td>
+                    <td>INTER </td>
+                    <td>252</td>
+                
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>NICOLO BARELLA</td>
+                    <td>INTER</td>
+                    <td>394</td>
+                    
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>GIOVANNI DI LORENZO</td>
+                    <td>NAPOLI</td>   
+                    <td>364</td>        
+
+</tr>  
+           </table>
+
+
+<!-- TOP CLEAN SHEETS--> 
+        <h3 class="league-title">  TOP CLEAN SHEETS SERIE A</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM NAME</th>
+                   <th>CLEAN SHEETS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>MIKE SVILAR</td>
+                    <td>AS ROMA</td>
+                    <td>4</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>MIKE MAIGNAN</td>
+                    <td>AC MILN</td>
+                    <td>3</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>MICHELE DI GREGORIO</td>
+                    <td>JUVENTUS </td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>PIETRO TERRACCIANO</td>
+                    <td>AC MILAN</td>
+                    <td>2</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>EMIL AUDERO </td>
+                    <td>CREMONESE</td>
+                    <td>2</td>
+
+</tr> 
+
+
+<table>
+
+
+       <!-- TOTAL TEAMS  PASSES--> 
+         <h3 class="league-title">TOTAL TEAMS  PASSES SERIE A</h3>
+          <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM NAME</th>
+                   <th>TOTAL TEAMS  PASSES </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>NAPOLI</td>
+                    <td>3,028</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>INTER </td>
+                    <td>2,848</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>JUVENTUS</td>
+                    <td>2,597</td>
+                
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>MILAN</td>
+                    <td>2,552</td>
+                    
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>COMO </td>
+                    <td>2,463</td>           
+
+</tr>  
+           </table>
+
+       <!-- SERIE A-->
+        <h3 class="league-title">SERIE A</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th data-key="date">Date</th>
+                    <th data-key="homeTeam">Home Team</th>
+                    <th data-key="awayTeam">Away Team</th>
+                    <th data-key="time">Time</th>
+                    <th data-key="venue">Venue</th>
+                    <th data-key="timezone">TimeZone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2025-10-18</td><td>LECCE</td><td>SASSUOLO</td><td>15:00</td><td>STADIO VIA DIEL MARE</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>PISA</td><td>VERONA</td><td>15:00</td><td>ARENA GARIBALDI</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>TORINO</td><td>NAPOLI</td><td>18:00</td><td>STADIO0 OLIMPICO GRANDE TORINO</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>ROMA</td><td>INTER</td><td>20:45</td><td>STADE OLIMPICO</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>CAGLIARI</td><td>BOLOGNA</td><td>15:00</td><td>STADIO OLIMPICO</td></tr>
+                <tr><td>2025-10-19</td><td>COMO</td><td>JUVENTUS</td><td>12:30</td><td>STADIO COMUNALE G. SINIGAGLIA</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>GENOA</td><td>PARMA</td><td>15:00</td><td>LUIGI FERRARIS STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>ATALANTA</td><td>LAZIO</td><td>18:00</td><td>NEW BALANCE ARENA</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>MILAN</td><td>FIORENTINA</td><td>20:45</td><td>SAN SIRO STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-20</td><td>CREMONESE</td><td>UDINESE</td><td>20:45</td><td>STADIO GIOVANNI ZINI</td><td>CAT</td></tr>
+                
+            </tbody>
+        </table>
+    
+
+  <!-- Comments Section for SERIE A -->
+        <div class="comments-section" id="serie a-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="serie a-comment-input"></textarea>
+                <button onclick="addComment('serie a')">Post Comment</button>
+            </div>
+            <div id="serie a-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+ 
+<!-- TOP ASSIST --> 
+        <h3 class="league-title">  TOP  ASSIST LIGUE 1</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>
+                   <th>TEAM</th>
+                   <th>ASSISTS</th>  
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>GREENWOOD</td>
+                    <td>MARSEILLE</td>
+                    <td>3</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>THOMASSON</td>
+                    <td>LENNE</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>AJORQUE</td>
+                    <td>BREST</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>FERREIRA</td>
+                    <td>PSG</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>CAMARA</td>
+                    <td>MONACCO</td>
+                    <td>3</td>
+</tr> 
+            
+            </table>
+
+
+  <!-- TOP SCORER--> 
+        <h3 class="league-title">  TOP  SCORER  LIGUE 1</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM</th>
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>ANSU FATI</td>
+                    <td>MONACO</td>
+                    <td>5</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>PANICHELLI </td>
+                    <td>STRASBOURG</td>
+                    <td>5</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>KEBBAL</td>
+                    <td>PARIS FC</td>
+                    <td>4</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>LEPAUL</td>
+                    <td>RENNES</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>CASTILLO</td>
+                    <td>BREST</td>
+                    <td>3</td>
+</tr> 
+            
+            </table>
+
+
+    <!-- TOP SCORING TEAMS--> 
+        <h3 class="league-title">  TOP  SCORING TEAMS  LIGUE 1 </h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM NAME</th>  
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>MONACO</td>
+                    <td>16</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>MARSEILLE</td>
+                    <td>15</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>STRASBOURG</td>
+                    <td>14</td>
+                    
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>LILLE</td>
+                    <td>14</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>PSG</td>
+                    <td>13</td>
+        </tr> 
+
+
+       </table>
+<!-- TOP CLEAN SHEETS--> 
+        <h3 class="league-title">  TOP CLEAN SHEETS LIGUE 1</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM </th>
+                   <th>CLEAN SHEETS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>LUCAS CHEVALIER</td>
+                    <td>PSG</td>
+                    <td>3</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>REMY DESCAMPS</td>
+                    <td>LYON</td>
+                    <td>3</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>RADOSLAW MAJECKI</td>
+                    <td>STADE BREST</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>MIKE PENDERS</td>
+                    <td>STRASBOURG</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>DOMINIK GREIF</td>
+                    <td>LYON</td>
+                    <td>2</td>
+
+</tr> 
+
+
+<table>
+            <!-- TOTAL PASSES--> 
+        <h3 class="league-title">  TOTAL PASSES LIGUE 1</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM </th>
+                   <th>TOTAL PASSES </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>FERREIRA</td>
+                    <td>PSG</td>
+                    <td>689</td>
+                
+
+         </tr>
+                <tr>
+                    <td>1</td>
+                    <td>LOPEZ </td>
+                    <td>PARIS FC</td>
+                    <td>597</td>
+                 
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>NIACHATE</td>
+                    <td>LYON</td>
+                    <td>525</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>AWAZIEM </td>
+                    <td>NANTES</td>
+                    <td>486</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>HOEJBJENG</td>
+                    <td>MARSEILLE</td>
+                    <td>486</td>
+
+</tr>
+<table>
+
+       <!-- TOTAL TEAMS  PASSES--> 
+         <h3 class="league-title">TOTAL TEAMS  PASSES LIGUE 1</h3>
+          <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM</th>
+                   <th>TOTAL TEAMS  PASSES </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>PSG</td>
+                    <td>5353</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>STRASBOURG</td>
+                    <td>4144</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>MARSEILLE</td>
+                    <td>3964</td>
+                
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>PARIS FC </td>
+                    <td>3740</td>
+                    
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>MONACO</td>
+                    <td>3614</td>           
+
+</tr>  
+           </table>
+       <!-- LIGUE 1-->
+        <h3 class="league-title">LIGUE 1</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th data-key="date">Date</th>
+                    <th data-key="homeTeam">Home Team</th>
+                    <th data-key="awayTeam">Away Team</th>
+                    <th data-key="time">Time</th>
+                    <th data-key="venue">Venue</th>
+                    <th data-key="timezone">TimeZone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2025-10-17</td><td>PSG</td><td>STRASBOURG</td><td>20:45</td><td>PARC DES PRINCES</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>NICE</td><td>LYON</td><td>17:00</td><td>ALLIANZ RIVIERA</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>ANGERS</td><td>MONACO</td><td>19:00</td><td>RAYMOND KOPA STADIUM</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>MARSEILLE</td><td>LE HAVRE</td><td>21:05</td><td>ORANGE VELODROME</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>LENS</td><td>PARIS FC</td><td>15:00</td><td>STADE BOLLAERT DELELIS</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>RENNES</td><td>AUXERRE</td><td>17:15</td><td>ROAZHON PARK</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>TOULOUSE</td><td>METZ</td><td>17:15</td><td>STADIUM DE TOULOUSE </td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>LORIENT</td><td>BREST</td><td>17:15</td><td>STADE DU MOUSTOIR</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>NANTES</td><td>LOSC LILLE</td><td>20:45</td><td>STADE DE LA BEAUJOIRE</td><td>CAT</td></tr>
+            </tbody>
+
+        </table>
+
+      <!-- Comments Section for LIGUE 1-->
+        <div class="comments-section" id="ligue 1-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="ligue 1-comment-input"></textarea>
+                <button onclick="addComment('ligue 1')">Post Comment</button>
+            </div>
+            <div id="ligue 1-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+
+        <!-- TOP ASSIST --> 
+        <h3 class="league-title">  TOP  ASSIST BUNDESLIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAMS</th>
+                   <th>ASSISTS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>ANDREJILIC</td>
+                    <td>UNION BERLIN</td>
+                    <td>4</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>HARRY KANE </td>
+                    <td>BAYERN MUNICH</td>
+                    <td>3</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>SERGE GNABRY</td>
+                    <td>BAYERN </td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>RITSU DOAN</td>
+                    <td>FRANKFURT</td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>CAN UZUN </td>
+                    <td>FRANKFURT</td>
+                    <td>3</td>
+</tr> 
+            
+            </table>
+
+
+  <!-- TOP SCORER--> 
+        <h3 class="league-title">  TOP  SCORER  BUNDESLIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>
+                   <th>TEAM</th>
+                   <th>GOALS</th> 
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>LUIZ DIAZ</td>
+                    <td>BAYERN MUNICH</td>
+                    <td>5</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>CAN UZUN </td>
+                    <td>FRANKFURT</td>
+                    <td>5</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>FISNIK ASLLANI</td>
+                    <td>HOFFENHEIM</td>
+                    <td>4</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>ILYAS ANSAH</td>
+                    <td>UNION BERLIN</td>
+                    <td>4</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>SERHOU GUIRASSY</td>
+                    <td>DORTMUND</td>
+                    <td>4</td>
+         </tr> 
+            
+            </table>
+
+
+    <!-- TOP SCORING TEAMS--> 
+        <h3 class="league-title">  TOP  SCORING TEAMS  BUNDESLIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM </th>  
+                   <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>BAYERN MUNICH</td>
+                    <td>25</td>
+                    
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>DORTMUND</td>
+                    <td>12</td>
+         </tr>
+
+               <tr>
+                    <td>3</td>
+                    <td>LEVERKUSEN</td>
+                    <td>12</td>         
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>RB LEIPZIG</td>
+                    <td>8</td>
+
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>VFB STUTTGART</td>
+                    <td>8</td>
+        
+              
+</tr> 
+       </table>
+
+    <!-- TOP CLEAN SHEETS--> 
+        <h3 class="league-title">  TOP CLEAN SHEETS BUNDESLIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM </th>
+                   <th>CLEAN SHEETS</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>MANUEL NEUER</td>
+                    <td>BAYERN MUNICH</td>
+                    <td>4</td>
+                
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>GREGOR KOBEL</td>
+                    <td>DORTMUND</td>
+                    <td>4</td>
+                   
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ALEXANDER NUBEL</td>
+                    <td>VFB STUTTGART</td>
+                    <td>3</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>DANIEL HEUER FERNANDES</td>
+                    <td>HAMBURGER SV </td>
+                    <td>3</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>PETER GULACSI</td>
+                    <td>RB LEIPZIG</td>
+                    <td>3</td>
+
+</tr> 
+
+
+<table>
+            <!-- TOTAL PASSES--> 
+        <h3 class="league-title">  TOTAL PASSES PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>PLAYER NAME</th>  
+                   <th>TEAM </th>
+                   <th>TOTAL PASSES </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>MALDEMAR ANTON</td>
+                    <td>DORTMUND</td>
+                    <td>535</td>
+                
+
+         </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ALEIX GARASA</td>
+                    <td>LEVERKUSEN</td>
+                    <td>513</td>
+                 
+
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>EDMOND TAPSOBA</td>
+                    <td>LEVERKUSEN</td>
+                    <td>468</td>
+
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>RAMI BANSEBAINI</td>
+                    <td>DORTMUND</td>
+                    <td>460</td>
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>JOSHUA KIMMICH</td>
+                    <td>BAYERN</td>
+                    <td>434</td>
+
+</tr>
+<table>
+
+       <!-- TOTAL TEAMS  PASSES--> 
+         <h3 class="league-title">TOTAL TEAMS  PASSES BUNDESLIGA</h3>
+          <table>
+            <thead>
+                <tr>
+                   <th>RANK </th>
+                   <th>TEAM</th>
+                   <th>TOTAL TEAMS  PASSES </th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                 <tr>
+                    <td>1</td>
+                    <td>BAYERN MUNICH</td>
+                    <td>3888</td>
+
+         </tr>
+                <tr>
+                    <td>2</td>
+                    <td>WOLFSBURG</td>
+                    <td>3800</td>
+         </tr>
+                <tr>
+                    <td>3</td>
+                    <td>DORTMUND</td>
+                    <td>3641</td>
+                
+         </tr>
+                <tr>
+                    <td>4</td>
+                    <td>BAYERN LEVERKUSEN</td>
+                    <td>3441</td>
+                    
+         </tr>
+                <tr>
+                    <td>5</td>
+                    <td>FSV Mainz 05</td>
+                    <td>3278</td>           
+
+</tr>  
+           </table>
+       <!-- BUNDESLIGA-->
+        <h3 class="league-title">BUNDESLIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th data-key="date">Date</th>
+                    <th data-key="homeTeam">Home Team</th>
+                    <th data-key="awayTeam">Away Team</th>
+                    <th data-key="time">Time</th>
+                    <th data-key="venue">Venue</th>
+                    <th data-key="timezone">TimeZone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>2025-10-17</td><td>UNION BERLIN</td><td>MONCHENGLADBACH</td><td>20:30</td><td>SUBARU PARK</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>MAINZ</td><td>LEVERKUSEN</td><td>15:30</td><td>MEWA ARENA</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>RB LEIPZIG</td><td>HAMBURGER SV</td><td>15:30</td><td>RED BULL ARENA</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>KOLN</td><td>AUGSBURG</td><td>15:30</td><td></td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>HEIDENHEIM</td><td>WERDER BREMEN</td><td>15:30</td><td> HEIDENHEIM VOITH ARENA</td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>WOLFSBURG</td><td>VFB STUTTGART</td><td>15:30</td><td>VOLKSWAGEN ARENA </td><td>CAT</td></tr>
+                <tr><td>2025-10-18</td><td>BAYERN MUNICH</td><td>DORTMUND</td><td>18:30</td><td>ALLIANZ ARENA</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>SC FREIBURG</td><td>EINTRACHT FRANKFURT</td><td>15:30</td><td>EUROPA PARK STADION</td><td>CAT</td></tr>
+                <tr><td>2025-10-19</td><td>ST.PAULI</td><td>HOFFENHEIM</td><td>17:30</td><td>MILLERNTOR STADIUM</td><td>CAT</td></tr>
+            </tbody>
+        </table>
+
+    
+
+     
+        <!-- Comments Section for BUNDESLIGA -->
+        <div class="comments-section" id="Bundesliga-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="bundesliga-comment-input"></textarea>
+                <button onclick="addComment('bundesliga')">Post Comment</button>
+            </div>
+            <div id="bundesliga-comments-list">
                 <!-- Comments will be added here dynamically -->
             </div>
         </div>
@@ -614,10 +2235,20 @@
 
     <section class="info-section" id="privacy">
     <h2 data-key="privacyTitle">Privacy Policy</h2>
-    <p data-key="privacyDesc1">At Ganza Sport Hub, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.</p>
-    <p data-key="privacyDesc2">We do not share your data with third parties without your consent. We use cookies and analytics tools to improve our website and provide a personalized experience.</p>
-    <p data-key="privacyDesc3">By using our website, you agree to our terms of service and privacy practices. You have the right to access, modify, or delete your information at any time.</p>
+    <p data-key="privacyDesc1">AT Ganza Sport Hub, We Take your Privacy Seriously. This Policy Outlines How We Collect, Use, And Protect Your Personal Information.</p>
+    <p data-key="privacyDesc2">We Do Not Share Your Data With Third Parties Without Your Consent. We Use Cookies And Analytics Tools To Improve Our Website And Provide A Personalized Experience.</p>
+    <p data-key="privacyDesc3">By Using Our Website, You Agree To Our Terms Of Service And Privacy Practices. You Have The Right To Access, Modify, Or Delete Your Information At Any Time.</p>
     </section>
+    </div>
+
+
+
+    
+
+    <!-- Infinite Scroll Loading Section -->
+    <div class="loading-section" id="loadingSection">
+        <div class="loading-spinner"></div>
+        <p>Loading more content...</p>
     </div>
 
     <footer>
@@ -633,33 +2264,7 @@
         </div>
     </footer>
 
-    <script>
-        // Check if current page has substantial content
-        function shouldShowAds() {
-            // Check if we're on a policy page (About Us, Privacy Policy, etc.)
-            const currentHash = window.location.hash.toLowerCase();
-            const isPolicyPage = currentHash === '#about' || currentHash === '#privacy';
-            
-            // Check if page has substantial content (tables, sports cards, etc.)
-            const hasSubstantialContent = document.querySelector('table, .sports-showcase, .fixtures-dropdown') !== null;
-            
-            return hasSubstantialContent && !isPolicyPage;
-        }
-
-        // Initialize ads based on content
-        function initializeAds() {
-            const topAdContainer = document.getElementById('topAdContainer');
-            
-            if (!shouldShowAds()) {
-                // Hide ads on policy pages and pages without substantial content
-                if (topAdContainer) {
-                    topAdContainer.classList.add('hide-ads');
-                }
-                console.log('Ads hidden - policy page or insufficient content');
-            } else {
-                console.log('Ads shown - content page with substantial content');
-            }
-        }
+   <script>
 
         // Language data with complete translations for all 12 languages
         const translations = {
@@ -1545,6 +3150,9 @@
             
             // Load comments
             loadComments();
+            
+            // Set up infinite scroll
+            setupInfiniteScroll();
             
             // Add click events to all language links
             document.querySelectorAll('[data-lang]').forEach(link => {
