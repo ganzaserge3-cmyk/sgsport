@@ -3,259 +3,2158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Converter</title>
+    <title>Ganza Sport Hub</title>
+    <nav>
+    <link rel="shortcut icon" href="ganza.jpeg" type="image/x-icon">
+    </nav>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Define the new Black and White color variables */
+        :root {
+            --primary-bg: #ffffff; /* White */
+            --secondary-bg: #f4f4f4; /* Light Gray for sections */ 
+            --primary-text: #000000; /* Black */
+            --secondary-text: #333333; /* Dark Gray for secondary text */
+            --accent-color: #000000; /* Pure Black for accents, borders, links */
+            --border-color: #cccccc; /* Light Gray for borders */
+            --shadow-color: rgba(0,0,0,0.1);
+            --header-bg: #000000; /* Black Header */
+            --header-text: #ffffff; /* White text on black header */
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
+        body { background:var(--primary-bg); color:var(--primary-text); }
+        a { text-decoration:none; color:var(--accent-color); }
+        
+        /* Animation classes - Keep general structure, adjust colors if necessary */
+        .scroll-image {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        body {
-            background: linear-gradient(135deg, hsl(56, 85%, 43%) 0%, #fcf525 100%);
+        .scroll-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .replace-text {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .replace-text .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .replace-text.animated .char {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Large Top Ad Space */
+        .top-ad-container {
+            width: 100%;
+            margin: 0;
+            padding: 60px 0;
+            background: transparent;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            border-bottom: 2px solid var(--border-color);
         }
-        
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 40px;
+        .top-ad-container.hide-ads {
+            display: none !important;
+        }
+        .top-ad-container ins {
             width: 100%;
-            max-width: 500px;
-            text-align: center;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-        }
-        
-        .description {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-        
-        .input-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-        
-        label {
+            max-width: 1200px;
+            height: 250px;
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #444;
+            margin: 0 auto;
+            background: var(--secondary-bg); /* Light gray placeholder */
+            border-radius: 10px;
         }
         
-        input, select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
+        /* Header */
+        header { 
+            background:var(--header-bg); 
+            color:var(--header-text); 
+            padding:15px 20px; 
+            display:flex; 
+            justify-content:space-between; 
+            align-items:center; 
+            flex-wrap:wrap; 
+            box-shadow:0 4px 12px var(--shadow-color); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        header .brand { display:flex; flex-direction:column; align-items:center; text-align:center; }
+        header .brand img { 
+            width:70px; 
+            height:70px; 
+            border-radius:0 !important;
+            margin-bottom:5px; 
+            object-fit: cover;
+            border: 2px solid var(--header-text); /* White border on black header */
+        }
+        header .brand h1 { font-size:20px; font-weight:bold; color:var(--header-text); } /* White */
+        header .brand p { font-size:12px; color:var(--border-color); font-style:italic; margin-top:3px; } /* Light Gray */
+        nav { display:flex; flex-wrap:wrap; gap:15px; align-items: center; }
+        nav a { color:var(--header-text); font-weight:bold; transition:all 0.3s ease; padding:5px 10px; border-radius:4px; }
+        nav a:hover { color:var(--header-bg); background:var(--header-text); } /* Black text on White hover */
+
+        /* Language Selector */
+        .language-selector { position: relative; display: inline-block; }
+        .language-btn { background: var(--secondary-bg); color: var(--accent-color); border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        .language-options { display: none; position: absolute; top: 100%; right: 0; background: var(--header-bg); min-width: 150px; box-shadow: 0 4px 8px var(--shadow-color); border-radius: 4px; z-index: 1; }
+        .language-options a { display: block; padding: 10px 15px; color: var(--header-text); cursor: pointer; }
+        .language-options a:hover { background: var(--secondary-text); }
+
+        /* Mobile Nav */
+        .mobile-nav { display:none; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:var(--header-bg); }
+        .mobile-nav a { padding:15px; border-bottom:1px solid var(--secondary-text); color:var(--header-text); }
+        .mobile-nav a:hover { background:var(--secondary-text); }
+        .mobile-dropdown-content { display:none; background:var(--primary-bg); padding-left:20px; }
+        .mobile-dropdown-content a { padding:12px 20px; color: var(--primary-text); cursor: pointer; }
+
+        /* Hamburger Menu */
+        .hamburger-menu { display:none; flex-direction: column; cursor:pointer; padding:5px; position:absolute; top:20px; right:20px; }
+        .hamburger-menu span { height:3px; width:25px; background:var(--header-text); margin:3px 0; transition:0.3s; }
+
+        /* Welcome Section */
+        .welcome-section { 
+            padding:60px 20px; 
+            text-align:center; 
+            background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); 
+            background-size:cover; 
+            background-position:center; 
+            color:var(--header-text); /* White text on dark image overlay */
+        }
+        .welcome-section h1 { font-size:2.5rem; margin-bottom:20px; color:var(--header-text); }
+        .welcome-section p { max-width:800px; margin:0 auto 30px; font-size:1.1rem; line-height:1.6; }
+
+        /* Sports Showcase */
+        .sports-showcase { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:40px; }
+        .sport-card { 
+            width:300px; 
+            background:var(--secondary-bg); /* Light Gray */
+            border-radius:10px; 
+            overflow:hidden; 
+            box-shadow:0 4px 8px var(--shadow-color); 
+            transition: transform 0.3s; 
+            border: 1px solid var(--border-color);
+        }
+        .sport-card:hover { transform:translateY(-10px); }
+        .sport-card img { width:100%; height:200px; object-fit:cover; }
+        .sport-card h3 { padding:15px; color:var(--accent-color); font-size:1.3rem; } /* Black */
+        .sport-card p { padding:0 15px 15px; font-size:0.9rem; line-height:1.5; color:var(--secondary-text); }
+
+        /* General Content */
+        .container { padding:20px; max-width:1400px; margin:0 auto; }
+        h2 { color:var(--accent-color); border-bottom:2px solid var(--border-color); margin:20px 0 10px; padding-bottom:5px; }
+
+        /* Tables */
+        table { 
+            width:100%; 
+            border-collapse:collapse; 
+            margin-bottom:30px; 
+            background:var(--secondary-bg); /* Light Gray */
+            border-radius:8px; 
+            overflow:hidden; 
+            box-shadow:0 4px 8px var(--shadow-color); 
+        }
+        th, td { border:1px solid var(--border-color); padding:10px; text-align:center; }
+        th { background:var(--secondary-text); color:var(--header-text); } /* Dark Gray background, White text */
+        .league-title { font-weight:bold; margin:15px 0; font-size:18px; color:var(--accent-color); background:var(--secondary-bg); padding:8px 15px; border-radius:5px; border: 1px solid var(--border-color); }
+
+        /* Fixtures Dropdown */
+        .fixtures-dropdown { position: relative; display: inline-block; }
+        .fixtures-options { display: none; position: absolute; background:var(--header-bg); min-width:200px; box-shadow:0 4px 8px var(--shadow-color); border-radius:4px; z-index:1; }
+        .fixtures-options a { display:block; padding:10px 15px; color:var(--header-text); cursor: pointer; }
+        .fixtures-options a:hover { background:var(--secondary-text); }
+
+        /* Info Section */
+        .info-section { 
+            padding:40px 20px; 
+            background:var(--secondary-bg); 
+            border-radius:10px; 
+            margin:30px 0; 
+            box-shadow:0 4px 8px var(--shadow-color); 
+            border: 1px solid var(--border-color);
+        }
+        .info-section h2 { color:var(--accent-color); margin-bottom:20px; text-align:center; }
+        .info-section p { line-height:1.6; margin-bottom:15px; }
+        .info-section ul { margin-left:20px; margin-bottom:15px; }
+
+        /* Footer */
+        footer { background:var(--header-bg); color:var(--header-text); text-align:center; padding:15px; margin-top:40px; border-top:2px solid var(--border-color); }
+        footer ul { list-style:none; padding:10px 0; }
+        footer li { display:inline-block; margin:0 15px; }
+        footer a { color:var(--header-text); transition:color 0.3s; }
+        footer a:hover { color:var(--border-color); }
+
+        /* Comment Section */
+        .comments-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .comments-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        
+        .comment-form {
+            margin-bottom: 25px;
+            background: var(--primary-bg);
+            padding: 15px;
             border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+            border: 1px solid var(--border-color);
         }
         
-        input:focus, select:focus {
-            border-color: #2575fc;
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--primary-text);
+            resize: vertical;
+            min-height: 60px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .comment-form textarea:focus {
             outline: none;
+            border-color: var(--accent-color);
         }
         
-        .button-group {
+        .comment-form button {
+            background: var(--accent-color);
+            color: var(--header-text);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .comment-form button:hover {
+            background: var(--secondary-text);
+            transform: translateY(-1px);
+        }
+        
+        .comment {
+            background: var(--primary-bg);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+        
+        .comment-date {
+            color: var(--secondary-text);
+            font-size: 0.75rem;
+        }
+        
+        .comment-content {
+            line-height: 1.5;
+            color: var(--primary-text);
+            font-size: 14px;
+        }
+        
+        .comment-actions button {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            color: var(--secondary-text);
+            font-weight: normal;
+        }
+        
+        .comment-actions button:hover {
+            background: var(--accent-color);
+            color: var(--header-text);
+        }
+        
+        .reply-form {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+        }
+        
+        .reply-form textarea {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            color: var(--primary-text);
+        }
+        
+        .post-reply-btn {
+            background: var(--accent-color);
+            color: var(--header-text);
+        }
+        
+        .cancel-reply-btn {
+            background: var(--secondary-text);
+            color: var(--header-text);
+        }
+        
+        .replies-container {
+            border-left: 2px solid var(--border-color);
+        }
+        
+        .reply {
+            background: var(--primary-bg);
+            border-left: 3px solid var(--border-color);
+        }
+        
+        /* --- COOKIE NOTIFICATION STYLES (Improved Positioning and Color) --- */
+        .cookie-notification {
+            /* Fixed positioning at the bottom for high visibility */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--header-bg); /* Pure Black background */
+            color: var(--header-text); /* White text */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1050; /* Higher z-index to ensure it is always on top */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 15px; /* Spacing between content and buttons */
+        }
+        
+        .cookie-content {
             display: flex;
-            gap: 15px;
+            align-items: center;
+            flex-grow: 1; /* Allows content to take up available space */
+            max-width: 70%; /* Limit text width */
+        }
+
+        .cookie-notification h3 {
+            color: var(--header-text); /* White text */
+            margin-right: 15px;
+            font-size: 1.1rem;
+            white-space: nowrap; /* Keep title on one line */
+        }
+        
+        .cookie-notification p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .cookie-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .cookie-accept {
+            background: var(--primary-bg); /* White background */
+            color: var(--primary-text); /* Black text */
+        }
+        .cookie-accept:hover {
+            background: var(--border-color); /* Light Gray on hover */
+            transform: translateY(-1px);
+        }
+        .cookie-decline {
+            background: var(--secondary-text); /* Dark Gray */
+            color: var(--header-text); /* White text */
+        }
+        .cookie-decline:hover {
+            background: var(--primary-text); /* Pure Black on hover */
+            color: var(--secondary-bg); /* Light Gray text */
+            transform: translateY(-1px);
+        }
+        
+        /* --- ACCESS RESTRICTED OVERLAY STYLES (Improved Visibility) --- */
+        .access-restricted {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9); /* Darker, semi-transparent black overlay */
+            z-index: 1100; /* Higher than cookie bar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--header-text);
+        }
+        
+        .access-restricted-content {
+            background: var(--secondary-bg); /* Light Gray box */
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            border: 3px solid var(--accent-color); /* Strong Black border */
+        }
+        
+        .access-restricted h2 {
+            color: var(--accent-color); /* Black title */
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: none; /* Remove section border */
+            padding-bottom: 0;
+        }
+        
+        .access-restricted p {
+            color: var(--secondary-text); /* Dark Gray text */
             margin-bottom: 30px;
         }
         
-        button {
-            flex: 1;
-            padding: 14px;
+        .access-restricted button {
+            background: var(--accent-color); /* Black button */
+            color: var(--header-text); /* White text */
+            padding: 10px 20px;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
+            border-radius: 6px;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background 0.3s;
         }
         
-        #convertBtn {
-            background-color: #2575fc;
-            color: white;
+        .access-restricted button:hover {
+            background: var(--secondary-text); /* Dark Gray hover */
+        }
+
+        /* Infinite Scroll Loading */
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.3);
+            border-top: 4px solid var(--accent-color);
         }
         
-        #convertBtn:hover {
-            background-color: #1a67e8;
-            transform: translateY(-2px);
+        /* Statistics Section Styles */
+        .statistics-section {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
         }
         
-        #resetBtn {
-            background-color: #f5f5f5;
-            color: #333;
+        .statistics-section h3 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
         }
         
-        #resetBtn:hover {
-            background-color: #e0e0e0;
+        .statistics-btn {
+            background: var(--border-color);
+            color: var(--secondary-text);
         }
         
-        .result {
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-            display: none;
+        .statistics-btn:hover {
+            background: var(--accent-color);
+            color: var(--header-text);
         }
         
-        .result h3 {
-            color: #333;
-            margin-bottom: 10px;
+        .statistics-btn.active {
+            background: var(--accent-color);
+            color: var(--header-text);
         }
         
-        .result-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2575fc;
-            margin: 10px 0;
+        .league-caption {
+            background: var(--primary-bg);
+            border-left: 4px solid var(--accent-color);
+            color: var(--secondary-text);
         }
         
-        .formula {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed #ddd;
+        /* Standings Section Styles */
+        .standings-section {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
         }
         
-        .error {
-            color: #e74c3c;
-            margin-top: 10px;
-            font-weight: 500;
-            display: none;
+        .standings-section h3 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
         }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 25px;
+
+        /* Mobile Responsive adjustments for new color scheme */
+        @media (max-width:768px){
+            /* Ensures mobile menu text is visible on its background */
+            .mobile-nav a { 
+                color:var(--header-text); 
             }
-            
-            h1 {
-                font-size: 1.8rem;
+            .mobile-nav a:hover { 
+                background:var(--secondary-text); 
             }
-            
-            .button-group {
+            .hamburger-menu span { 
+                background:var(--header-text); 
+            }
+
+            .cookie-notification {
                 flex-direction: column;
+                text-align: center;
             }
+            .cookie-content {
+                flex-direction: column;
+                max-width: 100%;
+            }
+            .cookie-notification h3 {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+        }
+        
+        @media (min-width:769px){
+            .mobile-nav { display:none !important; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Temperature Converter</h1>
-        <p class="description">Convert between Celsius and Fahrenheit with ease. Enter a temperature value and select the unit to convert from.</p>
-        
-        <div class="input-group">
-            <label for="temperature">Temperature Value</label>
-            <input type="number" id="temperature" placeholder="Enter temperature" step="any">
-        </div>
-        
-        <div class="input-group">
-            <label for="unit">Convert From</label>
-            <select id="unit">
-                <option value="celsius">Celsius to Fahrenheit</option>
-                <option value="fahrenheit">Fahrenheit to Celsius</option>
-            </select>
-        </div>
-        
-        <div class="button-group">
-            <button id="convertBtn">Convert Temperature</button>
-            <button id="resetBtn">Reset</button>
-        </div>
-        
-        <div class="error" id="errorMsg">Please enter a valid temperature value.</div>
-        
-        <div class="result" id="result">
-            <h3>Conversion Result</h3>
-            <div class="result-value" id="resultValue">0°F</div>
-            <div class="formula" id="formula"></div>
+    <div id="accessRestricted" class="access-restricted" style="display: none;">
+        <div class="access-restricted-content">
+            <h2 data-key="accessRestrictedTitle">Access Restricted</h2>
+            <p data-key="accessRestrictedDesc">To use Ganza Sport Hub, you need to accept our cookie policy. This helps us provide you with a better experience and personalized content.</p>
+            <button onclick="acceptCookies()" data-key="cookieAccept">Accept Cookies</button>
         </div>
     </div>
 
+    <div class="top-ad-container" id="topAdContainer">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3486690881489807"
+            crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-3486690881489807"
+            data-ad-slot="6589752901"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div id="cookieNotification" class="cookie-notification">
+        <div class="cookie-content">
+            <h3 data-key="cookieTitle">🍪 Cookie Consent</h3>
+            <p data-key="cookieDesc">We use cookies to enhance your experience on our website. By clicking "Accept", you agree to our use of cookies for analytics and personalized content.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-key="cookieDecline">Decline</button>
+            <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-key="cookieAccept">Accept</button>
+        </div>
+    </div>
+
+    <header>
+        <div style="text-align:center; font-family:'Poppins', sans-serif; margin-top:20px;">
+
+        <img src="https://i.pinimg.com/1200x/48/1f/20/481f206534d092beaffd2c6ba29796ed.jpg" 
+             alt="Ganza Sport Hub Logo" 
+             style="width:70px; height:70px; object-fit:cover; border-radius:8px; border:2px solid #ff9e00;">
+
+        <h2 style="margin:8px 0 4px 0; font-size:22px; font-weight:700; color:#ff9e00; letter-spacing:1px;">
+            GANZA SPORT HUB
+        </h2>
+
+        <p style="margin:0; font-size:14px; color:#ffffff; font-weight:400; letter-spacing:0.5px;">
+            Every score, Every Story
+        </p>
+
+    </div>
+        
+               <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="#home">Home</a>
+            <div class="fixtures-dropdown">
+                <a href="#">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
+                <div class="fixtures-options">
+                    <a href="#premier-league" onclick="scrollToSection('premier-league')">Premier League</a>
+                    <a href="#la-liga" onclick="scrollToSection('la-liga')">La Liga</a>
+                    <a href="#serie-a" onclick="scrollToSection('serie-a')">Serie A</a>
+                    <a href="#ligue-1" onclick="scrollToSection('ligue-1')">Ligue 1</a>
+                    <a href="#bundesliga" onclick="scrollToSection('bundesliga')">Bundesliga</a>
+                    <a href="#nba" onclick="scrollToSection('nba')">NBA</a>
+                </div>
+            </div>
+            <a href="about.html">About Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#home">Home</a>
+            <div class="mobile-dropdown">
+                <a href="javascript:void(0)">Upcoming Fixtures <i class="fas fa-chevron-down"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="#premier-league" onclick="scrollToSection('premier-league')">Premier League</a>
+                    <a href="#la-liga" onclick="scrollToSection('la-liga')">La Liga</a>
+                    <a href="#serie-a" onclick="scrollToSection('serie-a')">Serie A</a>
+                    <a href="#ligue-1" onclick="scrollToSection('ligue-1')">Ligue 1</a>
+                    <a href="#bundesliga" onclick="scrollToSection('bundesliga')">Bundesliga</a>
+                    <a href="#nba" onclick="scrollToSection('nba')">NBA</a>
+                </div>
+            </div>
+            <a href="about.html">About Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const temperatureInput = document.getElementById('temperature');
-            const unitSelect = document.getElementById('unit');
-            const convertBtn = document.getElementById('convertBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const resultDiv = document.getElementById('result');
-            const resultValue = document.getElementById('resultValue');
-            const formulaDiv = document.getElementById('formula');
-            const errorMsg = document.getElementById('errorMsg');
+    // Toggle fixtures dropdown
+    document.querySelector('.fixtures-dropdown > a').addEventListener('click', function(e) {
+        e.preventDefault();
+        const options = document.querySelector('.fixtures-options');
+        options.style.display = options.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Toggle mobile fixtures dropdown
+    document.querySelector('.mobile-dropdown > a').addEventListener('click', function(e) {
+        e.preventDefault();
+        const options = document.querySelector('.mobile-dropdown-content');
+        options.style.display = options.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.fixtures-dropdown')) {
+            document.querySelector('.fixtures-options').style.display = 'none';
+        }
+        
+        if (!e.target.closest('.mobile-dropdown')) {
+            document.querySelector('.mobile-dropdown-content').style.display = 'none';
+        }
+    });
+
+    // Scroll to section function
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
             
-            // Conversion functions
-            function celsiusToFahrenheit(celsius) {
-                return (celsius * 9/5) + 32;
+            // Close dropdowns after selection
+            document.querySelector('.fixtures-options').style.display = 'none';
+            document.querySelector('.mobile-dropdown-content').style.display = 'none';
+        }
+    }
+
+    // Toggle mobile menu
+    document.getElementById('hamburgerMenu').addEventListener('click', function() {
+        const mobileNav = document.getElementById('mobileNav');
+        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Cookie functions
+    function acceptCookies() {
+        document.getElementById('cookieNotification').style.display = 'none';
+        document.getElementById('accessRestricted').style.display = 'none';
+        document.getElementById('topAdContainer').classList.remove('hide-ads');
+        localStorage.setItem('cookiesAccepted', 'true');
+    }
+
+    function declineCookies() {
+        document.getElementById('cookieNotification').style.display = 'none';
+        document.getElementById('accessRestricted').style.display = 'block';
+        document.getElementById('topAdContainer').classList.add('hide-ads');
+        localStorage.setItem('cookiesAccepted', 'false');
+    }
+
+    // Check cookie status on page load
+    window.addEventListener('DOMContentLoaded', function() {
+        const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+        
+        if (cookiesAccepted === 'true') {
+            document.getElementById('cookieNotification').style.display = 'none';
+            document.getElementById('accessRestricted').style.display = 'none';
+            document.getElementById('topAdContainer').classList.remove('hide-ads');
+        } else if (cookiesAccepted === 'false') {
+            document.getElementById('cookieNotification').style.display = 'none';
+            document.getElementById('accessRestricted').style.display = 'block';
+            document.getElementById('topAdContainer').classList.add('hide-ads');
+        } else {
+            document.getElementById('cookieNotification').style.display = 'block';
+            document.getElementById('accessRestricted').style.display = 'none';
+        }
+    });
+</script>
+
+    <!-- WELCOME SECTION -->
+    <section id="home" class="welcome-section">
+        <h1>Welcome to Ganza Sport Hub</h1>
+        <p>Your Ultimate Destination For Fixtures, News, And Stories From The World Of Sports.</p>
+
+        <div class="sports-showcase">
+            <div class="sport-card">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Football">
+                <h3>Football</h3>
+                <p>Follow All Major Leagues Including Premier League, La Liga, Serie A, Bundesliga, and Champions League.</p>
+            </div>
+            <div class="sport-card">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Basketball">
+                <h3>Basketball</h3>
+                <p>Get The Latest NBA Scores, EuroLeague Updates, And Basketball From Around The World.</p>
+            </div>
+            
+            
+    </section>
+
+
+<!-- PREMIER LEAGUE SECTION -->
+<section id="premier-league">
+    <h2 class="league-title replace-text">PREMIER LEAGUE</h2>
+
+    <!-- Top Scorer  -->
+        <h3 class="league-title replace-text">TOP  PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM</th>
+                    <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>ERLING HAALAND</td><td>MAN CITY</td><td>11</td></tr>
+                <tr><td>2</td><td>IGOR THIAGO</td><td>BRENTFORD</td><td>6</td></tr>
+                <tr><td>3</td><td>ANTOINE SEMENYO</td><td>BOURNEMOUTH</td><td>6</td></tr>
+                <tr><td>4</td><td>DANNY WELBECK</td><td>BRIGHTON </td><td>5</td></tr>
+                <tr><td>5</td><td>JEAN PHILIPPE MATETA</td><td>CRYSTAL PALACE</td><td>5</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top Assist -->
+   
+        <h3 class="league-title replace-text">TOP ASSISTS PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM</th>
+                    <th>ASSISTS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>HARTMAN</td><td>BURNLEY</td><td>4</td></tr>
+                <tr><td>2</td><td>MOHAMMED KUDUS</td><td>TOTTENHAM HOTSPURS</td><td>4</td></tr>
+                <tr><td>3</td><td>JACK GREALISH</td><td>EVERTON</td><td>4</td></tr>
+                <tr><td>4</td><td>GRANIT XHAKA</td><td>SUNDERLAND</td><td>3</td></tr>
+                <tr><td>5</td><td>HADJI DIOUF</td><td>WESTHAM UNITED</td><td>3</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top Scoring Teams -->
+
+        <h3 class="league-title replace-text">TOP SCORING TEAMS PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>TEAM NAME</th>
+                    <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>CHELSEA</td><td>17</td></tr>
+                <tr><td>2</td><td>SPURS</td><td>17</td></tr>
+                <tr><td>3</td><td>MAN CITY</td><td>17</td></tr>
+                <tr><td>4</td><td>BOURNEMOUTH</td><td>16</td></tr>
+                <tr><td>5</td><td>ARSENAL</td><td>16</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top Clean Sheets -->
+
+        <h3 class="league-title replace-text">TOP CLEAN SHEETS PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM NAME</th>
+                    <th>CLEAN SHEETS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>DAVID RAYA</td><td>ARSENAL</td><td>6</td></tr>
+                <tr><td>2</td><td>NICK POPE</td><td>NEWCASTLE UNITED</td><td>5</td></tr>
+                <tr><td>3</td><td>ROBIN ROEFS</td><td>SUNDERLAND</td><td>4</td></tr>
+                <tr><td>4</td><td>PETROVIC</td><td>BOURNEMOUTH</td><td>4</td></tr>
+                <tr><td>5</td><td>VICARIO</td><td>TOTTENHAM HOTSPUR</td><td>4</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Total Passes -->
+
+        <h3 class="league-title replace-text">TOTAL PASSES PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM NAME</th>
+                    <th>TOTAL PASSES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>VIRGIL VAN DIJK</td><td>LIVERPOOL</td><td>698</td></tr>
+                <tr><td>2</td><td>ELLIOT ANDERSON</td><td>NOTTM FOREST</td><td>680</td></tr>
+                <tr><td>3</td><td>LEWIS DUNK</td><td>BRIGHTON</td><td>620</td></tr>
+                <tr><td>4</td><td>JAN PAUL VAN HECKE</td><td>BRIGHTON</td><td>586</td></tr>
+                <tr><td>5</td><td>TREVOH CHALOBAH</td><td>CHELSEA</td><td>586</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Total Teams Passes -->
+    
+        <h3 class="league-title replace-text">TOTAL TEAMS PASSES PREMIER LEAGUE</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>TEAM NAME</th>
+                    <th>TOTAL TEAMS PASSES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>MAN CITY</td><td>5038</td></tr>
+                <tr><td>2</td><td>CHELSEA</td><td>4829</td></tr>
+                <tr><td>3</td><td>LIVERPOOL</td><td>4745</td></tr>
+                <tr><td>4</td><td>ARSENAL</td><td>4471</td></tr>
+                <tr><td>5</td><td>NOTTM FOREST</td><td>4396</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+
+         <!-- Fixtures Section -->
+        <div class="fixtures-section">
+            <h3 class="league-title replace-text">PREMIER LEAGUE  FIXTURES</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="date ">Date</th>
+                        <th data-key="homeTeam">Home Team</th>
+                        <th data-key="awayTeam">Away Team</th>
+                        <th data-key="time">Time</th>
+                        <th data-key="venue">Venue</th>
+                        <th data-key="timezone">TimeZone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr><td>2025-11-1</td><td>CRYSTAL PALACE </td><td>BRENTFORD</td><td>17:00</td><td>SELHURST PARK</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>BURNLEY</td><td>ARSENAL</td><td>17:00</td><td>TURF MOOR</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>FULHAM</td><td>WOLVES</td><td>17:00</td><td>CRAVEN COTTAGE</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>NOTTM FOREST</td><td>MAN UNITED</td><td>17:00</td><td>CITY GROUND</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>BRIGHTON</td><td>LEEDS UNITED</td><td>17:00</td><td>AMERICAN EXPRESS STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>TOTTENHAM</td><td>CHELSEA</td><td>19:30</td><td>TOTTENHAM HOTSPUR STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>LIVERPOOL</td><td>ASTON VILLA</td><td>22:00</td><td>ANFIELD</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>WESTHAM</td><td>NEWCASTLE</td><td>16:00</td><td>LONDON STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>MAN CITY</td><td>BOURNEMOUTH<</td><td>18:30</td><td>ETIHAD STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>SUNDERLAND</td><td>EVERTON</td><td>22:30</td><td>STADIUM OF LIGHT</td><td>CAT</td></tr>
+                      
+                   
+            </table>
+        </div>
+        
+
+        <!-- League Caption -->
+        <div class="league-caption">
+            <p data-key="leagueCaption">Statistics and Fixtures are updated after the finished games available is when we make other statistics and fixtures so we can provide real statistics and fixtures</p>
+        </div>
+
+        <!-- Comments Section for PREMIER LEAGUE-->
+        <div class="comments-section" id="premier-league-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="premier-league-comment-input"></textarea>
+                <button onclick="addComment('premier-league')">Post Comment</button>
+            </div>
+            <div id="premier-league-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+<!-- LA LIGA SECTION -->
+<section id="la-liga">
+    <h2 class="league-title replace-text">LA LIGA</h2>
+
+    
+
+    <!-- Top Assist -->
+
+        <h3 class="league-title replace-text">TOP ASSIST LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM</th>
+                    <th>ASSISTS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>LUIS MILLA</td><td>GETAFE</td><td>5</td></tr>
+                <tr><td>2</td><td>LAMINE YAMAL</td><td>BARCELONA</td><td>4</td></tr>
+                <tr><td>3</td><td>VINICIUS JUNIOR</td><td>REAL MADRID</td><td>4</td></tr>
+                <tr><td>4</td><td>ARDA GULER</td><td>REAL MADRID</td><td>4</td></tr>
+                <tr><td>5</td><td>PABLO  FORNALS</td><td>SEVILLA</td><td>4</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top Scorer -->
+
+        <h3 class="league-title replace-text">TOP SCORER LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM</th>
+                    <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>KYLIAN  MBAPPE</td><td>REAL MADRID</td><td>11</td></tr>
+                <tr><td>2</td><td>JULIAN ALVAREZ</td><td>ATLETICO MADRID</td><td>6</td></tr>
+                <tr><td>3</td><td>ETTA EYONG</td><td>GETAFE</td><td>6</td></tr>
+                <tr><td>4</td><td>VINICIUS JUNIOR</td><td>REAL MADRID</td><td>5</td></tr>
+                <tr><td>5</td><td>VEDAT MURIQI</td><td>  RCD MAYORCA</td><td>5</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top Scoring Teams -->
+ 
+        <h3 class="league-title replace-text">TOP SCORING TEAMS LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>TEAM NAME</th>
+                    <th>GOALS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>BARCELONA</td><td>25</td></tr>
+                <tr><td>2</td><td>REAL MADRID</td><td>22</td></tr>
+                <tr><td>3</td><td>ATLETICO MADRID</td><td>18</td></tr>
+                <tr><td>4</td><td>VILLARREAL</td><td>18</td></tr>
+                <tr><td>5</td><td>SEVILLA</td><td>17</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top Clean Sheets -->
+
+        <h3 class="league-title replace-text">TOP CLEAN SHEETS LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM NAME</th>
+                    <th>CLEAN SHEETS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>MARKO DMITROVIC</td><td>RCD MAYORCA</td><td>4</td></tr>
+                <tr><td>2</td><td>LUIS JUNIOR</td><td>VILLARREAL</td><td>4</td></tr>
+                <tr><td>3</td><td>THIBAUT  COURTOIS</td><td>REAL MADRID</td><td>4</td></tr>
+                <tr><td>4</td><td>JOAN GARCIA</td><td>FC BARCELONA</td><td>3</td></tr>
+                <tr><td>5</td><td>AUGUSTO BATALLA</td><td>RAYO VALLECANO</td><td>3</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Total Passes -->
+   
+        <h3 class="league-title replace-text">TOTAL PASSES LA LIGA</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PLAYER NAME</th>
+                    <th>TEAM NAME</th>
+                    <th>TOTAL PASSES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>PEDRO GONZALEZ</td><td>FC BARCELONA</td><td>893</td></tr>
+                <tr><td>2</td><td>ALVARO CARRERAS</td><td>REAL MADRID</td><td>681</td></tr>
+                <tr><td>3</td><td>ERIC GARCIA</td><td>BARCELONA</td><td>676</td></tr>
+                <tr><td>4</td><td>PEDRO BIGAS</td><td>ELCHE FC</td><td>636</td></tr>
+                <tr><td>5</td><td>MARCOS LLORENTE</td><td>ATLETICO MADRID</td><td>635</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+
+
+         <!-- Fixtures Section -->
+        <div class="fixtures-section">
+            <h3 class="league-title replace-text">LA LIGA FIXTURES</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="date">Date</th>
+                        <th data-key="homeTeam">Home Team</th>
+                        <th data-key="awayTeam">Away Team</th>
+                        <th data-key="time">Time</th>
+                        <th data-key="venue">Venue</th>
+                        <th data-key="timezone">TimeZone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr><td>2025-11-1</td><td>ATLETICO MADRID </td><td>SEVILLA</td><td>17:15</td><td>RIYADH AIR METROPOLITANO</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>REAL SOCIEDAD</td><td>ATHLETIC CLUB</td><td>19:30</td><td>REALE ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>REAL MADRID</td><td>VALENCIA</td><td>22:00</td><td>ESTADIO SANTIAGO BERNABEU</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>LEVANTE</td><td>CELTA VIGO</td><td>15:00</td><td>ESTADIO CIUDAD DE VALENCIA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>ALAVES</td><td>ESPANYOL</td><td>17:15</td><td>MENDIZORROZA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>BARCELONA</td><td>ELCHE</td><td>19:30</td><td>ESTADIO OLIMPIC LLUIS COMPANYS</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>REAL BETIS</td><td>MALLORCA</td><td>22:00</td><td>VILLAMARIN STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>OVIEDO</td><td>OSASUNA</td><td>22:00</td><td>ESTADIO CARLOS PARTIERE</td><td>CAT</td></tr>
+                
+                    
+            </table>
+        </div>
+
+  
+        <!-- League Caption -->
+        <div class="league-caption">
+            <p data-key="leagueCaption">Statistics and Fixtures are updated after the finished games available is when we make other statistics and fixtures so we can provide real statistics and fixtures</p>
+        </div>
+
+        <!-- Comments Section for LA LIGA-->
+        <div class="comments-section" id="la-liga-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="la-liga-comment-input"></textarea>
+                <button onclick="addComment('la-liga')">Post Comment</button>
+            </div>
+            <div id="la-liga-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+<!-- SERIE A SECTION -->
+<section id="serie-a">
+    <h2 class="league-title replace-text">SERIE A</h2>
+
+
+
+        <!-- Top Assist -->
+   
+            <h3 class="league-title replace-text">TOP ASSIST SERIE A</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="team">TEAM</th>
+                        <th data-key="assists">ASSISTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>NICO PAZ</td><td>FIORENTINA</td><td>4</td></tr>
+                    <tr><td>2</td><td>JARI VANDEPUTTE</td><td> CREMONESE</td><td>4</td></tr>
+                    <tr><td>3</td><td>FEDERICO  DIMARCO</td><td>INTER</td><td>3</td></tr>
+                    <tr><td>4</td><td>ANGE BONNY</td><td>INTER</td><td>3</td></tr>
+                    <tr><td>5</td><td>KENAN YILDIZ</td><td>JUVENTUS</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Scorer -->
+    
+            <h3 class="league-title replace-text">TOP SCORER SERIE A</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="team">TEAM</th>
+                        <th data-key="goals">GOALS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>HAKAN CALHANOGLU</td><td>INTER MILAN</td><td>5</td></tr>
+                    <tr><td>2</td><td>RICCARDO ORSOLINI</td><td>BOLOGNA</td><td>5</td></tr>
+                    <tr><td>3</td><td>CHRISTIAN PULISIC</td><td>AC MILLAN</td><td>4</td></tr>
+                    <tr><td>4</td><td>NICO PAZ</td><td>FIORENTINA</td><td>4</td></tr>
+                    <tr><td>5</td><td>FRANK ANGUISSA</td><td>NAPOLI</td><td>4</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Scoring Teams -->
+   
+            <h3 class="league-title replace-text">TOP SCORING TEAMS SERIE A</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="goals">GOALS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>INTER MILAN</td><td>22</td></tr>
+                    <tr><td>2</td><td>NAPOLI</td><td>16</td></tr>
+                    <tr><td>3</td><td>MILAN</td><td>14</td></tr>
+                    <tr><td>4</td><td>ATALANTA</td><td>13</td></tr>
+                    <tr><td>5</td><td>BOLOGNA</td><td>13</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Clean Sheets -->
+     
+            <h3 class="league-title replace-text">TOP CLEAN SHEETS SERIE A </h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="cleanSheets">CLEAN SHEETS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>IVAN PROVEDEL</td><td>LAZIO</td><td>5</td></tr>
+                    <tr><td>2</td><td>MILE SVILAR</td><td>ROMA</td><td>5</td></tr>
+                    <tr><td>3</td><td>ARIJANET MURIC</td><td>SASSUOLO</td><td>3</td></tr>
+                    <tr><td>4</td><td>ZION SUZUKI</td><td>PARMA</td><td>3</td></tr>
+                    <tr><td>5</td><td>EMIL AUDERO</td><td>UC CREMONESE</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Total Passes -->
+            <h3 class="league-title replace-text">TOTAL PASSES SERIE A</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="name">NAME</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="passes">PASSES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>RRAHMANI</td><td>NAPOLI</td><td>2767</td></tr>
+                    <tr><td>2</td><td>NDICKA</td><td>ROMA</td><td>2479</td></tr>
+                    <tr><td>3</td><td>LOCATELLI</td><td>JUVENTUS</td><td>2389</td></tr>
+                    <tr><td>4</td><td>ROON</td><td>ATALANTA</td><td>2206</td></tr>
+                    <tr><td>5</td><td>GUENDOUZI</td><td>LAZIO</td><td>2130</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+         <!-- Fixtures Section -->
+        <div class="fixtures-section">
+            <h3 class="league-title replace-text">SERIE A FIXTURES</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="date">Date</th>
+                        <th data-key="homeTeam">Home Team</th>
+                        <th data-key="awayTeam">Away Team</th>
+                        <th data-key="time">Time</th>
+                        <th data-key="venue">Venue</th>
+                        <th data-key="timezone">TimeZone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr><td>2025-11-1</td><td>UDINESE</td><td>ATALANTA</td><td>16:00</td><td>BLUENERGY STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>NAPOLI</td><td>COMO</td><td>19:00</td><td>STADIO DIEGO ARMANDO MARADONA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>CREMONESE</td><td>JUVENTUS</td><td>21:45</td><td>STADIO GIOVANNI ZINI</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>VERONA</td><td>INTER</td><td>13:30</td><td>MARCANTONIO BENTEGODI</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>FIORENTINA</td><td>LECCE</td><td>16:00</td><td>ARTEMIO FRANCHI STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>TORINO</td><td>PISA</td><td>16:00</td><td>OLIMPICO DI TORINO</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>PARMA</td><td>BOLOGNA</td><td>19:00</td><td>ENNIO TARDINI</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>MILAN</td><td>ROMA</td><td>21:45</td><td>SANSIRO</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>SASSUOLO</td><td>GENOA</td><td>19:30</td><td>MAPEI STADIUM</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>LAZIO</td><td>CAGLIARI</td><td>21:45</td><td>STADIO OLIMPICO</td><td>CAT</td></tr>
+                    
+            
+            </table>
+        </div>
+        
+        <!-- League Caption -->
+        <div class="league-caption">
+            <p data-key="leagueCaption">Statistics and Fixtures are updated after the finished games available is when we make other statistics and fixtures so we can provide real statistics and fixtures</p>
+        </div>
+
+        <!-- Comments Section for SERIE A-->
+        <div class="comments-section" id="serie-a-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="serie-a-comment-input"></textarea>
+                <button onclick="addComment('serie-a')">Post Comment</button>
+            </div>
+            <div id="serie-a-comments-list">
+                <!-- Comments will be added here dynamically -->
+        
+        </div>
+    </section>
+<!-- LIGUE 1 SECTION -->
+<section id="ligue-1">
+    <h2 class="league-title replace-text">LIGUE 1</h2>
+    
+    
+        <!-- Top Assist -->
+            <h3 class="league-title replace-text">TOP ASSIST LIGUE 1</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="team">TEAM</th>
+                        <th data-key="assists">ASSISTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>ILLAN KEBBAL</td><td>PARIS FC</td><td>4</td></tr>
+                    <tr><td>2</td><td>VITINHA</td><td>PSG</td><td>4</td></tr>
+                    <tr><td>3</td><td>FELIX CORREIA</td><td>LOSC LILLE</td><td>4</td></tr>
+                    <tr><td>4</td><td>ADRIEN THOMASSON</td><td>RC LENS</td><td>4</td></tr>
+                    <tr><td>5</td><td>MASON GREENWOOD</td><td>MARSEILLE</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Scorer -->
+            <h3 class="league-title replace-text">TOP SCORER LIGUE 1</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="team">TEAM</th>
+                        <th data-key="goals">GOALS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>JOAQUIN PANICHELLI</td><td>STRASBOURG</td><td>9</td></tr>
+                    <tr><td>2</td><td>MASON GREENWOOD</td><td>MARSEILLE</td><td>7</td></tr>
+                    <tr><td>3</td><td>SOFIANE DIOP </td><td>NICE </td><td>6</td></tr>
+                    <tr><td>4</td><td>ILLAN KEBBAL</td><td>PARIS FC</td><td>5</td></tr>
+                    <tr><td>5</td><td>ANSU FATI</td><td> AC MONACO</td><td>5</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Scoring Teams -->
+            <h3 class="league-title replace-text">TOP SCORING TEAMS LIGUE 1</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="goals">GOALS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>OLYIMPIQUE DE MARSEILLE</td><td>24</td></tr>
+                    <tr><td>2</td><td>AS MONACO</td><td>23</td></tr>
+                    <tr><td>3</td><td>LILLE</td><td>22</td></tr>
+                    <tr><td>4</td><td>STRASBOURG</td><td>21</td></tr>
+                    <tr><td>5</td><td>PSG</td><td>20</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Clean Sheets -->
+            <h3 class="league-title replace-text">TOP CLEAN SHEETS LIGUE 1</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="cleanSheets">CLEAN SHEETS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>LUCAS CHEVALIER</td><td>PSG</td><td>5</td></tr>
+                    <tr><td>2</td><td>MIKE PENDERS</td><td>STRASBOURG</td><td>4</td></tr>
+                    <tr><td>3</td><td>REMY DESCAMPS</td><td>LYON</td><td>3</td></tr>
+                    <tr><td>4</td><td>MORY DIAW</td><td>LE HAVRE</td><td>3</td></tr>
+                    <tr><td>5</td><td>GUILLAUME RESTES</td><td>TOULOUSE</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Total Passes -->
+            <h3 class="league-title replace-text">TOTAL PASSES LIGUE 1</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="name">NAME</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="passes">PASSES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>FERREIRA</td><td>PSG</td><td>924</td></tr>
+                    <tr><td>2</td><td>LOPEZ</td><td>PARIS FC</td><td>836</td></tr>
+                    <tr><td>3</td><td>ZABARNYI</td><td>PSG</td><td>710</td></tr>
+                    <tr><td>4</td><td>ZAIRE EMERY</td><td>PSG</td><td>690</td></tr>
+                    <tr><td>5</td><td>AGUERD</td><td>MARSEILLE</td><td>678</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+
+        <div class="fixtures-section">
+            <h3 class="league-title replace-text">LIGUE 1 FIXTURES</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="date">Date</th>
+                        <th data-key="homeTeam">Home Team</th>
+                        <th data-key="awayTeam">Away Team</th>
+                        <th data-key="time">Time</th>
+                        <th data-key="venue">Venue</th>
+                        <th data-key="timezone">TimeZone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr><td>2025-11-1</td><td>PSG</td><td>NICE</td><td>17:00</td><td>PARC DE PRINCES</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>MONACO</td><td>PARIS FC</td><td>19:00</td><td>STADE LOUIS II</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>AUXERRE</td><td>MARSEILLE</td><td>21:05</td><td>STADE DE L' ABBE MARSEILLE</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>RENNES</td><td>STRASBOURG</td><td>16:00</td><td>ROAZHON PARK</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>TOULOUSE</td><td>LE HAVRE</td><td>18:15</td><td>STADIUM DE TOULOUSE</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>LOSC LILLE</td><td>ANGERS</td><td>18:15</td><td>STADE PIERRE MAUROY</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>LENS</td><td>LORIENT</td><td>18:15</td><td>STADE BOLLAERT</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>NANTES</td><td>METZ</td><td>21:45</td><td>LA BEAUJOIRE</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>BREST</td><td>LYON</td><td>21:45</td><td>STADE FRANCIS LE BLE</td><td>CAT</td></tr>
+                  
+                    
+            </table>
+        </div>
+       
+
+        <!-- League Caption -->
+        <div class="league-caption">
+            <p data-key="leagueCaption">Statistics and Fixtures are updated after the finished games available is when we make other statistics and fixtures so we can provide real statistics and fixtures</p>
+        </div>
+
+        <!-- Comments Section for LIGUE 1-->
+        <div class="comments-section" id="ligue-1-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="ligue-1-comment-input"></textarea>
+                <button onclick="addComment('ligue-1')">Post Comment</button>
+            
+            </div>
+            
+            <div id="ligue-1-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+<!-- BUNDESLIGA SECTION -->
+<section id="bundesliga">
+    <h2 class="league-title replace-text">BUNDESLIGA</h2>
+    
+
+        <!-- Top Assist -->
+   
+            <h3 class="league-title replace-text">TOP ASSIST BUNDESLIGA</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="team">TEAM</th>
+                        <th data-key="assists">ASSISTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>FARES CHAIBI</td><td>FRANKFURT</td><td>5</td></tr>
+                    <tr><td>2</td><td>LUIS DIAZ</td><td>BAYERN MUNCHEN</td><td>4</td></tr>
+                    <tr><td>3</td><td>ANDREJ ILLIC</td><td>UNION BERLIN</td><td>4</td></tr>
+                    <tr><td>4</td><td>HARRY KANE</td><td>BAYERN MUNCHEN</td><td>3</td></tr>
+                    <tr><td>5</td><td>MICHAEL OLISE</td><td>BAYERN MUNCHEN</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Scorer -->
+            <h3 class="league-title replace-text">TOP SCORER BUNDESLIGA</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="team">TEAM</th>
+                        <th data-key="goals">GOALS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>HARRY KANE</td><td>BAYERN MUNCHEN</td><td>12</td></tr>
+                    <tr><td>2</td><td>JONATHAN BURKARDT</td><td>FRANKFURT</td><td>6</td></tr>
+                    <tr><td>3</td><td>LUIS DIAZ</td><td>BAYERN MUNCHEN</td><td>5</td></tr>
+                    <tr><td>4</td><td>CAN UZUN</td><td>FRANKFURT</td><td>5</td></tr>
+                    <tr><td>5</td><td>CHRISTOPH</td><td>LEIPZIG</td><td>5</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Scoring Teams -->
+     
+            <h3 class="league-title replace-text">TOP SCORING TEAMS BUNDESLIGA</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="goals">GOALS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>FC BAYERN MUNCHEN</td><td>39</td></tr>
+                    <tr><td>2</td><td>FRANKFURT </td><td>21</td></tr>
+                    <tr><td>3</td><td>BAYER 04 LEVERKUSEN</td><td>18</td></tr>
+                    <tr><td>4</td><td>RB LEIPZIG</td><td>16</td></tr>
+                    <tr><td>5</td><td>TSG HOFFENHEIM</td><td>15</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Top Clean Sheets -->
+   
+            <h3 class="league-title replace-text">TOP CLEAN SHEETS BUNDESLIGA</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="rank">RANK</th>
+                        <th data-key="playerName">PLAYER NAME</th>
+                        <th data-key="teamName">TEAM NAME</th>
+                        <th data-key="cleanSheets">CLEAN SHEETS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>GREGOR KOBEL</td><td>DORTMUND</td><td>5</td></tr>
+                    <tr><td>2</td><td>ALEXANDER NUBEL</td><td>VfB STUTTGART</td><td>4</td></tr>
+                    <tr><td>3</td><td>MANUEL NEUER</td><td>BAYERN MUNCHEN</td><td>4</td></tr>
+                    <tr><td>4</td><td>PETER GULACSI</td><td>RB LEIPZIG</td><td>4</td></tr>
+                    <tr><td>5</td><td>DANIEL FERNANDES</td><td>HAMBURGER SV</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+
+
+         <!-- Fixtures Section -->
+        <div class="fixtures-section">
+            <h3 class="league-title replace-text">BUNDESLIGA FIXTURES</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="date">Date</th>
+                        <th data-key="homeTeam">Home Team</th>
+                        <th data-key="awayTeam">Away Team</th>
+                        <th data-key="time">Time</th>
+                        <th data-key="venue">Venue</th>
+                        <th data-key="timezone">TimeZone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr><td>2025-11-1</td><td>HEIDENHEIM</td><td>FRANKFURT</td><td>16:30</td><td>VOITH ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>RB LEIPZIG</td><td>VfB STUTTGART</td><td>16:30</td><td>RED BULL ARENA LEIPZIG</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>UNION BERLIN</td><td>SC FREIBURG</td><td>16:3</td><td>ALTEN FORSTEREI</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>FC ST.PAULI</td><td>MONCHENGLADBACH</td><td>16:30</td><td>MILLERNTOR STADION</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>MAINZ</td><td>WERDER BREMEN</td><td>16:30</td><td>MEWA ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-1</td><td>BAYERN MUNCHEN</td><td>LEVERKUSEN</td><td>19:30</td><td>ALLIANZ ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>KOLN</td><td>HAMBURGER SV</td><td>16:30</td><td>RHEINENERGIE STADION</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>WOLFSBURG</td><td>HOFFENHEIM</td><td>18:30</td><td>VOLKSWAGEN ARENA</td><td>CAT</td></tr>
+                    
+            </table>
+        </div>
+
+       
+
+        
+        <!-- League Caption -->
+        <div class="league-caption">
+            <p data-key="leagueCaption">Statistics and Fixtures are updated after the finished games available is when we make other statistics and fixtures so we can provide real statistics and fixtures</p>
+        </div>
+
+        <!-- Comments Section for BUNDESLIGA-->
+        <div class="comments-section" id="bundesliga-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="bundesliga-comment-input"></textarea>
+                <button onclick="addComment('bundesliga')">Post Comment</button>
+            </div>
+            <div id="bundesliga-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+            
+<!-- NBA SECTION -->
+<section id="nba">
+    <h2 class="league-title replace-text">NBA</h2>
+    
+    <!-- NBA FIXTURES-->
+        <div class="fixtures-section">
+            <h3 class="league-title replace-text">NBA FIXTURES</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="date">Date</th>
+                        <th data-key="homeTeam">Home Team</th>
+                        <th data-key="awayTeam">Away Team</th>
+                        <th data-key="time">Time</th>
+                        <th data-key="venue">Venue</th>
+                        <th data-key="timezone">TimeZone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr><td>2025-11-2</td><td>THUNDER</td><td>PELICANS</td><td>22:30</td><td>PAYCOM CENTER</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>HORNETS</td><td>TIMBERWOLVES</td><td>00:00</td><td>SPECTRUM CENTER</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>WIZARDS</td><td>MAGIC ORLANDO</td><td>01:00</td><td>CAPITAL ONE ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>PACERS</td><td>WARRIORS</td><td>01:00</td><td>GAINBRIDGE FIELD HOUSE</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>CELTICS</td><td>ROCKETS</td><td>02:00</td><td>TD GARDEN</td><td>CAT</td></tr>
+                    <tr><td>2025-11-2</td><td>PISTONS</td><td>MAVERICKS</td><td>04:00</td><td>ARENA CDMX</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>RAPTORS</td><td>GRIZZLIES</td><td>01:00</td><td>SCOTIA BANK ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>NETS</td><td>PHILADELPHIA</td><td>01:00</td><td>BARCLAYS CENTER</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>CAVALIERS</td><td>HAWKS</td><td>01:00</td><td>ROCKET ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>HORNETS</td><td>JAZZ</td><td>01:00</td><td>SPECTRUM CENTER</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>KNICKS</td><td>BULLS</td><td>02:00</td><td>MADISON SQUARE GARDEN</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>SUNS</td><td>SPURS</td><td>03:00</td><td>PHX ARENA</td><td>CAT</td></tr>
+                    <tr><td>2025-11-3</td><td>LAKERS</td><td>HEAT</td><td>04:30</td><td>CRYPTO.COM ARENA</td><td>CAT</td></tr>
+                
+                
+                   
+            </table>
+        </div>
+
+        <!-- League Caption -->
+        <div class="league-caption">
+            <p data-key="leagueCaption">Statistics and Fixtures are updated after the finished games available is when we make other statistics and fixtures so we can provide real statistics and fixtures</p>
+        </div>
+
+        <!-- Comments Section for NBA-->
+        <div class="comments-section" id="nba-comments">
+            <h3>Comments</h3>
+            <div class="comment-form">
+                <textarea placeholder="Add your comment..." id="nba-comment-input"></textarea>
+                <button onclick="addComment('nba')">Post Comment</button>
+            </div>
+            <div id="nba-comments-list">
+                <!-- Comments will be added here dynamically -->
+            </div>
+        </div>
+</section>
+
+
+    <section class="info-section" id="privacy">
+    <h2 class="replace-text" data-key="privacyTitle">Privacy Policy</h2>
+    <p class="replace-text" data-key="privacyDesc1">At Ganza Sport Hub, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.</p>
+    <p class="replace-text" data-key="privacyDesc2">We collect information to provide better services to all our users. This includes information you provide to us, such as when you create an account, as well as information we get from your use of our services, such as the device you're using and your location.</p>
+    <p class="replace-text" data-key="privacyDesc3">We use cookies and similar technologies to keep track of your preferences and to recognize you when you return to our website. We also use them to measure the effectiveness of our website and to analyze how our visitors use it.</p>
+    <p class="replace-text" data-key="privacyDesc4">We do not share your personal information with companies, organizations, or individuals outside of Ganza Sport Hub except in the following cases: with your consent, for external processing by our trusted partners, or for legal reasons.</p>
+    <p class="replace-text" data-key="privacyDesc5">We work hard to protect our users from unauthorized access to or unauthorized alteration, disclosure, or destruction of information we hold. We review our information collection, storage, and processing practices, including physical security measures, to guard against unauthorized access to systems.</p>
+    <p class="replace-text" data-key="privacyDesc6">Our Privacy Policy applies to all of the services offered by Ganza Sport Hub and its affiliates, but excludes services that have separate privacy policies that do not incorporate this Privacy Policy.</p>
+    <p class="replace-text" data-key="privacyDesc7">We may change this Privacy Policy from time to time. We will post any privacy policy changes on this page and, if the changes are significant, we will provide a more prominent notice.</p>
+    <p class="replace-text" data-key="privacyDesc8">By using our website, you agree to our Terms of Service and Privacy Practices. You have the right to access, modify, or delete your information at any time by contacting us at gsportlive1a@gmail.com.</p>
+    </section>
+    </div>
+
+    
+  <footer style="background-color:#000000; padding:20px; color:#ffffff; font-family:Arial, sans-serif;">
+    
+    <!-- Navigation Links -->
+    <ul style="list-style:none; display:flex; justify-content:center; gap:20px; padding:0; margin-bottom:10px;">
+        <li>
+            <a href="privacy.html" style="color:#ff9e00; text-decoration:none; font-weight:bold;">
+                Privacy Policy
+            </a>
+        </li>
+        <li>
+            <a href="about.html" style="color:#ff9e00; text-decoration:none; font-weight:bold;">
+                About Us
+            </a>
+        </li>
+        <li>
+            <a href="contact.html" style="color:#ff9e00; text-decoration:none; font-weight:bold;">
+                Contact
+            </a>
+        </li>
+    </ul>
+
+    <!-- Social Media + Email on Same Line -->
+    <div style="text-align:center; font-size:14px; margin-top:10px;">
+        <a href="https://www.youtube.com/@ganza_0" target="_blank" style="color:#ff9e00; text-decoration:none; margin-right:15px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+            YouTube
+        </a>
+        <a href="https://www.instagram.com/gsporthub?igsh=ZmZibXhwNG93bnMy" target="_blank" style="color:#ff9e00; text-decoration:none; margin-right:15px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width:20px; height:20px; vertical-align:middle; margin-right:5px;">
+            Instagram
+        </a>
+        <a href="mailto:gsportlive1a@gmail.com" style="color:#ff9e00; text-decoration:none;">
+            <i class="fa-solid fa-envelope"></i> gsportlive1a@gmail.com
+        </a>
+    </div>
+
+    <!-- Copyright -->
+    <div style="text-align:center; font-size:14px; margin-top:10px;">
+        &copy; 2025 Ganza Sport Hub - All rights reserved
+    </div>
+</footer>
+
+
+  <script>
+        
+
+        // Current language
+        let currentLang = 'en';
+
+        // Enhanced Comment System
+        let comments = {
+            'premier-league': [],
+            'la-liga': [],
+            'bundesliga': [],
+            'ligue-1': [],
+            'serie-a': [],
+            'nba': []
+        };
+
+        // Load comments from localStorage
+        function loadComments() {
+            const savedComments = localStorage.getItem('ganza-sport-comments');
+            if (savedComments) {
+                try {
+                    comments = JSON.parse(savedComments);
+                    renderAllComments();
+                } catch (e) {
+                    console.error('Error loading comments:', e);
+                    comments = {
+                        'premier-league': [],
+                        'la-liga': [],
+                        'bundesliga': [],
+                        'ligue-1': [],
+                        'serie-a': [],
+                        'nba': []
+                    };
+                }
+            }
+        }
+
+        // Save comments to localStorage
+        function saveComments() {
+            try {
+                localStorage.setItem('ganza-sport-comments', JSON.stringify(comments));
+            } catch (e) {
+                console.error('Error saving comments:', e);
+            }
+        }
+
+        // Add a new comment
+        function addComment(league) {
+            const input = document.getElementById(`${league}-comment-input`);
+            const content = input.value.trim();
+            
+            if (!content) {
+                alert('Please enter a comment');
+                return;
             }
             
-            function fahrenheitToCelsius(fahrenheit) {
-                return (fahrenheit - 32) * 5/9;
+            const comment = {
+                id: Date.now() + Math.random(),
+                author: 'User' + Math.floor(Math.random() * 10000),
+                content: content,
+                date: new Date().toISOString(),
+                replies: [],
+                likes: 0,
+                dislikes: 0
+            };
+            
+            if (!comments[league]) {
+                comments[league] = [];
             }
             
-            // Convert temperature
-            convertBtn.addEventListener('click', function() {
-                const tempValue = parseFloat(temperatureInput.value);
+            comments[league].unshift(comment);
+            input.value = '';
+            
+            renderComments(league);
+            saveComments();
+        }
+
+        // Add a reply to a comment
+        function addReply(league, commentId) {
+            const replyInput = document.getElementById(`reply-${league}-${commentId}`);
+            const content = replyInput.value.trim();
+            
+            if (!content) {
+                alert('Please enter a reply');
+                return;
+            }
+            
+            const comment = findComment(league, commentId);
+            if (comment) {
+                const reply = {
+                    id: Date.now() + Math.random(),
+                    author: 'User' + Math.floor(Math.random() * 10000),
+                    content: content,
+                    date: new Date().toISOString(),
+                    likes: 0,
+                    dislikes: 0
+                };
                 
-                // Validate input
-                if (isNaN(tempValue)) {
-                    errorMsg.style.display = 'block';
-                    resultDiv.style.display = 'none';
-                    return;
+                comment.replies.push(reply);
+                replyInput.value = '';
+                
+                // Hide reply form after posting
+                const replyForm = document.getElementById(`reply-form-${league}-${commentId}`);
+                if (replyForm) {
+                    replyForm.style.display = 'none';
                 }
                 
-                errorMsg.style.display = 'none';
-                
-                let convertedTemp, fromUnit, toUnit, formula;
-                
-                if (unitSelect.value === 'celsius') {
-                    convertedTemp = celsiusToFahrenheit(tempValue);
-                    fromUnit = '°C';
-                    toUnit = '°F';
-                    formula = `Formula: (${tempValue} × 9/5) + 32 = ${convertedTemp.toFixed(2)}`;
-                } else {
-                    convertedTemp = fahrenheitToCelsius(tempValue);
-                    fromUnit = '°F';
-                    toUnit = '°C';
-                    formula = `Formula: (${tempValue} - 32) × 5/9 = ${convertedTemp.toFixed(2)}`;
+                renderComments(league);
+                saveComments();
+            }
+        }
+
+        // Find a comment by ID
+        function findComment(league, commentId) {
+            if (!comments[league]) return null;
+            return comments[league].find(comment => comment.id == commentId);
+        }
+
+        // Find a reply by ID
+        function findReply(league, commentId, replyId) {
+            const comment = findComment(league, commentId);
+            if (comment && comment.replies) {
+                return comment.replies.find(reply => reply.id == replyId);
+            }
+            return null;
+        }
+
+        // Delete a comment
+        function deleteComment(league, commentId) {
+            if (confirm('Are you sure you want to delete this comment?')) {
+                comments[league] = comments[league].filter(comment => comment.id != commentId);
+                renderComments(league);
+                saveComments();
+            }
+        }
+
+        // Delete a reply
+        function deleteReply(league, commentId, replyId) {
+            if (confirm('Are you sure you want to delete this reply?')) {
+                const comment = findComment(league, commentId);
+                if (comment && comment.replies) {
+                    comment.replies = comment.replies.filter(reply => reply.id != replyId);
+                    renderComments(league);
+                    saveComments();
                 }
-                
-                // Display result
-                resultValue.textContent = `${convertedTemp.toFixed(2)}${toUnit}`;
-                formulaDiv.textContent = formula;
-                resultDiv.style.display = 'block';
+            }
+        }
+
+        // Like a comment
+        function likeComment(league, commentId) {
+            const comment = findComment(league, commentId);
+            if (comment) {
+                comment.likes = (comment.likes || 0) + 1;
+                renderComments(league);
+                saveComments();
+            }
+        }
+
+        // Dislike a comment
+        function dislikeComment(league, commentId) {
+            const comment = findComment(league, commentId);
+            if (comment) {
+                comment.dislikes = (comment.dislikes || 0) + 1;
+                renderComments(league);
+                saveComments();
+            }
+        }
+
+        // Like a reply
+        function likeReply(league, commentId, replyId) {
+            const reply = findReply(league, commentId, replyId);
+            if (reply) {
+                reply.likes = (reply.likes || 0) + 1;
+                renderComments(league);
+                saveComments();
+            }
+        }
+
+        // Dislike a reply
+        function dislikeReply(league, commentId, replyId) {
+            const reply = findReply(league, commentId, replyId);
+            if (reply) {
+                reply.dislikes = (reply.dislikes || 0) + 1;
+                renderComments(league);
+                saveComments();
+            }
+        }
+
+        // Toggle reply form
+        function toggleReplyForm(league, commentId) {
+            const form = document.getElementById(`reply-form-${league}-${commentId}`);
+            if (form) {
+                form.style.display = form.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        // Render comments for a specific league
+        function renderComments(league) {
+            const container = document.getElementById(`${league}-comments-list`);
+            if (!container) {
+                console.error(`Container not found for league: ${league}`);
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            if (!comments[league] || comments[league].length === 0) {
+                container.innerHTML = '<p style="color: #8d99ae; text-align: center; padding: 20px;">No comments yet. Be the first to comment!</p>';
+                return;
+            }
+            
+            comments[league].forEach(comment => {
+                const commentEl = document.createElement('div');
+                commentEl.className = 'comment';
+                commentEl.innerHTML = `
+                    <div class="comment-header">
+                        <span class="comment-author">${comment.author}</span>
+                        <span class="comment-date">${new Date(comment.date).toLocaleString()}</span>
+                    </div>
+                    <div class="comment-content">${comment.content}</div>
+                    <div class="comment-stats">
+                        <span class="likes">👍 ${comment.likes || 0}</span>
+                        <span class="dislikes">👎 ${comment.dislikes || 0}</span>
+                    </div>
+                    <div class="comment-actions">
+                        <button onclick="likeComment('${league}', ${comment.id})"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button onclick="dislikeComment('${league}', ${comment.id})"><i class="fas fa-thumbs-down"></i> Dislike</button>
+                        <button onclick="toggleReplyForm('${league}', ${comment.id})"><i class="fas fa-reply"></i> Reply</button>
+                        <button onclick="deleteComment('${league}', ${comment.id})"><i class="fas fa-trash"></i> Delete</button>
+                    </div>
+                    <div class="reply-form" id="reply-form-${league}-${comment.id}">
+                        <textarea placeholder="Write your reply here..." id="reply-${league}-${comment.id}"></textarea>
+                        <div class="reply-buttons">
+                            <button onclick="addReply('${league}', ${comment.id})" class="post-reply-btn">Post Reply</button>
+                            <button onclick="toggleReplyForm('${league}', ${comment.id})" class="cancel-reply-btn">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="replies-container">
+                        ${(comment.replies || []).map(reply => `
+                            <div class="reply">
+                                <div class="comment-header">
+                                    <span class="comment-author">${reply.author}</span>
+                                    <span class="comment-date">${new Date(reply.date).toLocaleString()}</span>
+                                </div>
+                                <div class="comment-content">${reply.content}</div>
+                                <div class="comment-stats">
+                                    <span class="likes">👍 ${reply.likes || 0}</span>
+                                    <span class="dislikes">👎 ${reply.dislikes || 0}</span>
+                                </div>
+                                <div class="comment-actions">
+                                    <button onclick="likeReply('${league}', ${comment.id}, ${reply.id})"><i class="fas fa-thumbs-up"></i> Like</button>
+                                    <button onclick="dislikeReply('${league}', ${comment.id}, ${reply.id})"><i class="fas fa-thumbs-down"></i> Dislike</button>
+                                    <button onclick="deleteReply('${league}', ${comment.id}, ${reply.id})"><i class="fas fa-trash"></i> Delete</button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(commentEl);
+            });
+        }
+
+        // Render all comments
+        function renderAllComments() {
+            Object.keys(comments).forEach(league => {
+                renderComments(league);
+            });
+        }
+
+        // Show statistics for a specific league and type
+        function showStatistics(league, type) {
+            // Hide all statistics content for this league
+            const allContents = document.querySelectorAll(`#${league} .statistics-content`);
+            allContents.forEach(content => {
+                content.classList.remove('active');
             });
             
-            // Reset form
-            resetBtn.addEventListener('click', function() {
-                temperatureInput.value = '';
-                resultDiv.style.display = 'none';
-                errorMsg.style.display = 'none';
-                temperatureInput.focus();
+            // Show the selected statistics content
+            const selectedContent = document.getElementById(`${league}-${type}`);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            // Update active button
+            const allButtons = document.querySelectorAll(`#${league} .statistics-btn`);
+            allButtons.forEach(button => {
+                button.classList.remove('active');
             });
             
-            // Allow Enter key to trigger conversion
-            temperatureInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    convertBtn.click();
+            const activeButton = document.querySelector(`#${league} .statistics-btn[onclick="showStatistics('${league}', '${type}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        // Language switching function
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const textElements = document.querySelectorAll('[data-key]');
+            
+            textElements.forEach(el => {
+                const key = el.dataset.key;
+                if(translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
                 }
+            });
+            
+            // Update language button text
+            const languageBtns = document.querySelectorAll('.language-btn, .mobile-dropdown-toggle[data-key="currentLang"]');
+            languageBtns.forEach(btn => {
+                btn.innerHTML = `${translations[lang].currentLang} <i class="fas fa-chevron-down"></i>`;
+            });
+            
+            // Close mobile menu if open
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.style.display = 'none';
+            
+            console.log('Language switched to:', lang);
+        }
+
+        // Fix for scrolling to sections
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileNav = document.getElementById('mobileNav');
+                mobileNav.style.display = 'none';
+            }
+        }
+
+        // Cookie functions
+        function showCookieNotification() {
+            const cookieNotification = document.getElementById('cookieNotification');
+            // Check if user already made a choice
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    cookieNotification.classList.add('show');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieNotification').classList.remove('show');
+            document.getElementById('accessRestricted').style.display = 'none';
+            console.log('Cookies accepted');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookieNotification').classList.remove('show');
+            document.getElementById('accessRestricted').style.display = 'flex';
+            console.log('Cookies declined');
+        }
+
+        // Check if cookies are accepted
+        function checkCookiesAccepted() {
+            const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+            if (cookiesAccepted === 'false') {
+                document.getElementById('accessRestricted').style.display = 'flex';
+            }
+        }
+
+        // Hamburger mobile menu
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        if (hamburgerMenu) {
+            hamburgerMenu.addEventListener('click', () => {
+                mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+
+        // Mobile dropdowns
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const parent = toggle.parentElement;
+                parent.classList.toggle('active');
             });
         });
+
+        // Scroll Animation Functions
+        function initScrollAnimations() {
+            // Image animation
+            const scrollImages = document.querySelectorAll('.scroll-image');
+            
+            // Text animation
+            const replaceTexts = document.querySelectorAll('.replace-text');
+            
+            // Create Intersection Observer for images
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Create Intersection Observer for text
+            const textObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Split text into characters for animation
+                        const text = entry.target.textContent;
+                        entry.target.textContent = '';
+                        
+                        // Create character spans
+                        for (let i = 0; i < text.length; i++) {
+                            const charSpan = document.createElement('span');
+                            charSpan.className = 'char';
+                            charSpan.textContent = text[i];
+                            charSpan.style.transitionDelay = `${i * 0.05}s`;
+                            entry.target.appendChild(charSpan);
+                        }
+                        
+                        // Add animated class after a small delay
+                        setTimeout(() => {
+                            entry.target.classList.add('animated');
+                        }, 100);
+                        
+                        // Unobserve after animation
+                        textObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            // Observe all scroll images
+            scrollImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+            
+            // Observe all replace texts
+            replaceTexts.forEach(text => {
+                textObserver.observe(text);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize ads based on content
+            initializeAds();
+            
+            // Show cookie notification
+            showCookieNotification();
+            
+            // Check if cookies are accepted
+            checkCookiesAccepted();
+            
+            // Load comments
+            loadComments();
+            
+            // Set up infinite scroll
+            setupInfiniteScroll();
+            
+            // Initialize scroll animations
+            initScrollAnimations();
+            
+            // Add click events to all language links
+            document.querySelectorAll('[data-lang]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            
+            // Add click events to all fixture links
+            document.querySelectorAll('.fixtures-options a, .mobile-dropdown-content a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    scrollToSection(sectionId);
+                });
+            });
+
+            console.log('Ganza Sport Hub initialized successfully!');
+        });
+        
+
+        // Placeholder functions for ads and infinite scroll
+        function initializeAds() {
+            // Ad initialization code would go here
+            console.log('Ads initialized');
+        }
+
+        function setupInfiniteScroll() {
+            // Infinite scroll setup would go here
+            console.log('Infinite scroll setup');
+        }
     </script>
 </body>
 </html>
