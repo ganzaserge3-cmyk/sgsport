@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="emEtMwBEL8MUCrTitRrtxQrfR4DOCOubp6LKISZG19s" />
     <title>Ganza Sport Hub</title>
-    <nav>
     <link rel="shortcut icon" href="ganza.jpeg" type="image/x-icon">
-    </nav>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="shortcut icon" href="ganza.jpeg" type="image/jpeg">
-
     <style>
         /* Define the new Black and White color variables */
         :root {
@@ -30,7 +26,7 @@
         body { background:var(--primary-bg); color:var(--primary-text); }
         a { text-decoration:none; color:var(--accent-color); }
         
-        /* Animation classes - Keep general structure, adjust colors if necessary */
+        /* Animation classes */
         .scroll-image {
             opacity: 0;
             transform: translateY(30px);
@@ -108,27 +104,100 @@
         }
         header .brand h1 { font-size:20px; font-weight:bold; color:var(--header-text); } /* White */
         header .brand p { font-size:12px; color:var(--border-color); font-style:italic; margin-top:3px; } /* Light Gray */
-        nav { display:flex; flex-wrap:wrap; gap:15px; align-items: center; }
-        nav a { color:var(--header-text); font-weight:bold; transition:all 0.3s ease; padding:5px 10px; border-radius:4px; }
-        nav a:hover { color:var(--header-bg); background:var(--header-text); } /* Black text on White hover */
+        
+        /* Desktop Navigation */
+        .desktop-nav { display:flex; flex-wrap:wrap; gap:15px; align-items: center; }
+        .desktop-nav a { color:var(--header-text); font-weight:bold; transition:all 0.3s ease; padding:5px 10px; border-radius:4px; }
+        .desktop-nav a:hover { color:var(--header-bg); background:var(--header-text); } /* Black text on White hover */
 
-        /* Language Selector */
-        .language-selector { position: relative; display: inline-block; }
-        .language-btn { background: var(--secondary-bg); color: var(--accent-color); border: 1px solid var(--border-color); padding: 8px 15px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
-        .language-options { display: none; position: absolute; top: 100%; right: 0; background: var(--header-bg); min-width: 150px; box-shadow: 0 4px 8px var(--shadow-color); border-radius: 4px; z-index: 1; }
-        .language-options a { display: block; padding: 10px 15px; color: var(--header-text); cursor: pointer; }
-        .language-options a:hover { background: var(--secondary-text); }
-
-        /* Mobile Nav */
-        .mobile-nav { display:none; flex-direction:column; position:absolute; top:100%; left:0; width:100%; background:var(--header-bg); }
-        .mobile-nav a { padding:15px; border-bottom:1px solid var(--secondary-text); color:var(--header-text); }
-        .mobile-nav a:hover { background:var(--secondary-text); }
-        .mobile-dropdown-content { display:none; background:var(--primary-bg); padding-left:20px; }
-        .mobile-dropdown-content a { padding:12px 20px; color: var(--primary-text); cursor: pointer; }
+        /* Fixtures Dropdown */
+        .fixtures-dropdown { position: relative; display: inline-block; }
+        .fixtures-options { 
+            display: none; 
+            position: absolute; 
+            background:var(--header-bg); 
+            min-width:250px; 
+            box-shadow:0 4px 8px var(--shadow-color); 
+            border-radius:4px; 
+            z-index:1; 
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .fixtures-options a { display:block; padding:10px 15px; color:var(--header-text); cursor: pointer; border-bottom: 1px solid var(--secondary-text); }
+        .fixtures-options a:hover { background:var(--secondary-text); }
+        .fixtures-dropdown:hover .fixtures-options { display: block; }
 
         /* Hamburger Menu */
-        .hamburger-menu { display:none; flex-direction: column; cursor:pointer; padding:5px; position:absolute; top:20px; right:20px; }
-        .hamburger-menu span { height:3px; width:25px; background:var(--header-text); margin:3px 0; transition:0.3s; }
+        .hamburger-menu { 
+            display:none; 
+            flex-direction: column; 
+            cursor:pointer; 
+            padding:5px; 
+            position:absolute; 
+            top:20px; 
+            right:20px; 
+            z-index: 1001;
+        }
+        .hamburger-menu span { 
+            height:3px; 
+            width:25px; 
+            background:var(--header-text); 
+            margin:3px 0; 
+            transition:0.3s; 
+        }
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Nav */
+        .mobile-nav { 
+            display:none; 
+            flex-direction:column; 
+            position:absolute; 
+            top:100%; 
+            left:0; 
+            width:100%; 
+            background:var(--header-bg); 
+            z-index: 1000;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        .mobile-nav a { 
+            padding:15px; 
+            border-bottom:1px solid var(--secondary-text); 
+            color:var(--header-text); 
+        }
+        .mobile-nav a:hover { background:var(--secondary-text); }
+        .mobile-dropdown-content { 
+            display:none; 
+            background:var(--primary-bg); 
+            padding-left:20px; 
+        }
+        .mobile-dropdown-content a { 
+            padding:12px 20px; 
+            color: var(--primary-text); 
+            cursor: pointer; 
+            border-bottom: 1px solid var(--border-color);
+        }
+        .mobile-dropdown.active .mobile-dropdown-content {
+            display: block;
+        }
+        .mobile-dropdown > a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mobile-dropdown > a i {
+            transition: transform 0.3s ease;
+        }
+        .mobile-dropdown.active > a i {
+            transform: rotate(180deg);
+        }
 
         /* Welcome Section */
         .welcome-section { 
@@ -175,12 +244,6 @@
         th, td { border:1px solid var(--border-color); padding:10px; text-align:center; }
         th { background:var(--secondary-text); color:var(--header-text); } /* Dark Gray background, White text */
         .league-title { font-weight:bold; margin:15px 0; font-size:18px; color:var(--accent-color); background:var(--secondary-bg); padding:8px 15px; border-radius:5px; border: 1px solid var(--border-color); }
-
-        /* Fixtures Dropdown */
-        .fixtures-dropdown { position: relative; display: inline-block; }
-        .fixtures-options { display: none; position: absolute; background:var(--header-bg); min-width:200px; box-shadow:0 4px 8px var(--shadow-color); border-radius:4px; z-index:1; }
-        .fixtures-options a { display:block; padding:10px 15px; color:var(--header-text); cursor: pointer; }
-        .fixtures-options a:hover { background:var(--secondary-text); }
 
         /* Info Section */
         .info-section { 
@@ -505,6 +568,11 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
+        /* Fix for section IDs with spaces */
+        [id] {
+            scroll-margin-top: 80px;
+        }
+
         /* Mobile Responsive adjustments for new color scheme */
         @media (max-width:768px){
             /* Ensures mobile menu text is visible on its background */
@@ -514,8 +582,11 @@
             .mobile-nav a:hover { 
                 background:var(--secondary-text); 
             }
-            .hamburger-menu span { 
-                background:var(--header-text); 
+            .hamburger-menu { 
+                display: flex;
+            }
+            .desktop-nav {
+                display: none;
             }
 
             .cookie-notification {
@@ -534,6 +605,8 @@
         
         @media (min-width:769px){
             .mobile-nav { display:none !important; }
+            .hamburger-menu { display:none; }
+            .desktop-nav { display:flex; }
         }
     </style>
 </head>
@@ -573,20 +646,13 @@
 
     <header>
         <div style="text-align:center; font-family:'Poppins', sans-serif; margin-top:20px;">
-
-        <img src="https://i.pinimg.com/1200x/48/1f/20/481f206534d092beaffd2c6ba29796ed.jpg" 
-             alt="Ganza Sport Hub Logo" 
-             style="width:70px; height:70px; object-fit:cover; border-radius:8px; border:2px solid #ff002200;">
-
-
-          
-
-
-        <p style="margin:0; font-size:14px; color:#ffffff; font-weight:400; letter-spacing:0.5px;">
-            Every score, Every Story
-        </p>
-
-    </div>
+            <img src="https://i.pinimg.com/1200x/48/1f/20/481f206534d092beaffd2c6ba29796ed.jpg" 
+                 alt="Ganza Sport Hub Logo" 
+                 style="width:70px; height:70px; object-fit:cover; border-radius:8px; border:2px solid #ff002200;">
+            <p style="margin:0; font-size:14px; color:#ffffff; font-weight:400; letter-spacing:0.5px;">
+                Every score, Every Story
+            </p>
+        </div>
         
         <div class="hamburger-menu" id="hamburgerMenu">
             <span></span>
@@ -605,19 +671,6 @@
                     <a href="#ligue-1" onclick="scrollToSection('ligue-1')">Ligue 1</a>
                     <a href="#bundesliga" onclick="scrollToSection('bundesliga')">Bundesliga</a>
                     <a href="#nba" onclick="scrollToSection('nba')">NBA</a>
-                    <a href="#eredivisie" onclick="scrollToSection('eredivisie')">Eredivisie</a>
-                    <a href="#super lig" onclick="scrollToSection('super lig')">Super Lig</a>
-                    <a href="#south africa premiership" onclick="scrollToSection('south africa premiership')">South Africa Premiership</a>
-                    <a href="#egyptian premier league " onclick="scrollToSection('egyptian premier league ')">Egyptian Premier League</a>
-                    <a href="#brasileiro serie a" onclick="scrollToSection('brasileiro serie a')">Brasileiro Serie A</a>
-                    <a href="#efl championship" onclick="scrollToSection('efl championship')">Efl Championship</a>
-                    <a href="#seribian super liga" onclick="scrollToSection('seribian super liga')">Seribian Super Liga</a>
-                    <a href="#carabao cup" onclick="scrollToSection('carabao cup')">Carabao Cup</a>
-                    <a href="#pro-league" onclick="scrollToSection('pro-league')">Pro League</a>
-                    <a href="#tunisian ligue professionnelle 1" onclick="scrollToSection('tunisian ligue professionnelle 1')">Tunisian Ligue Professionnelle</a>
-                    <a href="#danish superliga" onclick="scrollToSection('danish superliga')">Danish SuperLiga</a>
-                    <a href="#ekstraklasa" onclick="scrollToSection('ekstraklasa')">Ekstraklasa</a>
-                    <a href="#croatian hnl" onclick="scrollToSection('croatian hnl')">Croatian HNL</a>
                    
                 </div>
             </div>
@@ -637,20 +690,6 @@
                     <a href="#ligue-1" onclick="scrollToSection('ligue-1')">Ligue 1</a>
                     <a href="#bundesliga" onclick="scrollToSection('bundesliga')">Bundesliga</a>
                     <a href="#nba" onclick="scrollToSection('nba')">NBA</a>
-                    <a href="#eredivisie" onclick="scrollToSection('eredivisie')">Eredivisie</a>
-                    <a href="#super lig" onclick="scrollToSection('super lig')">Super Lig</a>
-                    <a href="#south africa premiership" onclick="scrollToSection('nba')">South Africa Premiership</a>
-                    <a href="#egyptian premier league " onclick="scrollToSection('egyptian premier league ')">Egyptian Premier League</a>
-                    <a href="#brasileiro serie a" onclick="scrollToSection('brasileiro serie a')">Brasileiro Serie A</a>
-                    <a href="#efl championship" onclick="scrollToSection('efl championship')">Efl Championship</a>
-                    <a href="#seribian super liga" onclick="scrollToSection('seribian super liga')">Seribian Super Liga</a>
-                    <a href="#carabao cup" onclick="scrollToSection('carabao cup')">Carabao Cup</a>
-                    <a href="#pro league" onclick="scrollToSection('pro league')">Pro League</a>
-                    <a href="#tunisian ligue professionnelle 1" onclick="scrollToSection('tunisian ligue professionnelle 1')">Tunisian Ligue Professionnelle</a>
-                    <a href="#danish superliga" onclick="scrollToSection('danish superliga')">Danish SuperLiga</a>
-                    <a href="#ekstraklasa" onclick="scrollToSection('ekstraklasa')">Ekstraklasa</a>
-                    <a href="#croatian hnl" onclick="scrollToSection('')">Croatian HNL</a>
-                  
                    
                 </div>
             </div>
@@ -15559,367 +15598,88 @@
 
   <script>
         
+ 
+        // Mobile menu toggle functionality
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        hamburgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        });
 
-        // Current language
-        let currentLang = 'en';
+        // Mobile dropdown functionality
+        const mobileDropdown = document.querySelector('.mobile-dropdown > a');
+        const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+        
+        mobileDropdown.addEventListener('click', function() {
+            const parent = this.parentElement;
+            parent.classList.toggle('active');
+        });
 
-        // Enhanced Comment System
-        let comments = {
-            'premier-league': [],
-            'la-liga': [],
-            'bundesliga': [],
-            'ligue-1': [],
-            'serie-a': [],
-            'nba': []
-        };
-
-        // Load comments from localStorage
-        function loadComments() {
-            const savedComments = localStorage.getItem('ganza-sport-comments');
-            if (savedComments) {
-                try {
-                    comments = JSON.parse(savedComments);
-                    renderAllComments();
-                } catch (e) {
-                    console.error('Error loading comments:', e);
-                    comments = {
-                        'premier-league': [],
-                        'la-liga': [],
-                        'bundesliga': [],
-                        'ligue-1': [],
-                        'serie-a': [],
-                        'nba': []
-                    };
-                }
-            }
-        }
-
-        // Save comments to localStorage
-        function saveComments() {
-            try {
-                localStorage.setItem('ganza-sport-comments', JSON.stringify(comments));
-            } catch (e) {
-                console.error('Error saving comments:', e);
-            }
-        }
-
-        // Add a new comment
-        function addComment(league) {
-            const input = document.getElementById(`${league}-comment-input`);
-            const content = input.value.trim();
-            
-            if (!content) {
-                alert('Please enter a comment');
-                return;
-            }
-            
-            const comment = {
-                id: Date.now() + Math.random(),
-                author: 'User' + Math.floor(Math.random() * 10000),
-                content: content,
-                date: new Date().toISOString(),
-                replies: [],
-                likes: 0,
-                dislikes: 0
-            };
-            
-            if (!comments[league]) {
-                comments[league] = [];
-            }
-            
-            comments[league].unshift(comment);
-            input.value = '';
-            
-            renderComments(league);
-            saveComments();
-        }
-
-        // Add a reply to a comment
-        function addReply(league, commentId) {
-            const replyInput = document.getElementById(`reply-${league}-${commentId}`);
-            const content = replyInput.value.trim();
-            
-            if (!content) {
-                alert('Please enter a reply');
-                return;
-            }
-            
-            const comment = findComment(league, commentId);
-            if (comment) {
-                const reply = {
-                    id: Date.now() + Math.random(),
-                    author: 'User' + Math.floor(Math.random() * 10000),
-                    content: content,
-                    date: new Date().toISOString(),
-                    likes: 0,
-                    dislikes: 0
-                };
-                
-                comment.replies.push(reply);
-                replyInput.value = '';
-                
-                // Hide reply form after posting
-                const replyForm = document.getElementById(`reply-form-${league}-${commentId}`);
-                if (replyForm) {
-                    replyForm.style.display = 'none';
-                }
-                
-                renderComments(league);
-                saveComments();
-            }
-        }
-
-        // Find a comment by ID
-        function findComment(league, commentId) {
-            if (!comments[league]) return null;
-            return comments[league].find(comment => comment.id == commentId);
-        }
-
-        // Find a reply by ID
-        function findReply(league, commentId, replyId) {
-            const comment = findComment(league, commentId);
-            if (comment && comment.replies) {
-                return comment.replies.find(reply => reply.id == replyId);
-            }
-            return null;
-        }
-
-        // Delete a comment
-        function deleteComment(league, commentId) {
-            if (confirm('Are you sure you want to delete this comment?')) {
-                comments[league] = comments[league].filter(comment => comment.id != commentId);
-                renderComments(league);
-                saveComments();
-            }
-        }
-
-        // Delete a reply
-        function deleteReply(league, commentId, replyId) {
-            if (confirm('Are you sure you want to delete this reply?')) {
-                const comment = findComment(league, commentId);
-                if (comment && comment.replies) {
-                    comment.replies = comment.replies.filter(reply => reply.id != replyId);
-                    renderComments(league);
-                    saveComments();
-                }
-            }
-        }
-
-        // Like a comment
-        function likeComment(league, commentId) {
-            const comment = findComment(league, commentId);
-            if (comment) {
-                comment.likes = (comment.likes || 0) + 1;
-                renderComments(league);
-                saveComments();
-            }
-        }
-
-        // Dislike a comment
-        function dislikeComment(league, commentId) {
-            const comment = findComment(league, commentId);
-            if (comment) {
-                comment.dislikes = (comment.dislikes || 0) + 1;
-                renderComments(league);
-                saveComments();
-            }
-        }
-
-        // Like a reply
-        function likeReply(league, commentId, replyId) {
-            const reply = findReply(league, commentId, replyId);
-            if (reply) {
-                reply.likes = (reply.likes || 0) + 1;
-                renderComments(league);
-                saveComments();
-            }
-        }
-
-        // Dislike a reply
-        function dislikeReply(league, commentId, replyId) {
-            const reply = findReply(league, commentId, replyId);
-            if (reply) {
-                reply.dislikes = (reply.dislikes || 0) + 1;
-                renderComments(league);
-                saveComments();
-            }
-        }
-
-        // Toggle reply form
-        function toggleReplyForm(league, commentId) {
-            const form = document.getElementById(`reply-form-${league}-${commentId}`);
-            if (form) {
-                form.style.display = form.style.display === 'block' ? 'none' : 'block';
-            }
-        }
-
-        // Render comments for a specific league
-        function renderComments(league) {
-            const container = document.getElementById(`${league}-comments-list`);
-            if (!container) {
-                console.error(`Container not found for league: ${league}`);
-                return;
-            }
-            
-            container.innerHTML = '';
-            
-            if (!comments[league] || comments[league].length === 0) {
-                container.innerHTML = '<p style="color: #8d99ae; text-align: center; padding: 20px;">No comments yet. Be the first to comment!</p>';
-                return;
-            }
-            
-            comments[league].forEach(comment => {
-                const commentEl = document.createElement('div');
-                commentEl.className = 'comment';
-                commentEl.innerHTML = `
-                    <div class="comment-header">
-                        <span class="comment-author">${comment.author}</span>
-                        <span class="comment-date">${new Date(comment.date).toLocaleString()}</span>
-                    </div>
-                    <div class="comment-content">${comment.content}</div>
-                    <div class="comment-stats">
-                        <span class="likes">👍 ${comment.likes || 0}</span>
-                        <span class="dislikes">👎 ${comment.dislikes || 0}</span>
-                    </div>
-                    <div class="comment-actions">
-                        <button onclick="likeComment('${league}', ${comment.id})"><i class="fas fa-thumbs-up"></i> Like</button>
-                        <button onclick="dislikeComment('${league}', ${comment.id})"><i class="fas fa-thumbs-down"></i> Dislike</button>
-                        <button onclick="toggleReplyForm('${league}', ${comment.id})"><i class="fas fa-reply"></i> Reply</button>
-                        <button onclick="deleteComment('${league}', ${comment.id})"><i class="fas fa-trash"></i> Delete</button>
-                    </div>
-                    <div class="reply-form" id="reply-form-${league}-${comment.id}">
-                        <textarea placeholder="Write your reply here..." id="reply-${league}-${comment.id}"></textarea>
-                        <div class="reply-buttons">
-                            <button onclick="addReply('${league}', ${comment.id})" class="post-reply-btn">Post Reply</button>
-                            <button onclick="toggleReplyForm('${league}', ${comment.id})" class="cancel-reply-btn">Cancel</button>
-                        </div>
-                    </div>
-                    <div class="replies-container">
-                        ${(comment.replies || []).map(reply => `
-                            <div class="reply">
-                                <div class="comment-header">
-                                    <span class="comment-author">${reply.author}</span>
-                                    <span class="comment-date">${new Date(reply.date).toLocaleString()}</span>
-                                </div>
-                                <div class="comment-content">${reply.content}</div>
-                                <div class="comment-stats">
-                                    <span class="likes">👍 ${reply.likes || 0}</span>
-                                    <span class="dislikes">👎 ${reply.dislikes || 0}</span>
-                                </div>
-                                <div class="comment-actions">
-                                    <button onclick="likeReply('${league}', ${comment.id}, ${reply.id})"><i class="fas fa-thumbs-up"></i> Like</button>
-                                    <button onclick="dislikeReply('${league}', ${comment.id}, ${reply.id})"><i class="fas fa-thumbs-down"></i> Dislike</button>
-                                    <button onclick="deleteReply('${league}', ${comment.id}, ${reply.id})"><i class="fas fa-trash"></i> Delete</button>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-                container.appendChild(commentEl);
-            });
-        }
-
-        // Render all comments
-        function renderAllComments() {
-            Object.keys(comments).forEach(league => {
-                renderComments(league);
-            });
-        }
-
-        // Show statistics for a specific league and type
-        function showStatistics(league, type) {
-            // Hide all statistics content for this league
-            const allContents = document.querySelectorAll(`#${league} .statistics-content`);
-            allContents.forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Show the selected statistics content
-            const selectedContent = document.getElementById(`${league}-${type}`);
-            if (selectedContent) {
-                selectedContent.classList.add('active');
-            }
-            
-            // Update active button
-            const allButtons = document.querySelectorAll(`#${league} .statistics-btn`);
-            allButtons.forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            const activeButton = document.querySelector(`#${league} .statistics-btn[onclick="showStatistics('${league}', '${type}')"]`);
-            if (activeButton) {
-                activeButton.classList.add('active');
-            }
-        }
-
-        // Language switching function
-        function switchLanguage(lang) {
-            currentLang = lang;
-            const textElements = document.querySelectorAll('[data-key]');
-            
-            textElements.forEach(el => {
-                const key = el.dataset.key;
-                if(translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-            
-            // Update language button text
-            const languageBtns = document.querySelectorAll('.language-btn, .mobile-dropdown-toggle[data-key="currentLang"]');
-            languageBtns.forEach(btn => {
-                btn.innerHTML = `${translations[lang].currentLang} <i class="fas fa-chevron-down"></i>`;
-            });
-            
-            // Close mobile menu if open
-            const mobileNav = document.getElementById('mobileNav');
-            mobileNav.style.display = 'none';
-            
-            console.log('Language switched to:', lang);
-        }
-
-        // Fix for scrolling to sections
+        // Scroll to section function
         function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
+            // Fix section IDs with spaces by replacing spaces with hyphens
+            const cleanSectionId = sectionId.replace(/\s+/g, '-').toLowerCase();
+            const element = document.getElementById(cleanSectionId);
+            
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
                 // Close mobile menu if open
-                const mobileNav = document.getElementById('mobileNav');
+                hamburgerMenu.classList.remove('active');
                 mobileNav.style.display = 'none';
+                
+                // Scroll to section
+                window.scrollTo({
+                    top: element.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
         }
 
-        // Cookie functions
-        function showCookieNotification() {
-            const cookieNotification = document.getElementById('cookieNotification');
-            // Check if user already made a choice
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => {
-                    cookieNotification.classList.add('show');
-                }, 1000);
-            }
-        }
-
+        // Cookie functionality
         function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieNotification').classList.remove('show');
+            document.getElementById('cookieNotification').style.display = 'none';
             document.getElementById('accessRestricted').style.display = 'none';
-            console.log('Cookies accepted');
+            localStorage.setItem('cookiesAccepted', 'true');
         }
 
         function declineCookies() {
-            localStorage.setItem('cookiesAccepted', 'false');
-            document.getElementById('cookieNotification').classList.remove('show');
+            document.getElementById('cookieNotification').style.display = 'none';
             document.getElementById('accessRestricted').style.display = 'flex';
-            console.log('Cookies declined');
         }
 
-        // Check if cookies are accepted
-        function checkCookiesAccepted() {
-            const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-            if (cookiesAccepted === 'false') {
-                document.getElementById('accessRestricted').style.display = 'flex';
+        // Check cookie status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookieNotification').style.display = 'none';
+                document.getElementById('accessRestricted').style.display = 'none';
+            } else {
+                document.getElementById('cookieNotification').style.display = 'flex';
             }
-        }
+
+            // Fix navigation links with spaces in IDs
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        const sectionId = href.substring(1); // Remove the #
+                        scrollToSection(sectionId);
+                        e.preventDefault();
+                    }
+                });
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.hamburger-menu') && !event.target.closest('.mobile-nav')) {
+                hamburgerMenu.classList.remove('active');
+                mobileNav.style.display = 'none';
+            }
+        });
+  
+
 
         // Hamburger mobile menu
         const hamburgerMenu = document.getElementById('hamburgerMenu');
