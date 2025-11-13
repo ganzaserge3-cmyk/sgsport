@@ -234,8 +234,7 @@ At Ganza Sport Hub, protecting your privacy is a top priority. We commit to tran
 </section>
 </main>
 
-<footer>
-<p id="footer-text">&copy; 2025 Ganza Sport Hub. All rights reserved.</p>
+
 </footer>
 
 <script>
@@ -864,6 +863,192 @@ function changeLanguage(lang) {
 
 // Initialize with English
 changeLanguage('en');
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganza Sport Hub</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  footer {
+    background-color: #0d3b66;
+    color: white;
+    padding: 50px 100px;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin: 10px;
+    opacity: 0; /* start hidden for animation */
+    transform: translateY(20px);
+  }
+
+  .footer-section h2 {
+    color: #87ceeb;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .footer-section p, .footer-section ul li a {
+    color: #d0eaff;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+
+  .footer-section ul li a:hover {
+    color: white;
+  }
+
+  .social-icons a {
+    margin-right: 15px;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .social-icons img {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s;
+  }
+
+  .social-icons img:hover {
+    transform: scale(1.1);
+  }
+
+  .email-link {
+    display: inline-flex;
+    align-items: center;
+    color: #87ceeb;
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .email-link i {
+    color: #7b3f00;
+    font-size: 22px;
+    margin-right: 8px;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .email-link:hover i {
+    color: #a0522d;
+    transform: scale(1.1);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #87ceeb;
+    padding-top: 15px;
+    color: #d0eaff;
+    font-size: 14px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 30px;
+    }
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-section {
+      margin-bottom: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <!-- Your main content here -->
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+      <h2>GANZA SPORT HUB</h2>
+      <p>The premier source for professional sports scores, news, and analysis. Elevate your sports experience.</p>
+    </div>
+
+    <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+      <h2>Follow Us</h2>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@ganza_0" target="_blank" data-aos="fade-up" data-aos-delay="400">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+        </a>
+        <a href="https://www.instagram.com/gsporthub" target="_blank" data-aos="fade-up" data-aos-delay="500">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+        </a>
+        <a href="mailto:gsportlive1a@gmail.com" class="email-link" data-aos="fade-up" data-aos-delay="600">
+          <i class="fa-solid fa-envelope"></i> gsportlive1a@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom" data-aos="fade-up" data-aos-delay="700">
+    &copy; 2025 Ganza Serge - All rights reserved
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
 </script>
 </body>
 </html>
