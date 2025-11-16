@@ -13653,118 +13653,7 @@
 </tr>
 </table>    
 
-     
-
-
     
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ganza Sport Hub</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f0f8ff;
-  }
-
-  main { flex: 1; }
-
-  footer {
-    background-color: #0d3b66;
-    color: white;
-    padding: 50px 100px;
-  }
-
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .footer-section {
-    flex: 1;
-    min-width: 220px;
-    margin: 10px;
-  }
-
-  .footer-section h2 {
-    color: #87ceeb;
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-
-  .footer-section p,
-  .footer-section ul li a {
-    color: #d0eaff;
-    line-height: 1.6;
-    text-decoration: none;
-  }
-
-  .footer-section ul { list-style: none; padding: 0; }
-  .footer-section ul li { margin-bottom: 8px; }
-
-  .social-icons img {
-    width: 22px;
-    height: 22px;
-    transition: transform 0.3s;
-  }
-
-  .social-icons img:hover { transform: scale(1.1); }
-
-  .email-link {
-    display: inline-flex;
-    align-items: center;
-    color: #87ceeb;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-
-  .email-link i {
-    color: #7b3f00;
-    font-size: 22px;
-    margin-right: 8px;
-    transition: color 0.3s, transform 0.3s;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    border-top: 1px solid #87ceeb;
-    padding-top: 15px;
-    color: #d0eaff;
-    font-size: 14px;
-  }
-
-  /* --- LOGO BELOW NAVIGATION --- */
-  .footer-logo {
-      text-align: center;
-      margin-top: 40px; /* SPACE YOU ASKED FOR */
-  }
-
-  .footer-logo img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 12px;
-  }
-
-  @media (max-width: 768px) {
-      .footer-container { text-align: center; }
-      footer { padding: 30px; }
-  }
-</style>
-</head>
-<body>
-
 <main></main>
 
 
@@ -13785,8 +13674,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #e0f0ff; /* Sky blue background */
-    color: black;
+    background-color: #f0f8ff;
   }
 
   main {
@@ -13794,7 +13682,7 @@
   }
 
   footer {
-    background-color: #0d3b66; /* Footer dark blue */
+    background-color: #0d3b66;
     color: white;
     padding: 50px 100px;
   }
@@ -13809,46 +13697,40 @@
     flex: 1;
     min-width: 220px;
     margin: 10px;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   .footer-section h2 {
     color: #87ceeb;
     font-size: 20px;
     margin-bottom: 15px;
-    text-decoration: none;
-    border: none;
   }
 
-  .footer-section p {
+  .footer-section p, .footer-section ul li a {
     color: #d0eaff;
     line-height: 1.6;
-    margin: 0;
+    text-decoration: none;
   }
 
-  /* Vertical navigation links */
   .footer-section ul {
-    padding: 0;
-    margin: 0;
     list-style: none;
-    display: flex;
-    flex-direction: column; /* vertical stack */
-    gap: 8px;
+    padding: 0;
   }
 
-  .footer-section a {
-    text-decoration: none !important;
-    color: #d0eaff;
-    font-size: 16px;
+  .footer-section ul li {
+    margin-bottom: 8px;
   }
 
-  .footer-section a:hover {
+  .footer-section ul li a:hover {
     color: white;
   }
 
-  .social-icons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+  .social-icons a {
+    margin-right: 15px;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   .social-icons img {
@@ -13867,38 +13749,20 @@
     color: #87ceeb;
     font-size: 14px;
     margin-top: 10px;
-    text-decoration: none;
-    border: none;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   .email-link i {
     color: #7b3f00;
     font-size: 22px;
     margin-right: 8px;
+    transition: color 0.3s, transform 0.3s;
   }
 
-  .footer-logo {
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .footer-logo img {
-    width: 150px;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .powered-by, .partnership-text {
-    text-align: center;
-    margin-top: 10px;
-    color: white;
-  }
-
-  .copyright {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 14px;
-    color: #d0eaff;
+  .email-link:hover i {
+    color: #a0522d;
+    transform: scale(1.1);
   }
 
   @media (max-width: 768px) {
@@ -13912,72 +13776,91 @@
     .footer-section {
       margin-bottom: 20px;
     }
-    .social-icons {
-      justify-content: center;
-    }
   }
+
+  /* YOUR IMAGE AREA FIXED */
+  .sports-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .square-img {
+    width: 350px;
+    height: 350px;
+    object-fit: contain; /* FULL IMAGE ALWAYS VISIBLE */
+    background-color: white;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* BLACK TEXT OUTSIDE THE IMAGE */
+  .under-text {
+    text-align: center;
+    margin-top: 8px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .powered-text {
+    text-align: center;
+    margin-top: 2px;
+    color: black;
+    font-size: 14px;
+  }
+
 </style>
 </head>
 <body>
 
-<main>
-  <!-- Your main content here -->
-</main>
+<main></main>
 
 <footer>
   <div class="footer-container">
-
-    <!-- About Section -->
-    <div class="footer-section">
+    <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
       <h2>GANZA SPORT HUB</h2>
-      <p>The premier source for professional sports scores, news, and analysis.</p>
+      <p>The premier source for professional sports scores, news, and analysis. Elevate your sports experience.</p>
     </div>
 
-    <!-- Navigation Section -->
-    <div class="footer-section">
+    <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
       <h2>Navigation</h2>
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
-      <!-- Logo BELOW navigation -->
-      <div class="footer-logo">
-        
-            <img src="ganza..png" 
-                 alt="Ganza Sport Hub Logo" 
-      </div>
     </div>
 
-    <!-- Follow Us Section -->
-    <div class="footer-section">
+    <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
       <h2>Follow Us</h2>
       <div class="social-icons">
-        <a href="https://www.youtube.com/@ganza_0" target="_blank">
+        <a href="https://www.youtube.com/@ganza_0" target="_blank" data-aos="fade-up" data-aos-delay="400">
           <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
         </a>
-        <a href="https://www.instagram.com/gsporthub" target="_blank">
+        <a href="https://www.instagram.com/gsporthub" target="_blank" data-aos="fade-up" data-aos-delay="500">
           <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg">
         </a>
-        <a href="mailto:gsportlive1a@gmail.com" class="email-link">
+        <a href="mailto:gsportlive1a@gmail.com" class="email-link" data-aos="fade-up" data-aos-delay="600">
           <i class="fa-solid fa-envelope"></i> gsportlive1a@gmail.com
         </a>
       </div>
     </div>
-
   </div>
 
-  <!-- Partnership & Powered By Text -->
-  <div class="partnership-text">
-    <p style="font-size:16px; margin:5px 0;">𝐈𝐧 𝐩𝐚𝐫𝐭𝐧𝐞𝐫𝐬𝐡𝐢𝐩 𝐰𝐢𝐭𝐡 𝐆 𝐆𝐫𝐨𝐮𝐩</p>
-    <p style="font-size:14px; margin:5px 0;">𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆 𝐆𝐫𝐨𝐮𝐩™</p>
-  </div>
+<!-- IMAGE + TEXT OUTSIDE (BLACK) -->
+<div class="sports-showcase">
+    <img src="ChatGPT Image Nov 16, 2025, 01_35_56 PM.png" class="square-img">
+</div>
 
-  <!-- COPYRIGHT AT THE VERY END -->
-  <div class="copyright">
-    &copy; 2025 Ganza Sport Hub — All Rights Reserved
-  </div>
+<p class="under-text">𝐈𝐧 𝐩𝐚𝐫𝐭𝐧𝐞𝐫𝐬𝐡𝐢𝐩 𝐰𝐢𝐭𝐡 𝐆 𝐆𝐫𝐨𝐮𝐩</p>
+<p class="powered-text">𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆 𝐆𝐫𝐨𝐮𝐩™</p>
+
+<p style="text-align:center; color:white; margin-top:20px;">
+  © 2025 Ganza Sport Hub - All rights reserved
+</p>
 
 </footer>
 
@@ -13988,10 +13871,9 @@
     once: true
   });
 </script>
+
 </body>
 </html>
-
-  
 
   <script>
         
