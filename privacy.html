@@ -866,7 +866,6 @@ changeLanguage('en');
 </script>
 </body>
 </html>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -895,41 +894,49 @@ changeLanguage('en');
     background-color: #0d3b66;
     color: white;
     padding: 50px 100px;
+    border: none;
   }
 
   .footer-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    border: none;
   }
 
   .footer-section {
     flex: 1;
     min-width: 220px;
     margin: 10px;
-    opacity: 0; /* start hidden for animation */
+    opacity: 0;
     transform: translateY(20px);
+    border: none;
   }
 
   .footer-section h2 {
     color: #87ceeb;
     font-size: 20px;
     margin-bottom: 15px;
+    border: none;
   }
 
-  .footer-section p, .footer-section ul li a {
+  .footer-section p,
+  .footer-section ul li a {
     color: #d0eaff;
     line-height: 1.6;
     text-decoration: none;
+    border: none;
   }
 
   .footer-section ul {
     list-style: none;
     padding: 0;
+    border: none;
   }
 
   .footer-section ul li {
     margin-bottom: 8px;
+    border: none;
   }
 
   .footer-section ul li a:hover {
@@ -941,12 +948,14 @@ changeLanguage('en');
     display: inline-block;
     opacity: 0;
     transform: translateY(20px);
+    border: none;
   }
 
   .social-icons img {
     width: 22px;
     height: 22px;
     transition: transform 0.3s;
+    border: none;
   }
 
   .social-icons img:hover {
@@ -961,6 +970,7 @@ changeLanguage('en');
     margin-top: 10px;
     opacity: 0;
     transform: translateY(20px);
+    border: none;
   }
 
   .email-link i {
@@ -968,6 +978,7 @@ changeLanguage('en');
     font-size: 22px;
     margin-right: 8px;
     transition: color 0.3s, transform 0.3s;
+    border: none;
   }
 
   .email-link:hover i {
@@ -975,20 +986,9 @@ changeLanguage('en');
     transform: scale(1.1);
   }
 
-  .footer-bottom {
-    text-align: center;
-    border-top: 1px solid #87ceeb;
-    padding-top: 15px;
-    color: #d0eaff;
-    font-size: 14px;
-    width: 100%;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
   @media (max-width: 768px) {
     footer {
-      padding: 30px;
+      padding: 10px;
     }
     .footer-container {
       flex-direction: column;
@@ -998,13 +998,52 @@ changeLanguage('en');
       margin-bottom: 20px;
     }
   }
+
+  /* IMAGE AREA */
+  .sports-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: none;
+  }
+
+  .square-img {
+    width: 350px;
+    height: 350px;
+    object-fit: contain; 
+    background-color: white;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    border: none; /* removed line */
+  }
+
+  .under-text {
+    text-align: center;
+    margin-top: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+  }
+
+  .powered-text {
+    text-align: center;
+    margin-top: 2px;
+    color:white;
+    font-size: 14px;
+    border: none;
+  }
+
+  p {
+    border: none !important;
+  }
 </style>
 </head>
 <body>
 
-<main>
-  <!-- Your main content here -->
-</main>
+<main></main>
 
 <footer>
   <div class="footer-container">
@@ -1018,7 +1057,7 @@ changeLanguage('en');
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="contact.html">Contact </a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
 
@@ -1026,10 +1065,10 @@ changeLanguage('en');
       <h2>Follow Us</h2>
       <div class="social-icons">
         <a href="https://www.youtube.com/@ganza_0" target="_blank" data-aos="fade-up" data-aos-delay="400">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png">
         </a>
         <a href="https://www.instagram.com/gsporthub" target="_blank" data-aos="fade-up" data-aos-delay="500">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg">
         </a>
         <a href="mailto:gsportlive1a@gmail.com" class="email-link" data-aos="fade-up" data-aos-delay="600">
           <i class="fa-solid fa-envelope"></i> gsportlive1a@gmail.com
@@ -1038,66 +1077,17 @@ changeLanguage('en');
     </div>
   </div>
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #e0f0ff; /* light blue background, adjust if needed */
-    font-family: Arial, sans-serif;
-}
-
-.sports-showcase {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;  /* full viewport height */
-    padding: 10px;  /* reduce space around */
-}
-
-
-.square-img {
-    width: 300px;
-    height: 300px;    /* square image */
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
-}
-
-.sport-card h3 {
-    margin: 2px 0 5px 0;
-    font-size: 18px;
-    color: #fff;  /* text white on blue */
-}
-
-.sport-card p {
-    margin: 15px 0 0 0;
-    font-size: 14px;
-    color: #fff;
-}
-
-/* powered by footer text */
-.powered-by {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 2px;
-    color: #333;
-}
-</style>
-
 <div class="sports-showcase">
-    <div class="sport-card">
-        <img src="WhatsApp Image 2025-11-01 at 17.09.17.jpeg" alt="Football" class="square-img">
-
- 
-        <p style="font-size: medium;">
-𝐈𝐧 𝐩𝐚𝐫𝐭𝐧𝐞𝐫𝐬𝐡𝐢𝐩 𝐰𝐢𝐭𝐡 𝐆 𝐆𝐫𝐨𝐮𝐩</p>
-        <p style="font-size: small;" class="powered-by">𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆 𝐆𝐫𝐨𝐮𝐩™</p>
-    </div>
+    <img src="ChatGPT Image Nov 16, 2025, 01_35_56 PM.png" class="square-img">
 </div>
-    &copy; 𝟐𝟎𝟐𝟓 𝐆𝐚𝐧𝐳𝐚 𝐒𝐩𝐨𝐫𝐭 𝐡𝐮𝐛  - 𝐀𝐥𝐥 𝐫𝐢𝐠𝐡𝐭𝐬 𝐫𝐞𝐬𝐞𝐫𝐯𝐞𝐝
 
-  </div>
+<p class="under-text">𝐈𝐧 𝐩𝐚𝐫𝐭𝐧𝐞𝐫𝐬𝐡𝐢𝐩 𝐰𝐢𝐭𝐡 𝐆 𝐆𝐫𝐨𝐮𝐩</p>
+<p class="powered-text">𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐆 𝐆𝐫𝐨𝐮𝐩™</p>
+
+<p style="text-align:center; color:white; margin-top:20px; border:none;">
+© 2025 𝐆𝐚𝐧𝐳𝐚 𝐒𝐩𝐨𝐫𝐭 𝐇𝐮𝐛 - 𝐀𝐥𝐥 𝐫𝐢𝐠𝐡𝐭𝐬 𝐫𝐞𝐬𝐞𝐫𝐯𝐞𝐝
+</p>
+
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -1107,7 +1097,6 @@ body {
     once: true
   });
 </script>
+
 </body>
 </html>
-
-
